@@ -1,0 +1,12 @@
+﻿# Berita untuk peluncur Dragon Nest HEROES (DNLauncher.exe).
+#
+# Satu baris satu berita:   tanggal | judul | tautan
+# Tautan boleh halaman di situs ini (register.html) atau alamat lengkap
+# (https://...), boleh juga dikosongkan. Baris paling atas tampil paling atas;
+# peluncur menampilkan paling banyak 6. Baris berawalan # diabaikan.
+#
+# Peluncur membaca berkas ini setiap kali dibuka, jadi berita baru langsung
+# terlihat semua pemain tanpa membagikan ulang peluncurnya.
+26.09 | Server Dragon Nest Heroes resmi dibuka | index.html
+26.09 | Daftar akun gratis + 1.000.000 cash | register.html
+26.09 | Kamus item untuk perintah /makeitem | kamus.html

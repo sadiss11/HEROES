@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#031018">
+<title>Daftar Akun &middot; ATLANTICA HEROES</title>
+<meta name="description" content="Buat akun ATLANTICA HEROES gratis.">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="assets/atlantica.css">
+</head>
+<body><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Kamu melihat salinan situs di GitHub. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div>
+
+<header class="nav">
+  <div class="wadah nav-isi">
+    <a class="nav-merek" href="index.html">
+      <img src="assets/logo.png" alt="HEROES">
+      <span>Atlantica<small>HEROES</small></span>
+    </a>
+    <button class="nav-buka" id="navBuka" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
+    <nav class="nav-tautan" id="navTautan">
+      <a href="index.html#berita">Berita</a>
+      <a href="index.html#info">Info Server</a>
+      <a href="index.html#peringkat">Peringkat</a>
+      <a href="index.html#unduh">Unduh</a>
+      <a class="nav-ikon" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" aria-label="Discord" title="Discord">
+        <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg></a>
+      <a class="tbl tbl-garis tbl-kecil" href="#" data-portal>Semua Server</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="min-height:360px;padding:60px 0 70px">
+  <div class="hero-latar"></div>
+  <div class="hero-cahaya"></div>
+  <div class="wadah">
+    <div class="hero-isi">
+      <span class="hero-lencana"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-hadiah"/></svg>Gratis &middot; seketika</span>
+      <h1>Buat Akun<span>Atlantica Heroes</span></h1>
+      <p class="lead" style="margin:0">Cukup nama akun dan kata sandi. Begitu akunmu jadi, langsung bisa dipakai masuk ke game.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wadah daftar-kisi">
+
+    <div class="kartu">
+      <div class="kartu-kepala"><h2 class="kartu-judul"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-pedang"/></svg>Daftar Akun</h2></div>
+      <div class="kartu-isi">
+        <form id="formDaftar" autocomplete="off" novalidate>
+          <div class="medan">
+            <label for="username">Nama Akun</label>
+            <input type="text" id="username" name="username" placeholder="4-18 huruf / angka" maxlength="18" required autocapitalize="off" spellcheck="false">
+          </div>
+          <div class="medan">
+            <label for="password">Kata Sandi</label>
+            <input type="password" id="password" name="password" placeholder="4-18 karakter" maxlength="18" required>
+          </div>
+          <div class="medan">
+            <label for="password2">Ulangi Kata Sandi</label>
+            <input type="password" id="password2" name="password2" placeholder="ketik ulang" maxlength="18" required>
+          </div>
+          <button type="submit" class="tbl tbl-utama" id="btnKirim" style="width:100%">Buat Akun</button>
+          <div class="pesan" id="pesan"></div>
+        </form>
+      </div>
+    </div>
+
+    <div class="kartu">
+      <div class="kartu-kepala"><h2 class="kartu-judul"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-mahkota"/></svg>Sesudah Mendaftar</h2></div>
+      <div class="kartu-isi">
+        <div class="langkah" style="grid-template-columns:1fr">
+          <div><b>Unduh Klien</b><p>Minta klien lewat Discord, lalu ekstrak ke komputermu.</p></div>
+          <div><b>Masuk</b><p>Jalankan klien, masukkan akun yang baru dibuat, dan pilih server.</p></div>
+          <div><b>Bermain</b><p>Buat karakter, kumpulkan mercenary, dan mulai petualanganmu.</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="kaki">
+  <div class="wadah">
+    <div class="kaki-isi">
+      <div class="kaki-merek"><img src="assets/logo.png" alt="HEROES">
+        <div><b>Atlantica Heroes</b><small>Server pribadi Atlantica Online &middot; bagian dari HEROES GAMING</small></div></div>
+      <nav class="kaki-tautan">
+        <a href="index.html">Beranda</a><a href="index.html#peringkat">Peringkat</a><a href="#" data-portal>Semua Server</a>
+        <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">Discord</a>
+      </nav>
+    </div>
+    <div class="kaki-bawah">
+      <span>&copy; <span id="thn"></span> ATLANTICA HEROES &mdash; server pribadi Atlantica Online.</span>
+      <span>Dibuat untuk komunitas. Bukan afiliasi resmi Nexon/NDOORS.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.getElementById('thn').textContent = new Date().getFullYear();
+
+  var t = document.getElementById('navBuka'), m = document.getElementById('navTautan');
+  t.addEventListener('click', function () {
+    var b = m.classList.toggle('buka');
+    t.setAttribute('aria-expanded', b ? 'true' : 'false');
+  });
+  var portal = location.pathname.indexOf('/1-atlantica/') !== -1
+      ? '../' : location.protocol + '//' + location.hostname + ':8090/';
+  Array.prototype.forEach.call(document.querySelectorAll('[data-portal]'), function (a) { a.href = portal; });
+
+  /* ---- Pendaftaran: logika sama persis dengan versi lama ---- */
+  var form = document.getElementById('formDaftar');
+  var btn  = document.getElementById('btnKirim');
+  var box  = document.getElementById('pesan');
+
+  function tampil(ok, teks) {
+    box.className = 'pesan show ' + (ok ? 'ok' : 'err');
+    box.textContent = teks;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var u  = document.getElementById('username').value.trim();
+    var p  = document.getElementById('password').value.trim();
+    var p2 = document.getElementById('password2').value.trim();
+
+    if (u.length < 4 || u.length > 18) { return tampil(false, 'Nama akun harus 4-18 karakter.'); }
+    if (!/^[A-Za-z0-9_]+$/.test(u)) { return tampil(false, 'Nama akun hanya huruf, angka, dan garis bawah.'); }
+    if (p.length < 4 || p.length > 18) { return tampil(false, 'Kata sandi harus 4-18 karakter.'); }
+    if (p !== p2) { return tampil(false, 'Kedua kata sandi tidak sama.'); }
+
+    btn.disabled = true; btn.textContent = 'Memproses…';
+    var body = 'username=' + encodeURIComponent(u) + '&password=' + encodeURIComponent(p);
+
+    fetch('register.php', {
+      method: 'POST', cache: 'no-store',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (d.ok) {
+        tampil(true, d.pesan + ' Mengarahkan ke unduhan…');
+        var sisa = d.tunggu || 8;
+        btn.textContent = 'Berhasil (' + sisa + ')';
+        var j = setInterval(function () {
+          sisa--;
+          btn.textContent = 'Berhasil (' + sisa + ')';
+          if (sisa <= 0) { clearInterval(j); location.href = 'index.html#unduh'; }
+        }, 1000);
+      } else {
+        tampil(false, d.pesan || 'Pendaftaran gagal.');
+        btn.disabled = false; btn.textContent = 'Buat Akun';
+      }
+    })
+    .catch(function () {
+      tampil(false, 'Tidak bisa menghubungi server. Coba lagi.');
+      btn.disabled = false; btn.textContent = 'Buat Akun';
+    });
+  });
+})();
+</script>
+<script>(function(){var f=document.querySelector("form");if(!f)return;var n=document.createElement("div");n.style.cssText="margin:0 0 16px;padding:12px 14px;border-radius:6px;border:1px solid rgba(255,210,122,.5);background:rgba(255,210,122,.08);color:#ffd27a;font-size:14px";n.innerHTML="Pendaftaran tidak bisa dari salinan GitHub ini. Daftar lewat situs di server HEROES, atau hubungi admin di <a href=\"https://discord.com/users/1360304443379421436\" style=\"color:#fff;text-decoration:underline\">Discord</a>.";f.parentNode.insertBefore(n,f);Array.prototype.forEach.call(f.elements,function(e){e.disabled=true;});})();</script></body>
+</html>

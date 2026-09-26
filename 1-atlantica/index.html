@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#031018">
+<title>ATLANTICA HEROES</title>
+<meta name="description" content="ATLANTICA HEROES - server pribadi Atlantica Online Indonesia. Daftar akun gratis, unduh klien, dan mulai petualanganmu hari ini.">
+<meta property="og:site_name" content="ATLANTICA HEROES">
+<meta property="og:title" content="ATLANTICA HEROES">
+<meta property="og:description" content="Server pribadi Atlantica Online Indonesia. Daftar gratis dan mainkan hari ini.">
+<meta property="og:image" content="assets/logo.png">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="assets/atlantica.css">
+</head>
+<body><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Kamu melihat salinan situs di GitHub. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div>
+
+<header class="nav">
+  <div class="wadah nav-isi">
+    <a class="nav-merek" href="index.html">
+      <img src="assets/logo.png" alt="HEROES">
+      <span>Atlantica<small>HEROES</small></span>
+    </a>
+    <button class="nav-buka" id="navBuka" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
+    <nav class="nav-tautan" id="navTautan">
+      <a href="#berita">Berita</a>
+      <a href="#info">Info Server</a>
+      <a href="#mulai">Cara Main</a>
+      <a href="#peringkat">Peringkat</a>
+      <a href="#unduh">Unduh</a>
+      <a class="nav-ikon" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" aria-label="Discord" title="Discord">
+        <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg></a>
+      <a class="tbl tbl-garis tbl-kecil" href="#" data-portal>Semua Server</a>
+      <a class="tbl tbl-utama tbl-kecil" href="register.html">Daftar</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-top:70px">
+  <div class="hero-latar"></div>
+  <div class="hero-cahaya"></div>
+  <div class="gelembung" aria-hidden="true">
+    <i style="--x:8%;--u:8px;--t:13s;--d:0s"></i><i style="--x:18%;--u:14px;--t:17s;--d:-5s"></i>
+    <i style="--x:31%;--u:6px;--t:11s;--d:-8s"></i><i style="--x:46%;--u:10px;--t:15s;--d:-2s"></i>
+    <i style="--x:62%;--u:7px;--t:12s;--d:-9s"></i><i style="--x:74%;--u:12px;--t:16s;--d:-4s"></i>
+    <i style="--x:88%;--u:9px;--t:14s;--d:-11s"></i><i style="--x:95%;--u:5px;--t:10s;--d:-6s"></i>
+  </div>
+  <div class="wadah">
+    <div class="hero-isi">
+      <span class="hero-lencana"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-mahkota"/></svg>Server pribadi Atlantica Online</span>
+      <h1>Selamat datang di<span>Atlantica Heroes</span></h1>
+      <p class="lead">Kumpulkan pasukan mercenary-mu, susun formasi terbaik, dan tulis legendamu sendiri di dunia
+        Atlantica &mdash; gratis, cepat, dan bersama komunitas HEROES.</p>
+      <div class="hero-tombol">
+        <a class="tbl tbl-utama" href="register.html"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-hadiah"/></svg>Daftar Akun Gratis</a>
+        <a class="tbl tbl-garis" href="#unduh"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-unduh"/></svg>Unduh Klien</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wadah status">
+  <div class="status-kisi">
+    <div class="status-sel"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-server"/></svg>
+      <div class="status-nilai"><span class="titik" id="dot"></span><span id="srv">&ndash;</span></div>
+      <div class="status-label">Status Server</div></div>
+    <div class="status-sel"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-kunci"/></svg>
+      <div class="status-nilai" id="nAkun">&ndash;</div><div class="status-label">Akun Terdaftar</div></div>
+    <div class="status-sel"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-pedang"/></svg>
+      <div class="status-nilai" id="nChar">&ndash;</div><div class="status-label">Karakter</div></div>
+    <div class="status-sel"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-perisai"/></svg>
+      <div class="status-nilai" id="nGuild">&ndash;</div><div class="status-label">Guild</div></div>
+    <div class="status-sel"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>
+      <div class="status-nilai" id="addr" style="font-size:1.05rem">&ndash;</div><div class="status-label">Alamat Server</div></div>
+  </div>
+</div>
+
+<section style="padding-top:34px">
+  <div class="wadah ubin-kisi">
+    <a class="ubin" href="#unduh"><span class="ubin-ikon"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-unduh"/></svg></span>
+      <div><b>Klien Game</b><span>Unduh</span></div></a>
+    <a class="ubin" href="register.html"><span class="ubin-ikon"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-kunci"/></svg></span>
+      <div><b>Akun Baru</b><span>Daftar</span></div></a>
+    <a class="ubin" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener"><span class="ubin-ikon"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg></span>
+      <div><b>Komunitas</b><span>Discord</span></div></a>
+  </div>
+</section>
+
+<section id="berita">
+  <div class="wadah">
+    <div class="kepala">
+      <div><div class="kecil">Kabar terbaru</div>
+        <h2 class="judul"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-toa"/></svg>Berita &amp; Pengumuman</h2></div>
+    </div>
+    <div class="berita-kisi">
+      <div class="kartu">
+        <div class="kartu-kepala"><h3 class="kartu-judul"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-gulungan"/></svg>Warta Server</h3></div>
+        <div class="warta" id="warta"><div class="kosong">Memuat berita&hellip;</div></div>
+      </div>
+      <div class="sorotan">
+        <div>
+          <img src="assets/logo.png" alt="HEROES">
+          <p>Satu komunitas, tiga dunia &mdash; Atlantica, Dragon Nest, dan Point Blank HEROES.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="info">
+  <div class="wadah">
+    <div class="kepala">
+      <div><div class="kecil">Kenapa di sini</div>
+        <h2 class="judul"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-permata"/></svg>Info Server</h2>
+        <p class="sub">Dibuat untuk pemain, dijaga agar tetap adil dan menyenangkan.</p></div>
+    </div>
+    <div class="info-kisi" id="unduh">
+      <div class="kartu">
+        <div class="fitur">
+          <div><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-pedang"/></svg><b>Rate Tinggi</b><p>EXP dan drop dinaikkan supaya kamu cepat kuat tanpa grinding berjam-jam.</p></div>
+          <div><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-hadiah"/></svg><b>Bonus Awal</b><p>Akun baru langsung dapat perlengkapan dan bantuan untuk memulai petualangan.</p></div>
+          <div><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-perisai"/></svg><b>Anti-Cheat</b><p>Server dijaga dari kecurangan agar persaingan tetap sehat untuk semua.</p></div>
+          <div><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-server"/></svg><b>Selalu Online</b><p>Server berjalan 24 jam dengan pemeliharaan rutin agar tetap stabil.</p></div>
+          <div><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg><b>Update Berkala</b><p>Konten, mercenary, dan event baru ditambahkan secara berkala.</p></div>
+          <div><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-mahkota"/></svg><b>Komunitas Aktif</b><p>Bergabung dengan pemain lain, cari guild, dan naik peringkat bersama.</p></div>
+        </div>
+      </div>
+      <div class="unduh-ubin">
+        <svg class="ikon ikon-besar" aria-hidden="true"><use href="assets/ikon.svg#i-unduh"/></svg>
+        <h3>Unduh Klien</h3>
+        <p>Klien ATLANTICA HEROES dibagikan langsung oleh admin. Minta tautannya lewat Discord, lalu ekstrak ke
+          komputermu dan masuk dengan akun yang kamu daftarkan di sini.</p>
+        <div class="hero-tombol">
+          <a class="tbl tbl-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg>Minta Klien via Discord</a>
+          <a class="tbl tbl-utama" href="register.html">Daftar Dulu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mulai">
+  <div class="wadah">
+    <div class="kepala">
+      <div><div class="kecil">Empat langkah</div>
+        <h2 class="judul"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-gulungan"/></svg>Cara Mulai Bermain</h2></div>
+    </div>
+    <div class="langkah">
+      <div><b>Daftar Akun</b><p>Buat akun gratis di halaman <a href="register.html">pendaftaran</a>. Cukup nama dan kata sandi.</p></div>
+      <div><b>Unduh Klien</b><p>Minta klien game lewat Discord, lalu ekstrak ke komputermu.</p></div>
+      <div><b>Masuk</b><p>Jalankan klien, masukkan akun yang baru dibuat, dan pilih server.</p></div>
+      <div><b>Bermain</b><p>Buat karakter, kumpulkan mercenary, dan mulai petualanganmu.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="peringkat">
+  <div class="wadah">
+    <div class="kepala">
+      <div><div class="kecil">Papan kehormatan</div>
+        <h2 class="judul"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-mahkota"/></svg>Peringkat Pemain</h2>
+        <p class="sub">Pemain dengan level tertinggi di ATLANTICA HEROES, diambil langsung dari basis data.</p></div>
+    </div>
+    <div class="kartu">
+      <table class="tabel">
+        <thead><tr><th style="width:70px">#</th><th>Nama Pemain</th><th class="kanan">Level</th></tr></thead>
+        <tbody id="tblRank"><tr><td colspan="3" class="kosong">Memuat&hellip;</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="kaki">
+  <div class="wadah">
+    <div class="kaki-isi">
+      <div class="kaki-merek"><img src="assets/logo.png" alt="HEROES">
+        <div><b>Atlantica Heroes</b><small>Server pribadi Atlantica Online &middot; bagian dari HEROES GAMING</small></div></div>
+      <nav class="kaki-tautan">
+        <a href="#berita">Berita</a><a href="#info">Info Server</a><a href="#peringkat">Peringkat</a>
+        <a href="register.html">Daftar</a><a href="#" data-portal>Semua Server</a>
+        <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">Discord</a>
+      </nav>
+    </div>
+    <div class="kaki-bawah">
+      <span>&copy; <span id="thn"></span> ATLANTICA HEROES &mdash; server pribadi Atlantica Online.</span>
+      <span>Dibuat untuk komunitas. Bukan afiliasi resmi Nexon/NDOORS.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.getElementById('thn').textContent = new Date().getFullYear();
+
+  /* Menu layar sempit */
+  var t = document.getElementById('navBuka'), m = document.getElementById('navTautan');
+  t.addEventListener('click', function () {
+    var b = m.classList.toggle('buka');
+    t.setAttribute('aria-expanded', b ? 'true' : 'false');
+  });
+
+  /* Tautan "Semua Server" (portal HEROES). Dibuka lewat portal
+     (/1-atlantica/, termasuk salinan GitHub Pages) -> satu folder di atas;
+     dibuka langsung di port 8081 -> portal di port 8090. */
+  var portal = location.pathname.indexOf('/1-atlantica/') !== -1
+      ? '../'
+      : location.protocol + '//' + location.hostname + ':8090/';
+  Array.prototype.forEach.call(document.querySelectorAll('[data-portal]'), function (a) { a.href = portal; });
+
+  function fmt(n) { return n === null || n === undefined ? '–' : Number(n).toLocaleString('id-ID'); }
+  function esc(s) { var e = document.createElement('span'); e.textContent = s == null ? '' : s; return e.innerHTML; }
+  function ikon(n) { return '<svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#' + n + '"/></svg>'; }
+
+  /* Status + peringkat - kunci JSON sama persis dengan versi lama. */
+  fetch('status.php', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      var hidup = d.server === 'online';
+      document.getElementById('dot').className = 'titik ' + (hidup ? 'on' : 'off');
+      document.getElementById('srv').textContent = hidup ? 'Online' : 'Offline';
+      document.getElementById('nAkun').textContent = fmt(d.akun);
+      document.getElementById('nChar').textContent = fmt(d.karakter);
+      document.getElementById('nGuild').textContent = fmt(d.guild);
+      document.getElementById('addr').textContent = (d.ip || '–') + ':' + (d.port || '–');
+
+      var tb = document.getElementById('tblRank');
+      if (d.topPemain && d.topPemain.length) {
+        tb.innerHTML = d.topPemain.map(function (g, i) {
+          return '<tr><td><span class="pos pos-' + (i + 1) + '">' + (i + 1) + '</span></td>' +
+                 '<td><b>' + esc(g.nama) + '</b></td>' +
+                 '<td class="kanan"><span class="lv">Lv ' + fmt(g.lv) + '</span></td></tr>';
+        }).join('');
+      } else {
+        tb.innerHTML = '<tr><td colspan="3" class="kosong">Belum ada pemain berlevel.</td></tr>';
+      }
+    })
+    .catch(function () {
+      document.getElementById('srv').textContent = '–';
+      document.getElementById('tblRank').innerHTML = '<tr><td colspan="3" class="kosong">Status tidak dapat dimuat.</td></tr>';
+    });
+
+  /* Berita dari berita.txt - format sama dengan situs Dragon Nest. */
+  function ikonBerita(j) {
+    j = j.toLowerCase();
+    if (/daftar|akun|bonus|hadiah|gratis/.test(j)) return 'i-hadiah';
+    if (/event|festival|login/.test(j)) return 'i-petir';
+    if (/unduh|klien|patch|update/.test(j)) return 'i-unduh';
+    if (/rank|peringkat/.test(j)) return 'i-mahkota';
+    if (/guild/.test(j)) return 'i-perisai';
+    return 'i-toa';
+  }
+  fetch('berita.txt', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+    .then(function (teks) {
+      var baris = teks.replace(/^﻿/, '').split(/\r?\n/)
+        .map(function (b) { return b.trim(); })
+        .filter(function (b) { return b && b.charAt(0) !== '#'; })
+        .map(function (b) { var p = b.split('|').map(function (x) { return x.trim(); }); return { tgl: p[0] || '', judul: p[1] || '', tautan: p[2] || '' }; })
+        .filter(function (b) { return b.judul; });
+      var w = document.getElementById('warta');
+      if (!baris.length) { w.innerHTML = '<div class="kosong">Belum ada berita.</div>'; return; }
+      w.innerHTML = baris.map(function (b, n) {
+        var isi = '<span class="warta-ikon">' + ikon(ikonBerita(b.judul)) + '</span>' +
+          '<span><span class="warta-tgl">' + esc(b.tgl) + '</span><span class="warta-judul">' + esc(b.judul) +
+          (n === 0 ? '<span class="warta-baru">BARU</span>' : '') + '</span></span>' +
+          '<span class="panah">' + ikon('i-panah') + '</span>';
+        return b.tautan ? '<a href="' + esc(b.tautan) + '">' + isi + '</a>' : '<div class="baris">' + isi + '</div>';
+      }).join('');
+    })
+    .catch(function () { document.getElementById('warta').innerHTML = '<div class="kosong">Berita tidak dapat dimuat.</div>'; });
+})();
+</script>
+</body>
+</html>

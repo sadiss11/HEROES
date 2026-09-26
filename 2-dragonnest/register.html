@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0A0607">
+<title>Daftar Akun &middot; Dragon Nest Heroes</title>
+<meta name="description" content="Buat akun Dragon Nest Heroes gratis. Akun baru langsung mendapat 1.000.000 Cash.">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="assets/dnheroes.css">
+<style>
+  /* Kolom formulir dan kolom keuntungan berdampingan di layar lebar,
+     bertumpuk di layar sempit - formulirnya tetap yang pertama. */
+  .daftar-kisi {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+  @media (max-width: 860px) { .daftar-kisi { grid-template-columns: 1fr; } }
+
+  .untung { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .untung li { display: flex; gap: 14px; align-items: flex-start; }
+  .untung .warta-ikon { margin-top: 2px; }
+  .untung strong { display: block; color: var(--text); }
+  .untung span { color: var(--muted); font-size: .88rem; }
+
+  .chip-baris { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(10, 6, 7, .6); border: 1px solid var(--line-2);
+    color: var(--text); font-size: .8rem; font-weight: 600;
+  }
+  .chip .ikon { color: var(--ember); }
+
+  .judul-daftar {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    letter-spacing: .04em;
+    line-height: 1.1;
+    margin: 0 0 12px;
+    background: var(--api);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 22px rgba(var(--accent-rgb), .45)) drop-shadow(0 4px 12px rgba(0, 0, 0, .8));
+  }
+</style>
+</head>
+<body data-musik="mati"><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Kamu melihat salinan situs di GitHub. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div>
+
+<header class="nav">
+  <div class="wadah nav-isi">
+    <a class="nav-merek" href="index.html">
+      <img src="assets/logher.png" alt="Dragon Nest Heroes">
+      <span>Dragon Nest Heroes</span>
+    </a>
+    <button class="nav-buka" id="navBuka" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
+    <nav class="nav-tautan" id="navTautan">
+      <a href="index.html#promo">Promo</a>
+      <a href="index.html#pengumuman">Pengumuman</a>
+      <a href="index.html#peringkat">Top Rank</a>
+      <a href="index.html#guild">Top Guild</a>
+      <a href="index.html#donasi">Donasi</a>
+      <a href="index.html#unduh">Unduh</a>
+      <a href="kamus.html">Kamus</a>
+      <a class="nav-sosial nav-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener"
+         aria-label="Discord Dragon Nest Heroes" title="Discord"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg></a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="min-height:480px;padding:70px 0 60px">
+  <div class="hero-latar" style="background-image:url('assets/hero.jpg')"></div>
+  <video class="hero-video" id="heroVideo" loop playsinline muted preload="auto" poster="assets/video/heroes-poster.jpg">
+    <source src="assets/video/heroes.mp4" type="video/mp4">
+  </video>
+  <button class="hero-suara" id="heroSuara" type="button" hidden aria-label="Nyalakan suara video">
+    <span id="heroSuaraIkon">&#128263;</span><span>Suara video</span>
+  </button>
+  <div class="wadah hero-isi">
+    <span class="hero-lencana">
+      <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-hadiah"/></svg>
+      Bonus 1.000.000 Cash untuk setiap akun baru
+    </span>
+    <h1 class="judul-daftar">Daftar Akun</h1>
+    <p class="hero-teks" style="margin-bottom:18px">
+      Satu menit, gratis, tanpa surel. Begitu akunmu jadi, <strong>1.000.000 Cash</strong>
+      langsung masuk dan siap dibelanjakan di Cash Shop.
+    </p>
+    <div class="chip-baris">
+      <span class="chip"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-koin"/></svg>Gratis selamanya</span>
+      <span class="chip"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-kunci"/></svg>Tanpa surel</span>
+      <span class="chip"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>Langsung main</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:44px">
+  <div class="wadah daftar-kisi">
+
+    <div class="kartu">
+      <div class="kartu-kepala">
+        <h2 class="kartu-judul">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-pedang"/></svg>Buat Akun Baru
+        </h2>
+      </div>
+      <div class="kartu-isi">
+
+        <div id="pesan" style="display:none"></div>
+
+        <form id="formDaftar" autocomplete="off" novalidate>
+          <div class="medan">
+            <label for="username">Nama Akun</label>
+            <input type="text" id="username" name="username" required
+                   minlength="6" maxlength="18" autocapitalize="off" spellcheck="false">
+            <div class="bantu">6-18 karakter. Huruf, angka, dan garis bawah saja.</div>
+          </div>
+
+          <div class="medan">
+            <label for="password">Kata Sandi</label>
+            <input type="password" id="password" name="password" required
+                   minlength="6" maxlength="18">
+            <div class="bantu">6-18 karakter.</div>
+          </div>
+
+          <div class="medan">
+            <label for="password2">Ulangi Kata Sandi</label>
+            <input type="password" id="password2" required minlength="6" maxlength="18">
+          </div>
+
+          <button class="tbl tbl-utama" id="btKirim" type="submit" style="width:100%">
+            Daftar Sekarang
+          </button>
+        </form>
+
+        <p style="color:var(--dim);font-size:.82rem;margin:18px 0 0;text-align:center">
+          Sudah punya akun? Langsung
+          <a href="index.html#unduh" style="color:var(--gold-soft)">unduh kliennya</a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="kartu">
+      <div class="kartu-kepala">
+        <h2 class="kartu-judul">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-mahkota"/></svg>Yang Kamu Dapat
+        </h2>
+      </div>
+      <div class="kartu-isi">
+        <ul class="untung">
+          <li>
+            <span class="warta-ikon"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-hadiah"/></svg></span>
+            <div><strong>1.000.000 Cash gratis</strong><span>Masuk otomatis begitu akun dibuat &mdash; setara donasi Rp 100.000.</span></div>
+          </li>
+          <li>
+            <span class="warta-ikon"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg></span>
+            <div><strong>Ikut event yang sedang berjalan</strong><span>Daily Login, Halloween Festival, dan event berikutnya.</span></div>
+          </li>
+          <li>
+            <span class="warta-ikon"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-mahkota"/></svg></span>
+            <div><strong>Namamu di Top Rank</strong><span>Papan peringkat dibaca langsung dari server, bukan ditulis tangan.</span></div>
+          </li>
+          <li>
+            <span class="warta-ikon"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-perisai"/></svg></span>
+            <div><strong>Bangun guild-mu sendiri</strong><span>Guild terkuat tampil di halaman depan situs.</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wadah">
+    <h2 class="judul-bagian" style="font-size:1.5rem;margin-bottom:18px">
+      <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-api"/></svg>
+      <span class="judul-teks">Promo &amp; Event</span>
+    </h2>
+    <div data-iklan="ringkas"></div>
+  </div>
+</section>
+
+<footer class="kaki">
+  <div class="wadah">
+    <div class="kaki-isi">
+      <div class="kaki-merek">
+        <img src="assets/logher.png" alt="Dragon Nest Heroes">
+        <div>
+          <div class="kaki-nama">Dragon Nest Heroes</div>
+          <div class="kaki-kecil">Private Server Indonesia &middot; Game Heroes 0.5.7</div>
+        </div>
+      </div>
+      <div class="kaki-kanan">
+        <div class="kaki-sosial">
+          <a class="kaki-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg>Discord
+          </a>
+        </div>
+        <nav class="kaki-tautan">
+          <a href="index.html">Beranda</a>
+          <a href="index.html#promo">Promo</a>
+          <a href="index.html#donasi">Donasi</a>
+          <a href="index.html#unduh">Unduh</a>
+          <a href="kamus.html">Kamus Item</a>
+        </nav>
+      </div>
+    </div>
+    <div class="kaki-bawah">
+      <span>&copy; 2026 Dragon Nest Heroes. Dragon Nest adalah merek dagang Eyedentity Games.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/naga.js" defer></script>
+<script src="assets/video-hero.js" defer></script>
+<script src="assets/musik.js" defer></script>
+
+<script>
+(function () {
+  var tombolMenu = document.getElementById('navBuka');
+  var menu = document.getElementById('navTautan');
+  tombolMenu.addEventListener('click', function () {
+    var buka = menu.classList.toggle('buka');
+    tombolMenu.setAttribute('aria-expanded', buka ? 'true' : 'false');
+  });
+})();
+
+(function () {
+  var form   = document.getElementById('formDaftar');
+  var kirim  = document.getElementById('btKirim');
+  var kotak  = document.getElementById('pesan');
+  var u      = document.getElementById('username');
+  var p      = document.getElementById('password');
+  var p2     = document.getElementById('password2');
+  var jalan  = false;
+
+  function tampil(jenis, teks) {
+    kotak.style.display = 'block';
+    kotak.className = 'pesan pesan-' + jenis;
+    kotak.innerHTML = teks;
+  }
+
+  function aman(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (jalan) { return; }
+
+    var nama = u.value.trim();
+    var sandi = p.value.trim();
+
+    /* Diperiksa di sini DAN di register.php. Yang di sini hanya untuk
+       menjawab cepat tanpa bolak-balik ke server; yang menentukan tetap
+       yang di server, karena pemeriksaan di peramban bisa dilewati. */
+    if (nama.length < 6 || nama.length > 18) {
+      tampil('salah', 'Nama akun harus 6-18 karakter.'); u.focus(); return;
+    }
+    if (!/^[A-Za-z0-9_]+$/.test(nama)) {
+      tampil('salah', 'Nama akun hanya boleh huruf, angka, dan garis bawah.'); u.focus(); return;
+    }
+    if (sandi.length < 6 || sandi.length > 18) {
+      tampil('salah', 'Kata sandi harus 6-18 karakter.'); p.focus(); return;
+    }
+    if (sandi !== p2.value.trim()) {
+      tampil('salah', 'Kedua kata sandi tidak sama.'); p2.focus(); return;
+    }
+
+    jalan = true;
+    kirim.disabled = true;
+    kirim.textContent = 'Mendaftarkan…';
+    tampil('info', 'Menghubungi server…');
+
+    var data = new URLSearchParams();
+    data.append('username', nama);
+    data.append('password', sandi);
+
+    fetch('register.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+      body: data.toString()
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d.ok) {
+          tampil('salah', aman(d.pesan) || 'Pendaftaran gagal.');
+          jalan = false;
+          kirim.disabled = false;
+          kirim.textContent = 'Daftar Sekarang';
+          return;
+        }
+
+        /* Berhasil. Formulir dikunci - membiarkannya terbuka mengundang
+           pemain menekan Daftar sekali lagi, yang pasti gagal dengan
+           "nama akun sudah dipakai" dan membingungkan. */
+        u.disabled = p.disabled = p2.disabled = true;
+        kirim.textContent = 'Berhasil';
+
+        var sisa = parseInt(d.tunggu, 10);
+        if (!(sisa > 0)) { sisa = 10; }
+
+        function hitung() {
+          tampil('ok',
+            '<strong>' + aman(d.pesan) + '</strong><br>' +
+            'Nama akun: <strong>' + aman(d.akun) + '</strong><br><br>' +
+            'Menuju halaman unduh dalam <strong>' + sisa + '</strong> detik…');
+          if (sisa <= 0) {
+            window.location.href = 'index.html#unduh';
+            return;
+          }
+          sisa--;
+          setTimeout(hitung, 1000);
+        }
+        hitung();
+      })
+      .catch(function () {
+        tampil('salah', 'Tidak ada jawaban dari server. Coba lagi sebentar.');
+        jalan = false;
+        kirim.disabled = false;
+        kirim.textContent = 'Daftar Sekarang';
+      });
+  });
+})();
+</script>
+<script>(function(){var f=document.querySelector("form");if(!f)return;var n=document.createElement("div");n.style.cssText="margin:0 0 16px;padding:12px 14px;border-radius:6px;border:1px solid rgba(255,210,122,.5);background:rgba(255,210,122,.08);color:#ffd27a;font-size:14px";n.innerHTML="Pendaftaran tidak bisa dari salinan GitHub ini. Daftar lewat situs di server HEROES, atau hubungi admin di <a href=\"https://discord.com/users/1360304443379421436\" style=\"color:#fff;text-decoration:underline\">Discord</a>.";f.parentNode.insertBefore(n,f);Array.prototype.forEach.call(f.elements,function(e){e.disabled=true;});})();</script></body>
+</html>

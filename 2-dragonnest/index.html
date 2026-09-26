@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0A0607">
+<title>Dragon Nest Heroes</title>
+<meta name="description" content="Dragon Nest Heroes - private server Dragon Nest Indonesia. Daftar gratis, dapat 1.000.000 Cash, unduh klien, dan mainkan hari ini.">
+<meta property="og:site_name" content="Dragon Nest Heroes">
+<meta property="og:title" content="Dragon Nest Heroes">
+<meta property="og:description" content="Private server Dragon Nest Indonesia. Daftar gratis, dapat 1.000.000 Cash, dan mainkan hari ini.">
+<meta property="og:image" content="assets/logher.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="assets/logher.png">
+<link rel="stylesheet" href="assets/dnheroes.css">
+</head>
+<body data-musik="mati"><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Kamu melihat salinan situs di GitHub. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div>
+
+<header class="nav">
+  <div class="wadah nav-isi">
+    <a class="nav-merek" href="index.html">
+      <img src="assets/logher.png" alt="Dragon Nest Heroes">
+      <span>Dragon Nest Heroes</span>
+    </a>
+    <button class="nav-buka" id="navBuka" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
+    <nav class="nav-tautan" id="navTautan">
+      <a href="#promo">Promo</a>
+      <a href="#pengumuman">Pengumuman</a>
+      <a href="#peringkat">Top Rank</a>
+      <a href="#guild">Top Guild</a>
+      <a href="#donasi">Donasi</a>
+      <a href="#unduh">Unduh</a>
+      <a href="kamus.html">Kamus</a>
+      <a class="nav-sosial nav-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener"
+         aria-label="Discord Dragon Nest Heroes" title="Discord"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg></a>
+      <a class="tbl tbl-utama tbl-kecil" href="register.html">Daftar</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:110px">
+    <div class="hero-latar" style="background-image:url('assets/hero.jpg')"></div>
+  <video class="hero-video" id="heroVideo" loop playsinline muted preload="auto" poster="assets/video/heroes-poster.jpg">
+    <source src="assets/video/heroes.mp4" type="video/mp4">
+  </video>
+  <button class="hero-suara" id="heroSuara" type="button" hidden aria-label="Nyalakan suara video">
+    <span id="heroSuaraIkon">&#128263;</span><span>Suara video</span>
+  </button>
+  <div class="wadah hero-isi">
+    <img class="hero-logo" src="assets/logher.png" alt="Dragon Nest Heroes">
+    <p class="hero-tag">Private Server Indonesia</p>
+    <p class="hero-teks">
+      Game Heroes 0.5.7 &mdash; dunia Dragon Nest yang dijalankan dari Indonesia.
+      Daftar gratis, langsung dapat <strong>1.000.000 Cash</strong>, dan mulai bermain hari ini.
+    </p>
+    <div class="hero-tombol">
+      <a class="tbl tbl-utama" href="register.html">
+        <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-hadiah"/></svg>Daftar Gratis
+      </a>
+      <a class="tbl tbl-garis" href="#unduh">
+        <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-unduh"/></svg>Unduh Klien
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="wadah status">
+  <div class="status-kisi">
+    <div class="status-sel">
+      <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-server"/></svg>
+      <div class="status-nilai" id="sServer"><span class="titik titik-entah"></span>&ndash;</div>
+      <div class="status-label">Status Server</div>
+    </div>
+    <div class="status-sel">
+      <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-api"/></svg>
+      <div class="status-nilai" id="sOnline">&ndash;</div>
+      <div class="status-label">Pemain Online</div>
+    </div>
+    <div class="status-sel">
+      <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-kunci"/></svg>
+      <div class="status-nilai" id="sAkun">&ndash;</div>
+      <div class="status-label">Akun Terdaftar</div>
+    </div>
+    <div class="status-sel">
+      <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-pedang"/></svg>
+      <div class="status-nilai" id="sKarakter">&ndash;</div>
+      <div class="status-label">Karakter</div>
+    </div>
+    <div class="status-sel">
+      <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-perisai"/></svg>
+      <div class="status-nilai" id="sGuild">&ndash;</div>
+      <div class="status-label">Guild</div>
+    </div>
+  </div>
+</div>
+
+<section id="promo">
+  <div class="wadah">
+    <div class="kepala-bagian">
+      <div>
+        <h2 class="judul-bagian">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>
+          <span class="judul-teks">Promo &amp; Event</span>
+        </h2>
+        <p class="sub-bagian">Bonus, top up, dan event yang sedang berjalan di Dragon Nest Heroes.</p>
+      </div>
+    </div>
+    <div data-iklan="penuh"></div>
+  </div>
+</section>
+
+<section id="pengumuman">
+  <div class="wadah">
+    <div class="kepala-bagian">
+      <div>
+        <h2 class="judul-bagian">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-toa"/></svg>
+          <span class="judul-teks">Pengumuman</span>
+        </h2>
+        <p class="sub-bagian">Kabar terbaru dari Dragon Nest Heroes.</p>
+      </div>
+      <a class="tbl tbl-garis tbl-kecil" href="register.html">
+        <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-hadiah"/></svg>Buat Akun
+      </a>
+    </div>
+
+    <div class="kisi-2">
+      <div class="kartu">
+        <div class="kartu-kepala">
+          <h3 class="kartu-judul">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-gulungan"/></svg>Warta Server
+          </h3>
+        </div>
+                <div class="warta" data-warta>
+          <div class="kosong">Memuat pengumuman&hellip;</div>
+        </div>
+      </div>
+
+      <div class="kartu" style="position:relative;min-height:300px;overflow:hidden">
+        <img id="galeri" src="assets/slide4.jpg" alt="Banner event Dragon Nest Heroes"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="peringkat">
+  <div class="wadah">
+    <div class="kepala-bagian">
+      <div>
+        <h2 class="judul-bagian">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-mahkota"/></svg>
+          <span class="judul-teks">Top Rank</span>
+        </h2>
+        <p class="sub-bagian">Sepuluh karakter berlevel tertinggi, diambil langsung dari basis data server.</p>
+      </div>
+    </div>
+    <div class="kartu">
+      <table class="tabel">
+        <thead>
+          <tr>
+            <th style="width:64px">#</th>
+            <th>Karakter</th>
+            <th>Guild</th>
+            <th class="kanan">Level</th>
+          </tr>
+        </thead>
+        <tbody id="tblRank">
+          <tr><td colspan="4" class="kosong">Memuat peringkat&hellip;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="guild">
+  <div class="wadah">
+    <div class="kepala-bagian">
+      <div>
+        <h2 class="judul-bagian">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-perisai"/></svg>
+          <span class="judul-teks">Top Guild</span>
+        </h2>
+        <p class="sub-bagian">Guild dengan level dan poin tertinggi di server.</p>
+      </div>
+    </div>
+    <div class="kartu">
+      <table class="tabel">
+        <thead>
+          <tr>
+            <th style="width:64px">#</th>
+            <th>Guild</th>
+            <th>Ketua</th>
+            <th class="kanan">Anggota</th>
+            <th class="kanan">Level</th>
+          </tr>
+        </thead>
+        <tbody id="tblGuild">
+          <tr><td colspan="5" class="kosong">Memuat guild&hellip;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="donasi">
+  <div class="wadah">
+    <div class="kepala-bagian">
+      <div>
+        <h2 class="judul-bagian">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-permata"/></svg>
+          <span class="judul-teks">Donasi</span>
+        </h2>
+        <p class="sub-bagian">
+          Donasi ditukar menjadi <strong>Cash</strong> di dalam game, dengan kurs
+          <strong>Rp&nbsp;10.000 = 100.000 Cash</strong>. Cash dipakai di Cash Shop untuk
+          kostum, tambahan tas, dan barang bantu lainnya.
+        </p>
+      </div>
+    </div>
+
+    <div class="donasi-kisi" id="paketDonasi"></div>
+
+        <div class="kartu" style="margin-top:22px">
+      <div class="kartu-kepala">
+        <h3 class="kartu-judul">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-permata"/></svg>Donasi Sekarang
+        </h3>
+      </div>
+      <div class="kartu-isi">
+        <p class="sub-bagian" style="margin:0">
+          Pilih salah satu. Sebutkan <strong>nama akun</strong> dan <strong>paket</strong>
+          yang kamu pilih &mdash; admin akan memberi petunjuk pembayaran.
+        </p>
+        <div class="kontak-donasi">
+          <a class="tbl tbl-wa tbl-besar" href="https://wa.link/sqa5sq" target="_blank" rel="noopener">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-wa"/></svg>Donasi via WhatsApp
+          </a>
+          <a class="tbl tbl-dc tbl-besar" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg>Donasi via Discord
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="kisi-2" style="margin-top:26px">
+      <div class="kartu">
+        <div class="kartu-kepala">
+          <h3 class="kartu-judul">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-koin"/></svg>Cara Donasi
+          </h3>
+        </div>
+        <div class="kartu-isi">
+          <ol class="langkah">
+            <li>Pastikan kamu sudah punya akun. Belum punya? <a href="register.html" style="color:var(--gold-soft)">Daftar dulu</a>, gratis.</li>
+            <li>Hubungi admin lewat <strong>WhatsApp</strong> atau <strong>Discord</strong> (tombol di atas),
+                sebutkan <strong>nama akun</strong> dan <strong>paket</strong> yang kamu pilih.</li>
+            <li>Bayar sesuai petunjuk admin, lalu kirim <strong>bukti transfer</strong> di percakapan yang sama.</li>
+            <li>Cash masuk ke akunmu. Masuk ulang ke game supaya saldonya terbaca.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="kartu">
+        <div class="kartu-kepala">
+          <h3 class="kartu-judul">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-gulungan"/></svg>Yang Perlu Diketahui
+          </h3>
+        </div>
+        <div class="kartu-isi" style="color:var(--muted);font-size:.93rem">
+          <p style="margin-top:0">
+            Akun baru sudah mendapat <strong style="color:var(--text)">1.000.000 Cash</strong>
+            gratis saat pendaftaran &mdash; dengan kurs di atas itu setara donasi
+            Rp&nbsp;100.000. Jadi kamu bisa mencoba Cash Shop tanpa mengeluarkan
+            apa pun lebih dulu.
+          </p>
+          <p>
+            Donasi bersifat sukarela dan dipakai untuk biaya server. Cash bukan
+            mata uang resmi dan tidak bisa ditukar kembali menjadi rupiah.
+          </p>
+          <p style="margin-bottom:0">
+            Cash tersimpan di kolom <code style="color:var(--gold-soft)">Cash</code> pada
+            tabel <code style="color:var(--gold-soft)">Accounts</code>, dan bisa ditambahkan
+            langsung lewat tab <strong style="color:var(--text)">Pemain &rarr;
+            Kekayaan</strong> di panel server.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="unduh">
+  <div class="wadah">
+    <div class="kepala-bagian">
+      <div>
+        <h2 class="judul-bagian">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-unduh"/></svg>
+          <span class="judul-teks">Unduh Klien</span>
+        </h2>
+        <p class="sub-bagian">
+          Berkas klien dibagikan lewat GitHub. Daftar di bawah terisi sendiri dari
+          rilis terbaru di repositori &mdash; tidak ada tautan yang perlu diperbarui manual.
+        </p>
+      </div>
+      <a class="tbl tbl-garis tbl-kecil" href="https://github.com/sadiss11/HEROES" target="_blank" rel="noopener">Buka Repositori</a>
+    </div>
+
+    <div class="kartu">
+      <div class="kartu-kepala">
+        <h3 class="kartu-judul" id="rilisJudul">Rilis Terbaru</h3>
+        <span class="lencana" id="rilisTag">&ndash;</span>
+      </div>
+      <div id="rilisIsi">
+        <div class="kosong">Menghubungi GitHub&hellip;</div>
+      </div>
+    </div>
+
+    <div class="kisi-2" style="margin-top:22px">
+      <div class="kartu">
+        <div class="kartu-kepala">
+          <h3 class="kartu-judul">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-gulungan"/></svg>Cara Memasang
+          </h3>
+        </div>
+        <div class="kartu-isi">
+          <ol class="langkah">
+            <li>Unduh berkas klien dari daftar di atas, lalu ekstrak ke folder mana pun.</li>
+            <li>Beri pengecualian antivirus untuk folder itu &mdash; <strong>EncodePak.dll</strong>
+                sering dikira virus padahal itu pembaca berkas .pak milik game.</li>
+            <li>Jalankan <strong>DNLauncher.exe</strong>, bukan DragonNest.exe langsung.</li>
+            <li>Masuk dengan akun yang kamu daftarkan di situs ini.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="kartu">
+        <div class="kartu-kepala">
+          <h3 class="kartu-judul">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-server"/></svg>Alamat Server
+          </h3>
+        </div>
+        <div class="kartu-isi">
+          <table class="tabel" style="font-size:.9rem">
+            <tbody>
+              <tr><td style="color:var(--dim)">Nama server</td><td class="kanan">Dragon Nest Heroes</td></tr>
+              <tr><td style="color:var(--dim)">Versi</td><td class="kanan">Game Heroes 0.5.7</td></tr>
+              <tr><td style="color:var(--dim)">IP</td><td class="kanan" id="srvIp">&ndash;</td></tr>
+              <tr><td style="color:var(--dim)">Port login</td><td class="kanan" id="srvPort">&ndash;</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="kaki">
+  <div class="wadah">
+    <div class="kaki-isi">
+      <div class="kaki-merek">
+        <img src="assets/logher.png" alt="Dragon Nest Heroes">
+        <div>
+          <div class="kaki-nama">Dragon Nest Heroes</div>
+          <div class="kaki-kecil">Private Server Indonesia &middot; Game Heroes 0.5.7</div>
+        </div>
+      </div>
+      <div class="kaki-kanan">
+        <div class="kaki-sosial">
+          <a class="kaki-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg>Discord
+          </a>
+        </div>
+        <nav class="kaki-tautan">
+          <a href="#promo">Promo</a>
+          <a href="#pengumuman">Pengumuman</a>
+          <a href="#peringkat">Top Rank</a>
+          <a href="#guild">Top Guild</a>
+          <a href="#donasi">Donasi</a>
+          <a href="#unduh">Unduh</a>
+          <a href="register.html">Daftar</a>
+          <a href="kamus.html">Kamus Item</a>
+        </nav>
+      </div>
+    </div>
+    <div class="kaki-bawah">
+      <span>&copy; 2026 Dragon Nest Heroes. Dragon Nest adalah merek dagang Eyedentity Games.</span>
+      <span id="kakiWaktu"></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/naga.js" defer></script>
+<script src="assets/video-hero.js" defer></script>
+<script src="assets/musik.js" defer></script>
+
+<script>
+/* =========================================================================
+   Dragon Nest Heroes - halaman depan
+   ========================================================================= */
+
+/* --- paket donasi: SATU-SATUNYA tempat angkanya diatur ------------------
+ * Kurs dasar Rp 10.000 = 100.000 Cash, yaitu Rp 1 = 10 Cash.
+ * "bonus" adalah cash tambahan di luar kurs, ditampilkan terpisah supaya
+ * pengunjung tahu persis apa yang ia dapat lebih. */
+var KURS  = 10;
+var PAKET = [
+  { rp:  10000, bonus:      0, unggul: false, pita: '',             ikon: 'i-koin' },
+  { rp:  25000, bonus:  25000, unggul: false, pita: '',             ikon: 'i-permata' },
+  { rp:  50000, bonus: 100000, unggul: true,  pita: 'Paling Laris', ikon: 'i-api' },
+  { rp: 100000, bonus: 300000, unggul: false, pita: '',             ikon: 'i-mahkota' }
+];
+
+function angka(n) { return Number(n).toLocaleString('id-ID'); }
+function rupiah(n) { return 'Rp ' + angka(n); }
+
+/* Ikon untuk isi yang dibuat skrip. Ditulis sendiri di sini, bukan memakai
+   window.DNH dari naga.js: skrip ini berjalan SEBELUM berkas bertanda defer,
+   jadi naga.js belum tentu sudah ada saat baris di bawah dijalankan. */
+function ikon(nama) {
+  return '<svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#' + nama + '"/></svg>';
+}
+
+/* Semua teks dari basis data dan dari GitHub dilewatkan ke sini sebelum
+   masuk ke innerHTML. Nama karakter dan nama guild ditulis pemain sendiri,
+   jadi keduanya tidak boleh dipercaya apa adanya. */
+function aman(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+/* --- menu layar kecil --------------------------------------------------- */
+(function () {
+  var tombol = document.getElementById('navBuka');
+  var menu   = document.getElementById('navTautan');
+  tombol.addEventListener('click', function () {
+    var buka = menu.classList.toggle('buka');
+    tombol.setAttribute('aria-expanded', buka ? 'true' : 'false');
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.closest('a')) { menu.classList.remove('buka'); }
+  });
+})();
+
+/* --- kartu donasi ------------------------------------------------------- */
+(function () {
+  document.getElementById('paketDonasi').innerHTML = PAKET.map(function (p) {
+    var total = p.rp * KURS + p.bonus;
+    return '<div class="paket' + (p.unggul ? ' paket-unggul' : '') + '">' +
+             (p.pita ? '<span class="paket-pita">' + aman(p.pita) + '</span>' : '') +
+             ikon(p.ikon) +
+             '<div class="paket-rp">' + rupiah(p.rp) + '</div>' +
+             '<div class="paket-garis"></div>' +
+             '<div class="paket-cash">' + angka(total) + '</div>' +
+             '<div class="paket-satuan">Cash</div>' +
+             (p.bonus ? '<div class="paket-bonus">+ ' + angka(p.bonus) + ' bonus</div>' : '') +
+           '</div>';
+  }).join('');
+})();
+
+/* --- galeri berganti sendiri ---------------------------------------------
+ * Dimulai dari banner Daily Login karena itu event yang sedang berjalan. */
+(function () {
+  var gbr = document.getElementById('galeri');
+  var daftar = ['assets/slide4.jpg', 'assets/slide2.jpg', 'assets/slide5.jpg',
+                'assets/slide3.jpg', 'assets/slide1.jpg'];
+  var i = 0;
+  daftar.forEach(function (s) { new Image().src = s; });
+  setInterval(function () {
+    i = (i + 1) % daftar.length;
+    gbr.style.opacity = '0';
+    setTimeout(function () { gbr.src = daftar[i]; gbr.style.opacity = '1'; }, 400);
+  }, 5000);
+})();
+
+/* --- status server + papan peringkat ------------------------------------
+ * null berarti tidak diketahui dan ditampilkan sebagai strip - BUKAN nol.
+ * Nol berarti "memang tidak ada", dan keduanya tidak boleh tertukar. */
+(function () {
+  function isi(id, nilai) {
+    document.getElementById(id).textContent =
+      (nilai === null || nilai === undefined) ? '–' : angka(nilai);
+  }
+
+  function muat() {
+    fetch('status.php', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var hidup = d.server === 'online';
+        document.getElementById('sServer').innerHTML =
+          '<span class="titik ' + (hidup ? 'titik-hidup' : 'titik-mati') + '"></span>' +
+          (hidup ? 'Online' : 'Offline');
+
+        isi('sOnline', d.online);
+        isi('sAkun', d.akun);
+        isi('sKarakter', d.karakter);
+        isi('sGuild', d.guild);
+
+        document.getElementById('srvIp').textContent = d.ip || '–';
+        document.getElementById('srvPort').textContent = d.port || '–';
+
+        var rank = document.getElementById('tblRank');
+        if (d.topPemain && d.topPemain.length) {
+          rank.innerHTML = d.topPemain.map(function (p, n) {
+            return '<tr>' +
+              '<td><span class="pos pos-' + (n + 1) + '">' + (n + 1) + '</span></td>' +
+              '<td><span class="nama-tokoh">' + aman(p.nama) + (n === 0 ? ikon('i-mahkota') : '') + '</span>' +
+                  '<span class="kelas">' + aman(p.kelas) + '</span></td>' +
+              '<td style="color:var(--muted)">' + (p.guild ? aman(p.guild) : '–') + '</td>' +
+              '<td class="kanan"><span class="lencana lencana-lv">Lv ' + aman(p.lv) + '</span></td>' +
+            '</tr>';
+          }).join('');
+        } else {
+          rank.innerHTML = '<tr><td colspan="4" class="kosong">' +
+            'Belum ada karakter di server ini.</td></tr>';
+        }
+
+        var guild = document.getElementById('tblGuild');
+        if (d.topGuild && d.topGuild.length) {
+          guild.innerHTML = d.topGuild.map(function (g, n) {
+            return '<tr>' +
+              '<td><span class="pos pos-' + (n + 1) + '">' + (n + 1) + '</span></td>' +
+              '<td><span class="nama-tokoh">' + aman(g.nama) + (n === 0 ? ikon('i-perisai') : '') + '</span></td>' +
+              '<td style="color:var(--muted)">' + (g.ketua ? aman(g.ketua) : '–') + '</td>' +
+              '<td class="kanan">' + aman(g.anggota) + '</td>' +
+              '<td class="kanan"><span class="lencana lencana-lv">Lv ' + aman(g.lv) + '</span></td>' +
+            '</tr>';
+          }).join('');
+        } else {
+          guild.innerHTML = '<tr><td colspan="5" class="kosong">' +
+            'Belum ada guild yang dibuat.</td></tr>';
+        }
+
+        document.getElementById('kakiWaktu').textContent =
+          'Diperbarui ' + new Date().toLocaleTimeString('id-ID');
+      })
+      .catch(function () {
+        document.getElementById('sServer').innerHTML =
+          '<span class="titik titik-entah"></span>–'; document.getElementById('tblRank').innerHTML = document.getElementById('tblGuild').innerHTML = '<tr><td colspan="5" class="kosong">Peringkat hanya tampil di situs server HEROES.</td></tr>';
+      });
+  }
+
+  muat();
+  setInterval(muat, 30000);
+})();
+
+/* --- rilis dari GitHub --------------------------------------------------- */
+(function () {
+  var isi   = document.getElementById('rilisIsi');
+  var tag   = document.getElementById('rilisTag');
+  var judul = document.getElementById('rilisJudul');
+  var REPO  = 'https://github.com/sadiss11/HEROES';
+
+  function ukuran(b) {
+    if (b === null || b === undefined) return '';
+    var u = ['B', 'KB', 'MB', 'GB'], i = 0;
+    while (b >= 1024 && i < u.length - 1) { b /= 1024; i++; }
+    return b.toFixed(b >= 10 || i === 0 ? 0 : 1) + ' ' + u[i];
+  }
+
+  function kosong(pesan) {
+    tag.textContent = '–';
+    isi.innerHTML = '<div class="kosong">' + pesan +
+      '<br><br><a class="tbl tbl-garis tbl-kecil" href="' + REPO +
+      '" target="_blank" rel="noopener">Buka Repositori</a></div>';
+  }
+
+  fetch('github.php', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (!d.ok || !d.rilis) {
+        kosong(aman(d.pesan) || 'Belum ada rilis di repositori ini.');
+        return;
+      }
+      judul.textContent = d.rilis.nama || 'Rilis Terbaru';
+      tag.textContent = d.rilis.tag || '–';
+
+      if (!d.rilis.berkas || !d.rilis.berkas.length) {
+        kosong('Rilis <strong>' + aman(d.rilis.tag) +
+               '</strong> belum memuat berkas apa pun.');
+        return;
+      }
+      isi.innerHTML = '<table class="tabel"><tbody>' +
+        d.rilis.berkas.map(function (b) {
+          return '<tr>' +
+            '<td><span class="nama-tokoh">' + aman(b.nama) + '</span>' +
+                '<span class="kelas">' + angka(b.unduhan) + ' kali diunduh</span></td>' +
+            '<td class="kanan" style="color:var(--muted)">' + ukuran(b.ukuran) + '</td>' +
+            '<td class="kanan"><a class="tbl tbl-utama tbl-kecil" href="' + aman(b.tautan) + '">' +
+              ikon('i-unduh') + 'Unduh</a></td>' +
+          '</tr>';
+        }).join('') + '</tbody></table>';
+    })
+    .catch(function () {
+      kosong('Berkas unduhan ada di repositori GitHub HEROES.');
+    });
+})();
+</script>
+</body>
+</html>

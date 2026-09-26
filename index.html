@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050508">
+<title>HEROES GAMING - PORTAL</title>
+<meta name="description" content="HEROES GAMING - pilih server: Atlantica HEROES, Dragon Nest HEROES, atau Point Blank HEROES.">
+<meta property="og:title" content="HEROES GAMING">
+<meta property="og:description" content="Tiga server, satu komunitas: Atlantica, Dragon Nest, dan Point Blank HEROES.">
+<meta property="og:image" content="aset/logo.png">
+<link rel="icon" href="favicon.ico">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Raleway:wght@400;600;800;900&display=swap');
+
+    :root {
+        --tinggi-atas: 150px;
+        --latar: #050508;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+        margin: 0;
+        background: var(--latar);
+        color: #fff;
+        font-family: "Raleway", Arial, sans-serif;
+        overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ------------------------------------------------ kepala di atas panel */
+    .atas {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 20;
+        height: var(--tinggi-atas);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;           /* panel di bawahnya tetap bisa disorot */
+        background: linear-gradient(180deg, rgba(5, 5, 8, .92), rgba(5, 5, 8, 0));
+    }
+    .atas img {
+        height: 86px;
+        width: auto;
+        filter: drop-shadow(0 8px 24px rgba(0, 0, 0, .8)) drop-shadow(0 0 26px rgba(255, 70, 30, .35));
+    }
+    .atas p {
+        margin: 6px 0 0;
+        font-size: .72rem;
+        font-weight: 800;
+        letter-spacing: .42em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, .8);
+        text-shadow: 0 2px 10px #000;
+    }
+
+    /* ------------------------------------------------ tiga panel */
+    .panel-baris {
+        display: flex;
+        height: 100vh;
+        min-height: 620px;
+    }
+
+    .panel {
+        --aksen: #fff;
+        position: relative;
+        flex: 1 1 0;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        isolation: isolate;
+        transition: flex-grow .55s cubic-bezier(.2, .8, .2, 1), filter .4s;
+        outline: none;
+    }
+    .panel + .panel { border-left: 1px solid rgba(255, 255, 255, .12); }
+
+    /* Panel yang disorot melebar, sisanya meredup. Pada layar sentuh (tanpa
+       hover) semua panel tetap sama lebar dan tetap terang. */
+    @media (hover: hover) {
+        .panel-baris:hover .panel { filter: brightness(.55) saturate(.8); }
+        .panel-baris .panel:hover,
+        .panel-baris .panel:focus-visible { flex-grow: 1.75; filter: none; }
+    }
+
+    .panel-gambar {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.04);
+        transition: transform 1.2s cubic-bezier(.2, .8, .2, 1);
+    }
+    .panel:hover .panel-gambar,
+    .panel:focus-visible .panel-gambar { transform: scale(1.1); }
+
+    /* Gelap di bagian bawah untuk tulisan, dan cahaya warna aksen tipis
+       dari bawah - setiap panel punya warnanya sendiri. */
+    .panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+            linear-gradient(180deg, rgba(5, 5, 8, .55) 0%, rgba(5, 5, 8, .1) 30%, rgba(5, 5, 8, .35) 55%, rgba(5, 5, 8, .96) 88%),
+            radial-gradient(120% 55% at 50% 110%, var(--cahaya) 0%, transparent 70%);
+    }
+    /* Garis warna aksen di tepi bawah - memanjang saat disorot. */
+    .panel::after {
+        content: "";
+        position: absolute;
+        left: 0; bottom: 0;
+        height: 4px;
+        width: 22%;
+        background: var(--aksen);
+        box-shadow: 0 0 18px var(--aksen);
+        transition: width .55s cubic-bezier(.2, .8, .2, 1);
+    }
+    .panel:hover::after, .panel:focus-visible::after { width: 100%; }
+
+    .panel-isi {
+        position: relative;
+        width: 100%;
+        padding: 0 clamp(22px, 3.2vw, 48px) clamp(34px, 7vh, 64px);
+    }
+
+    .panel-nomor {
+        display: block;
+        font-size: clamp(3.2rem, 7vw, 6rem);
+        font-weight: 900;
+        line-height: .9;
+        color: transparent;
+        -webkit-text-stroke: 1.5px rgba(255, 255, 255, .55);
+        letter-spacing: -.02em;
+        transition: -webkit-text-stroke-color .4s, color .4s;
+    }
+    .panel:hover .panel-nomor, .panel:focus-visible .panel-nomor {
+        -webkit-text-stroke-color: var(--aksen);
+    }
+
+    .panel-logo {
+        display: block;
+        height: 58px;
+        width: auto;
+        margin: 14px 0 12px;
+        filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .8));
+    }
+    .panel-logo.kotak { width: 58px; object-fit: contain; border-radius: 12px; }
+
+    .panel-judul {
+        margin: 0;
+        font-family: "Marcellus SC", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(1.7rem, 2.8vw, 2.6rem);
+        line-height: 1.05;
+        letter-spacing: .03em;
+        text-shadow: 0 4px 18px rgba(0, 0, 0, .9);
+    }
+    .panel-judul small {
+        display: block;
+        margin-top: 4px;
+        font-family: "Raleway", sans-serif;
+        font-size: .42em;
+        font-weight: 800;
+        letter-spacing: .5em;
+        color: var(--aksen);
+    }
+
+    /* Keterangan dan tombol hanya tampil penuh di panel yang disorot, supaya
+       tiga panel sempit tidak penuh tulisan sekaligus. Di layar sentuh
+       keduanya selalu tampil. */
+    .panel-ket {
+        max-width: 34ch;
+        margin: 12px 0 0;
+        font-size: .92rem;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, .82);
+        text-shadow: 0 2px 8px #000;
+    }
+    .panel-tombol {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 18px;
+        padding: 12px 22px;
+        border: 1px solid var(--aksen);
+        border-radius: 3px;
+        background: rgba(5, 5, 8, .45);
+        font-size: .78rem;
+        font-weight: 800;
+        letter-spacing: .22em;
+        text-transform: uppercase;
+        transition: background .3s, color .3s, box-shadow .3s;
+    }
+    .panel-tombol svg { width: 16px; height: 16px; transition: transform .3s; }
+    .panel:hover .panel-tombol, .panel:focus-visible .panel-tombol {
+        background: var(--aksen);
+        color: #050508;
+        box-shadow: 0 0 26px var(--aksen);
+    }
+    .panel:hover .panel-tombol svg { transform: translateX(4px); }
+
+    @media (hover: hover) {
+        .panel-ket, .panel-tombol {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity .4s, transform .4s, background .3s, color .3s, box-shadow .3s;
+        }
+        .panel:hover .panel-ket, .panel:focus-visible .panel-ket,
+        .panel:hover .panel-tombol, .panel:focus-visible .panel-tombol {
+            opacity: 1;
+            transform: none;
+        }
+        .panel:hover .panel-tombol { transition-delay: .06s; }
+    }
+
+    /* Lencana status - diisi dari status.php; tersembunyi sampai terbukti. */
+    .panel-status {
+        position: absolute;
+        top: calc(var(--tinggi-atas) + 8px);
+        left: clamp(22px, 3.2vw, 48px);
+        display: none;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(5, 5, 8, .7);
+        border: 1px solid rgba(255, 255, 255, .18);
+        font-size: .72rem;
+        font-weight: 800;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        backdrop-filter: blur(6px);
+    }
+    .panel-status.ada { display: inline-flex; }
+    .panel-status i { width: 8px; height: 8px; border-radius: 50%; background: #888; }
+    .panel-status.online i { background: #4ADE80; box-shadow: 0 0 10px #4ADE80; }
+    .panel-status.offline i { background: #FF5A4E; box-shadow: 0 0 10px #FF5A4E; }
+
+    /* Warna tiap server. */
+    .atlantica  { --aksen: #3FD8FF; --cahaya: rgba(30, 170, 230, .45); }
+    .dragonnest { --aksen: #FF5A2A; --cahaya: rgba(255, 50, 20, .45); }
+    .pointblank { --aksen: #FF2A3D; --cahaya: rgba(230, 20, 40, .45); }
+
+    .atlantica  .panel-gambar { object-position: 50% 40%; }
+    .dragonnest .panel-gambar { object-position: 50% 50%; }
+    .pointblank .panel-gambar { object-position: 50% 45%; }
+
+    /* ------------------------------------------------ kaki */
+    .kaki {
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 20;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 10px clamp(16px, 3vw, 40px);
+        font-size: .7rem;
+        letter-spacing: .12em;
+        color: rgba(255, 255, 255, .55);
+        pointer-events: none;
+    }
+    .kaki a {
+        pointer-events: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, .2);
+        background: rgba(5, 5, 8, .6);
+        color: rgba(255, 255, 255, .8);
+        font-weight: 800;
+        transition: background .2s, border-color .2s;
+    }
+    .kaki a:hover { background: #5865F2; border-color: #5865F2; color: #fff; }
+    .kaki svg { width: 15px; height: 15px; fill: currentColor; }
+
+    /* ------------------------------------------------ layar sempit */
+    @media (max-width: 860px) {
+        :root { --tinggi-atas: 120px; }
+        .atas { position: absolute; }
+        .atas img { height: 64px; }
+        .panel-baris { flex-direction: column; height: auto; min-height: 0; }
+        .panel { min-height: 62vh; }
+        .panel:first-child { min-height: calc(62vh + var(--tinggi-atas)); }
+        .panel + .panel { border-left: 0; border-top: 1px solid rgba(255, 255, 255, .12); }
+        .panel-status { top: 16px; }
+        .panel:first-child .panel-status { top: calc(var(--tinggi-atas) + 8px); }
+        .kaki { position: static; background: var(--latar); pointer-events: auto; flex-wrap: wrap; justify-content: center; padding: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .panel, .panel-gambar, .panel::after, .panel-ket, .panel-tombol { transition: none !important; }
+    }
+</style>
+</head>
+<body>
+
+<header class="atas">
+    <img src="aset/logo.png" alt="HEROES">
+    <p>Pilih server kamu</p>
+</header>
+
+<main class="panel-baris">
+
+    <a class="panel atlantica" href="1-atlantica/" aria-label="01 - Masuk ke Atlantica HEROES">
+        <img class="panel-gambar" src="aset/latar.jpg" alt="">
+        <span class="panel-status" data-status="1-atlantica/status.php"><i></i><span></span></span>
+        <div class="panel-isi">
+            <span class="panel-nomor">01</span>
+            <img class="panel-logo kotak" src="aset/atlantica.png" alt="">
+            <h2 class="panel-judul">Atlantica<small>HEROES</small></h2>
+            <p class="panel-ket">MMORPG strategi bergiliran &mdash; kumpulkan mercenary, bangun formasi, dan taklukkan dunia bersama pasukanmu.</p>
+            <span class="panel-tombol">Masuk server
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 5l7 7-7 7-1.4-1.4 5.6-5.6-5.6-5.6z"/></svg></span>
+        </div>
+    </a>
+
+    <a class="panel dragonnest" href="2-dragonnest/index.html" aria-label="02 - Masuk ke Dragon Nest HEROES">
+        <img class="panel-gambar" src="aset/panel-dragonnest.jpg" alt="">
+        <span class="panel-status" data-status="2-dragonnest/status.php"><i></i><span></span></span>
+        <div class="panel-isi">
+            <span class="panel-nomor">02</span>
+            <img class="panel-logo" src="aset/dn.png" alt="">
+            <h2 class="panel-judul">Dragon Nest<small>HEROES</small></h2>
+            <p class="panel-ket">Aksi kombo cepat tanpa target otomatis &mdash; daftar gratis dan langsung dapat 1.000.000 Cash.</p>
+            <span class="panel-tombol">Masuk server
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 5l7 7-7 7-1.4-1.4 5.6-5.6-5.6-5.6z"/></svg></span>
+        </div>
+    </a>
+
+    <a class="panel pointblank" href="3-pointblank/" aria-label="03 - Masuk ke Point Blank HEROES">
+        <img class="panel-gambar" src="aset/panel-pointblank.jpg" alt="">
+        <span class="panel-status" data-status=""><i></i><span></span></span>
+        <div class="panel-isi">
+            <span class="panel-nomor">03</span>
+            <img class="panel-logo kotak" src="aset/pb.png" alt="">
+            <h2 class="panel-judul">Point Blank<small>HEROES</small></h2>
+            <p class="panel-ket">FPS klasik bertempo tinggi &mdash; ikuti berita, event, dan pembaruan terbaru langsung dari markas.</p>
+            <span class="panel-tombol">Masuk server
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 5l7 7-7 7-1.4-1.4 5.6-5.6-5.6-5.6z"/></svg></span>
+        </div>
+    </a>
+
+</main>
+
+<footer class="kaki">
+    <span>&copy; 2026 HEROES GAMING &middot; Atlantica &middot; Dragon Nest &middot; Point Blank</span>
+    <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.197.373.291a.077.077 0 0 1-.007.128 12.3 12.3 0 0 1-1.873.891.077.077 0 0 0-.041.107c.36.698.772 1.363 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.029zM8.02 15.33c-1.183 0-2.157-1.086-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.332-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.086-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.332-.946 2.418-2.157 2.418z"/></svg>
+        Discord
+    </a>
+</footer>
+
+<script>
+/* Status server tiap panel. Hanya ditampilkan kalau status.php benar-benar
+   menjawab - di GitHub Pages (tanpa PHP) lencananya tidak muncul sama
+   sekali, supaya halaman tidak mengaku "Offline" untuk server yang
+   sebenarnya menyala. */
+(function () {
+    var el = document.querySelectorAll('.panel-status[data-status]');
+    Array.prototype.forEach.call(el, function (s) {
+        var url = s.getAttribute('data-status');
+        if (!url || location.protocol === 'file:') return;
+        fetch(url, { cache: 'no-store' })
+            .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+            .then(function (d) {
+                var hidup = d && d.server === 'online';
+                s.classList.add('ada', hidup ? 'online' : 'offline');
+                s.querySelector('span').textContent = hidup ? 'Server online' : 'Server offline';
+            })
+            .catch(function () {});
+    });
+})();
+</script>
+</body>
+</html>

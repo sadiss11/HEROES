@@ -1,0 +1,7 @@
+# Berita untuk situs ATLANTICA HEROES - format sama dengan berita.txt situs Dragon Nest.
+#
+# Satu baris satu berita:   tanggal | judul | tautan
+# Baris paling atas tampil paling atas. Baris berawalan # diabaikan.
+# Tautan boleh halaman di situs ini (register.html) atau alamat lengkap (https://...).
+27.09 | Situs Atlantica HEROES tampil baru | index.html
+26.09 | Pendaftaran akun Atlantica HEROES dibuka | register.html
