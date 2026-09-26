@@ -333,6 +333,12 @@ section + section { padding-top: 0; }
     border-color: var(--dc);
     box-shadow: 0 0 16px rgba(88, 101, 242, .55);
 }
+.nav-tautan a.nav-wa:hover {
+    color: #fff;
+    background: var(--wa-gelap);
+    border-color: var(--wa);
+    box-shadow: 0 0 16px rgba(37, 211, 102, .5);
+}
 
 .nav-buka {
     display: none;

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#031018">
+<title>Informasi Hero &middot; ATLANTICA HEROES</title>
+<meta name="description" content="Tujuh hero Atlantica Heroes - senjata, gaya bertarung, dan pola serangannya, dijelaskan dengan sederhana.">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="assets/atlantica.css">
+<style>
+  .nav-tautan a.aktif { color: var(--text); background: rgba(var(--accent-rgb), .12); }
+  .info-hero { position: relative; padding: 80px 0 30px; text-align: center; }
+  .info-hero h1 { margin: 0 0 12px; font-family: var(--font-display); font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+    line-height: 1.05; background: var(--emas); -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 4px 18px rgba(0, 0, 0, .7)); }
+  .info-hero p { max-width: 64ch; margin: 0 auto; color: #9FC3D1; }
+  .info-hero p b { color: var(--gold-soft); }
+  .info-lencana { display: inline-block; margin-bottom: 12px; padding: 6px 14px; border-radius: 999px;
+    border: 1px solid rgba(var(--gold-rgb), .5); color: var(--gold-soft); font-size: .74rem; font-weight: 800;
+    letter-spacing: .16em; text-transform: uppercase; background: rgba(var(--gold-rgb), .08); }
+
+  .hero-kisi { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px; padding: 20px 0 30px; }
+  .kartu-hero { position: relative; display: flex; flex-direction: column; overflow: hidden; border-radius: 16px;
+    border: 1px solid var(--line-2); background: linear-gradient(180deg, #0A2533, #061820);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, .5); transform-style: preserve-3d;
+    transition: transform .25s ease, box-shadow .25s, border-color .25s; will-change: transform; scroll-margin-top: 90px; }
+  .kartu-hero.tilt-aktif { transition: box-shadow .25s, border-color .25s; border-color: rgba(var(--accent-rgb), .75);
+    box-shadow: 0 26px 54px rgba(0, 0, 0, .6), 0 0 34px rgba(var(--accent-rgb), .22); }
+  .tilt-kilau { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; border-radius: inherit; }
+  .kh-gambar { position: relative; aspect-ratio: 2 / 3; overflow: hidden; }
+  .kh-gambar img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+  .kartu-hero.tilt-aktif .kh-gambar img { transform: scale(1.06); }
+  .kh-gambar::after { content: ""; position: absolute; inset: auto 0 0 0; height: 45%;
+    background: linear-gradient(180deg, transparent, #0A2533); }
+  .kh-senjata { position: absolute; top: 12px; left: 12px; z-index: 1; padding: 5px 12px; border-radius: 999px;
+    background: rgba(3, 16, 24, .8); border: 1px solid rgba(var(--gold-rgb), .55); color: var(--gold-soft);
+    font-size: .74rem; font-weight: 800; letter-spacing: .08em; }
+  .kh-isi { position: relative; padding: 0 18px 20px; margin-top: -46px; }
+  .kh-tipe { color: var(--accent); font-size: .72rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+  .kh-isi h3 { margin: 2px 0 8px; font-family: var(--font-display); font-size: 1.7rem; color: #fff; }
+  .kh-desk { margin: 0 0 14px; color: #B9D3DD; font-size: .92rem; }
+  .kh-pola { display: flex; gap: 12px; align-items: center; padding: 10px; border-radius: 10px;
+    background: rgba(0, 0, 0, .3); border: 1px solid var(--line); margin-bottom: 10px; }
+  .kh-pola p { margin: 0; color: #9FC3D1; font-size: .82rem; line-height: 1.4; }
+  .kh-pola b { display: block; color: var(--text); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 2px; }
+  .petak { flex: none; display: grid; grid-template-columns: repeat(3, 14px); gap: 3px; }
+  .petak i { width: 14px; height: 14px; border-radius: 3px; background: rgba(159, 195, 209, .15); border: 1px solid rgba(159, 195, 209, .25); }
+  .petak i.kena { background: #FF5A4E; border-color: #FF8A80; box-shadow: 0 0 8px rgba(255, 90, 78, .7); }
+  .kh-cocok { margin: 0; color: #9FC3D1; font-size: .84rem; }
+  .kh-cocok b { color: var(--gold-soft); }
+
+  .info-catatan { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; padding-bottom: 60px; }
+  .info-catatan div { padding: 16px 18px; border-radius: 12px; border: 1px solid var(--line); background: rgba(10, 37, 51, .6); }
+  .info-catatan b { display: block; margin-bottom: 4px; color: var(--gold-soft); font-family: var(--font-display); font-size: 1.05rem; }
+  .info-catatan p { margin: 0; color: #9FC3D1; font-size: .88rem; }
+  .petak-legenda { display: inline-grid; vertical-align: middle; margin: 0 4px; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wadah nav-isi">
+    <a class="nav-merek" href="index.html">
+      <img src="assets/logo.png" alt="HEROES">
+      <span>Atlantica<small>HEROES</small></span>
+    </a>
+    <button class="nav-buka" id="navBuka" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
+    <nav class="nav-tautan" id="navTautan">
+      <a href="index.html#berita">Berita</a>
+      <a href="index.html#info">Info Server</a>
+      <a href="index.html#peringkat">Peringkat</a>
+      <a href="index.html#unduh">Unduh</a>
+      <a href="informasi.html" aria-current="page" class="aktif">Informasi</a>
+      <a class="nav-ikon nav-wa" href="https://wa.link/sqa5sq" target="_blank" rel="noopener" aria-label="WhatsApp admin" title="WhatsApp">
+        <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-wa"/></svg></a>
+      <a class="nav-ikon" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" aria-label="Discord" title="Discord">
+        <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg></a>
+      <a class="tbl tbl-garis tbl-kecil" href="#" data-portal>Semua Server</a>
+      <a class="tbl tbl-utama tbl-kecil" href="register.html">Daftar</a>
+    </nav>
+  </div>
+</header>
+
+<section class="info-hero">
+  <div class="wadah">
+    <span class="info-lencana">Informasi</span>
+    <h1>Hero Atlantica</h1>
+    <p>Hero adalah karakter utamamu, dan <b>jobnya ditentukan oleh senjatanya</b>. Di Atlantica Heroes ada
+      <b>7 hero</b>. Pilih yang paling cocok dengan gayamu. Arahkan tetikus ke kartu untuk melihatnya dalam 3D.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wadah">
+    <div class="hero-kisi">
+    <article class="kartu-hero" id="knight" data-tilt>
+      <div class="kh-gambar"><img src="assets/hero/knight.webp" alt="Hero Knight" loading="lazy">
+        <span class="kh-senjata">Pedang</span></div>
+      <div class="kh-isi">
+        <span class="kh-tipe">Jarak dekat</span>
+        <h3>Knight</h3>
+        <p class="kh-desk">Pendekar pedang di barisan depan. Serangannya terpusat ke satu musuh, dan tubuhnya kuat menahan pukulan sehingga menjaga teman di belakangnya.</p>
+        <div class="kh-pola"><div class="petak" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class="kena"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><p><b>Pola serangan</b>1 musuh di barisan depan</p></div>
+        <p class="kh-cocok"><b>Cocok untuk:</b> Pemain yang suka bertahan dan menjadi tameng tim.</p>
+      </div>
+    </article>
+    <article class="kartu-hero" id="reaver" data-tilt>
+      <div class="kh-gambar"><img src="assets/hero/reaver.webp" alt="Hero Reaver" loading="lazy">
+        <span class="kh-senjata">Kapak</span></div>
+      <div class="kh-isi">
+        <span class="kh-tipe">Jarak dekat</span>
+        <h3>Reaver</h3>
+        <p class="kh-desk">Pengayun kapak besar. Satu ayunan menyapu seluruh barisan depan musuh sekaligus.</p>
+        <div class="kh-pola"><div class="petak" aria-hidden="true"><i class="kena"></i><i class=""></i><i class=""></i><i class="kena"></i><i class=""></i><i class=""></i><i class="kena"></i><i class=""></i><i class=""></i></div><p><b>Pola serangan</b>3 musuh sebaris di barisan depan</p></div>
+        <p class="kh-cocok"><b>Cocok untuk:</b> Membersihkan banyak musuh lemah dengan cepat.</p>
+      </div>
+    </article>
+    <article class="kartu-hero" id="dragoon" data-tilt>
+      <div class="kh-gambar"><img src="assets/hero/dragoon.webp" alt="Hero Dragoon" loading="lazy">
+        <span class="kh-senjata">Tombak</span></div>
+      <div class="kh-isi">
+        <span class="kh-tipe">Jarak dekat</span>
+        <h3>Dragoon</h3>
+        <p class="kh-desk">Tombak panjang yang menembus musuh di depan sekaligus musuh yang berdiri di belakangnya.</p>
+        <div class="kh-pola"><div class="petak" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class="kena"></i><i class="kena"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><p><b>Pola serangan</b>2 musuh segaris: sasaran dan musuh di belakangnya</p></div>
+        <p class="kh-cocok"><b>Cocok untuk:</b> Menyerang dua musuh sekaligus tanpa harus mundur.</p>
+      </div>
+    </article>
+    <article class="kartu-hero" id="marksman" data-tilt>
+      <div class="kh-gambar"><img src="assets/hero/marksman.webp" alt="Hero Marksman" loading="lazy">
+        <span class="kh-senjata">Busur</span></div>
+      <div class="kh-isi">
+        <span class="kh-tipe">Jarak jauh</span>
+        <h3>Marksman</h3>
+        <p class="kh-desk">Pemanah dari barisan belakang. Bebas memilih sasaran di mana saja, cocok untuk menjatuhkan penyihir atau penyembuh musuh lebih dulu.</p>
+        <div class="kh-pola"><div class="petak" aria-hidden="true"><i class=""></i><i class=""></i><i class="kena"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><p><b>Pola serangan</b>1 musuh di mana saja, termasuk barisan belakang</p></div>
+        <p class="kh-cocok"><b>Cocok untuk:</b> Pemain yang suka memilih sasaran penting.</p>
+      </div>
+    </article>
+    <article class="kartu-hero" id="rifleman" data-tilt>
+      <div class="kh-gambar"><img src="assets/hero/rifleman.webp" alt="Hero Rifleman" loading="lazy">
+        <span class="kh-senjata">Senapan</span></div>
+      <div class="kh-isi">
+        <span class="kh-tipe">Jarak jauh</span>
+        <h3>Rifleman</h3>
+        <p class="kh-desk">Pelurunya menembus satu garis musuh dari depan sampai belakang.</p>
+        <div class="kh-pola"><div class="petak" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class="kena"></i><i class="kena"></i><i class="kena"></i><i class=""></i><i class=""></i><i class=""></i></div><p><b>Pola serangan</b>3 musuh segaris dari depan sampai belakang</p></div>
+        <p class="kh-cocok"><b>Cocok untuk:</b> Musuh yang berbaris lurus.</p>
+      </div>
+    </article>
+    <article class="kartu-hero" id="bombardier" data-tilt>
+      <div class="kh-gambar"><img src="assets/hero/bombardier.webp" alt="Hero Bombardier" loading="lazy">
+        <span class="kh-senjata">Meriam</span></div>
+      <div class="kh-isi">
+        <span class="kh-tipe">Jarak jauh</span>
+        <h3>Bombardier</h3>
+        <p class="kh-desk">Meriam berat yang meledak berbentuk tanda tambah dan bisa mengenai hingga lima musuh.</p>
+        <div class="kh-pola"><div class="petak" aria-hidden="true"><i class=""></i><i class="kena"></i><i class=""></i><i class="kena"></i><i class="kena"></i><i class="kena"></i><i class=""></i><i class="kena"></i><i class=""></i></div><p><b>Pola serangan</b>5 musuh berbentuk tanda tambah</p></div>
+        <p class="kh-cocok"><b>Cocok untuk:</b> Kerumunan musuh yang rapat.</p>
+      </div>
+    </article>
+    <article class="kartu-hero" id="mage" data-tilt>
+      <div class="kh-gambar"><img src="assets/hero/mage.webp" alt="Hero Mage" loading="lazy">
+        <span class="kh-senjata">Tongkat sihir</span></div>
+      <div class="kh-isi">
+        <span class="kh-tipe">Sihir</span>
+        <h3>Mage</h3>
+        <p class="kh-desk">Penyihir dengan serangan biasa ke satu musuh di depan, tetapi kekuatan sebenarnya ada di skill sihir yang bisa mengenai banyak musuh.</p>
+        <div class="kh-pola"><div class="petak" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class="kena"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><p><b>Pola serangan</b>1 musuh di barisan depan</p></div>
+        <p class="kh-cocok"><b>Cocok untuk:</b> Pemain yang suka mengandalkan skill.</p>
+      </div>
+    </article>
+    </div>
+
+    <div class="info-catatan">
+      <div><b>Cara membaca pola serangan</b><p>Kotak 3&times;3 adalah formasi musuh. Kolom kiri = barisan depan musuh.
+        Kotak merah = musuh yang terkena satu serangan biasa.</p></div>
+      <div><b>Hero dan mercenary</b><p>Hero bertarung bersama mercenary dalam satu formasi, hingga 9 karakter.
+        Mercenary memakai senjata yang sama, jadi pola serangan di atas juga berlaku untuk mereka.</p></div>
+      <div><b>Hero tidak boleh gugur</b><p>Kalau hero kalah dalam pertempuran biasa, pertempuran selesai walau
+        mercenary masih berdiri. Taruh hero di posisi yang aman.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="kaki">
+  <div class="wadah">
+    <div class="kaki-isi">
+      <div class="kaki-merek"><img src="assets/logo.png" alt="HEROES">
+        <div><b>Atlantica Heroes</b><small>Server pribadi Atlantica Online &middot; bagian dari HEROES GAMING</small></div></div>
+      <nav class="kaki-tautan">
+        <a href="index.html">Beranda</a><a href="index.html#peringkat">Peringkat</a><a href="informasi.html">Informasi</a><a href="#" data-portal>Semua Server</a>
+        <a href="https://wa.link/sqa5sq" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">Discord</a>
+      </nav>
+    </div>
+    <div class="kaki-bawah">
+      <span>&copy; <span id="thn"></span> ATLANTICA HEROES &mdash; server pribadi Atlantica Online.</span>
+      <span>Dibuat untuk komunitas. Bukan afiliasi resmi Nexon/NDOORS.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/tilt3d.js" defer></script>
+<script>
+(function () {
+  var t = document.getElementById('navBuka'), m = document.getElementById('navTautan');
+  if (t && m) t.addEventListener('click', function () {
+    var b = m.classList.toggle('buka');
+    t.setAttribute('aria-expanded', b ? 'true' : 'false');
+  });
+  var thn = document.getElementById('thn');
+  if (thn) thn.textContent = new Date().getFullYear();
+  var portal = location.pathname.indexOf('/1-atlantica/') !== -1
+      ? '../' : location.protocol + '//' + location.hostname + ':8090/';
+  Array.prototype.forEach.call(document.querySelectorAll('[data-portal]'), function (a) { a.href = portal; });
+})();
+</script>
+</body>
+</html>

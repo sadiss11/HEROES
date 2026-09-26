@@ -7,6 +7,8 @@
 #
 # Peluncur membaca berkas ini setiap kali dibuka, jadi berita baru langsung
 # terlihat semua pemain tanpa membagikan ulang peluncurnya.
-26.09 | Server Dragon Nest Heroes resmi dibuka | index.html
+27.09 | Halloween Festival 25 Okt - 8 Nov | promo/event.html
+27.09 | Daily Login, hadiah s/d 30 Sep | promo/event.html
 26.09 | Daftar akun gratis + 1.000.000 cash | register.html
+26.09 | Server Dragon Nest Heroes resmi dibuka | index.html
 26.09 | Kamus item untuk perintah /makeitem | kamus.html

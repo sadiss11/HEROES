@@ -1,63 +1,139 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0A0607"><title>POINT BLANK HEROES</title><link rel="icon" href="./favicon.ico"><link rel="stylesheet" href="./assets/heroes.css"><link rel="stylesheet" href="./assets/pb-tema.css"></head><body><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Kamu melihat salinan situs di GitHub. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div><header class="nav"><div class="wadah nav-isi"><a class="nav-merek" href="./"><img src="./assets/logher.png" alt="HEROES"><span>Point Blank Heroes</span></a><button class="nav-buka" id="navBuka" aria-label="Buka menu" aria-expanded="false">&#9776;</button><nav class="nav-tautan" id="navTautan"><a href="./" style="color:var(--text);background:rgba(var(--accent-rgb),.12)">Beranda</a><a href="./news/">Berita</a><a href="./#unduh">Unduh Game</a><a class="nav-sosial nav-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" aria-label="Discord" title="Discord"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-discord"/></svg></a><a class="tbl tbl-utama tbl-kecil" href="./../">Semua Server</a></nav></div></header>
-<section class="hero" style="min-height:560px;padding-bottom:70px">
-  <div class="hero-latar" style="background-image:url('./assets/hero-pb.jpg');opacity:.85"></div>
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0A0607"><title>POINT BLANK HEROES</title><link rel="icon" href="./favicon.ico"><link rel="stylesheet" href="./assets/heroes.css"><link rel="stylesheet" href="./assets/pb-tema.css"></head><body><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Ini salinan online situs HEROES. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://wa.link/sqa5sq" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">WhatsApp</a> atau <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div><header class="nav"><div class="wadah nav-isi"><a class="nav-merek" href="./"><img src="./assets/logher.png" alt="HEROES"><span>Point Blank Heroes</span></a><button class="nav-buka" id="navBuka" aria-label="Buka menu" aria-expanded="false">&#9776;</button><nav class="nav-tautan" id="navTautan"><a href="./" style="color:var(--text);background:rgba(var(--accent-rgb),.12)">Beranda</a><a href="./news/">Berita</a><a href="./informasi.html">Informasi</a><a href="./#unduh">Unduh Game</a><a class="nav-sosial nav-wa" href="https://wa.link/sqa5sq" target="_blank" rel="noopener" aria-label="WhatsApp admin" title="WhatsApp"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-wa"/></svg></a><a class="nav-sosial nav-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" aria-label="Discord" title="Discord"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-discord"/></svg></a><a class="tbl tbl-utama tbl-kecil" href="./../">Semua Server</a></nav></div></header>
+
+<section class="hero pb-hero" style="min-height:560px;padding-bottom:70px">
+
+  <div class="hero-latar" style="background-image:url('./assets/hero-pb.jpg')"></div>
+
+  <video class="hero-video" id="heroVideo" loop playsinline muted preload="auto" poster="./assets/video/pointblank-poster.jpg">
+
+    <source src="./assets/video/pointblank.mp4" type="video/mp4">
+
+  </video>
+
+  <button class="hero-suara" id="heroSuara" type="button" hidden aria-label="Nyalakan suara video">
+
+    <span id="heroSuaraIkon">&#128263;</span><span>Suara video</span>
+
+  </button>
+
+  <script src="./assets/video-hero.js" defer></script>
+
   <div class="wadah hero-isi">
+
     <p class="hero-tag">Private Server Indonesia</p>
+
     <h1 class="pb-judul-hero">Point Blank<span>HEROES</span></h1>
+
     <p class="hero-teks">Pertempuran FPS klasik bertempo tinggi. Ikuti berita, event, dan pembaruan
+
       terbaru langsung dari markas &mdash; lalu turun ke medan tempur bersama komunitas HEROES.</p>
+
     <div class="hero-tombol">
+
       <a class="tbl tbl-utama" href="./news/"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-toa"/></svg>Lihat Semua Berita</a>
+
       <a class="tbl tbl-garis" href="#unduh"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-unduh"/></svg>Unduh Game</a>
+
     </div>
+
   </div>
+
 </section>
+
 <style>
+
   .pb-judul-hero {
+
     margin: 0 0 14px;
+
     font-family: var(--font-display);
+
     font-weight: 400;
+
     font-size: clamp(2.6rem, 7vw, 5.2rem);
+
     line-height: 1;
+
     letter-spacing: .03em;
+
     text-shadow: 0 6px 30px rgba(0, 0, 0, .9);
+
   }
+
   .pb-judul-hero span {
+
     display: block;
+
     margin-top: 6px;
+
     background: var(--api);
+
     -webkit-background-clip: text;
+
     background-clip: text;
+
     color: transparent;
+
     filter: drop-shadow(0 0 24px rgba(var(--accent-rgb), .5));
+
   }
+
 </style><main class="wadah pb-isi">
+
 <div class="sec" style="margin-top:34px">
+
   <h2><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-toa"/></svg>Berita <b>Terbaru</b></h2>
+
   <a class="more" href="./news/">Semua berita &raquo;</a>
+
 </div>
+
+
 
   <div class="grid">
+
     <a class="card" href="./news/view-38.html"><div class="thumb"><img src="./assets/banner-default.png" alt="" loading="lazy"><span class="badge">PENGUMUMAN</span></div><div class="cbody"><div class="ctitle">Server Point Blank HEROES Resmi Dibuka</div><div class="csub">Point Blank HEROES kini online untuk semua pemain. Buat akun, unduh launcher, dan langsung terjun ke medan tempur bertema Merah-Hitam.</div><div class="cmeta"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-gulungan"/></svg>26 Sep 2026</div></div></a><a class="card" href="./news/view-39.html"><div class="thumb"><img src="./assets/banner-default.png" alt="" loading="lazy"><span class="badge">EVENT</span></div><div class="cbody"><div class="ctitle">Event Merah-Hitam: Rebut Hadiah Spesial</div><div class="csub">Sepanjang pekan ini, kumpulkan poin dari misi harian dan tukarkan dengan senjata koleksi serta atribut karakter eksklusif bertema Merah-Hitam.</div><div class="cmeta"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-gulungan"/></svg>24 Sep 2026</div></div></a><a class="card" href="./news/view-40.html"><div class="thumb"><img src="./assets/banner-default.png" alt="" loading="lazy"><span class="badge">UPDATE</span></div><div class="cbody"><div class="ctitle">Pembaruan Senjata &amp; Karakter Baru</div><div class="csub">Patch terbaru membawa penyesuaian recoil beberapa senjata, penambahan skin, serta karakter baru yang siap kamu mainkan di seluruh mode.</div><div class="cmeta"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-gulungan"/></svg>23 Sep 2026</div></div></a><a class="card" href="./news/view-41.html"><div class="thumb"><img src="./assets/banner-default.png" alt="" loading="lazy"><span class="badge">MAINTENANCE</span></div><div class="cbody"><div class="ctitle">Jadwal Perawatan Server Mingguan</div><div class="csub">Untuk menjaga kestabilan, server Point Blank HEROES menjalani perawatan rutin. Selama proses ini kamu tidak dapat masuk permainan sementara waktu.</div><div class="cmeta"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-gulungan"/></svg>21 Sep 2026</div></div></a>  </div>
 
+
+
 <div class="sec" id="unduh" style="margin-top:56px">
+
   <h2><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-unduh"/></svg>Unduh <b>Game</b></h2>
-</div>
-<div class="kartu">
-  <div class="unduh-kotak">
-    <div>
-      <h3 class="kartu-judul" style="margin-bottom:12px"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-pedang"/></svg>Siap turun ke medan tempur?</h3>
-      <ol class="langkah">
-        <li>Minta klien <strong>Point Blank HEROES</strong> kepada admin lewat Discord.</li>
-        <li>Ekstrak ke folder mana pun, lalu beri pengecualian antivirus untuk folder itu.</li>
-        <li>Jalankan peluncurnya dan masuk dengan akunmu.</li>
-      </ol>
-      <div class="hero-tombol" style="justify-content:flex-start;margin-top:20px">
-        <a class="tbl tbl-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-discord"/></svg>Hubungi lewat Discord</a>
-      </div>
-    </div>
-    <img src="./assets/banner-default.png" alt="Point Blank HEROES">
-  </div>
+
 </div>
 
-</main><footer class="kaki"><div class="wadah"><div class="kaki-isi"><div class="kaki-merek"><img src="./assets/logher.png" alt="HEROES"><div><div class="kaki-nama">Point Blank Heroes</div><div class="kaki-kecil">Private Server Indonesia &middot; bagian dari HEROES GAMING</div></div></div><div class="kaki-kanan"><div class="kaki-sosial"><a class="kaki-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-discord"/></svg>Discord</a></div><nav class="kaki-tautan"><a href="./">Beranda</a><a href="./news/">Berita</a><a href="./#unduh">Unduh</a><a href="./../">Semua Server</a></nav></div></div><div class="kaki-bawah"><span>&copy; 2026 Point Blank HEROES &mdash; Private Server. Point Blank adalah merek dagang pemiliknya.</span></div></div></footer><script>(function(){var t=document.getElementById("navBuka"),m=document.getElementById("navTautan");if(!t||!m)return;t.addEventListener("click",function(){var b=m.classList.toggle("buka");t.setAttribute("aria-expanded",b?"true":"false");});})();</script></body></html>
+<div class="kartu">
+
+  <div class="unduh-kotak">
+
+    <div>
+
+      <h3 class="kartu-judul" style="margin-bottom:12px"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-pedang"/></svg>Siap turun ke medan tempur?</h3>
+
+      <ol class="langkah">
+
+        <li>Minta klien <strong>Point Blank HEROES</strong> kepada admin lewat Discord.</li>
+
+        <li>Ekstrak ke folder mana pun, lalu beri pengecualian antivirus untuk folder itu.</li>
+
+        <li>Jalankan peluncurnya dan masuk dengan akunmu.</li>
+
+      </ol>
+
+      <div class="hero-tombol" style="justify-content:flex-start;margin-top:20px">
+
+        <a class="tbl tbl-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-discord"/></svg>Hubungi lewat Discord</a>
+
+      </div>
+
+    </div>
+
+    <img src="./assets/banner-default.png" alt="Point Blank HEROES">
+
+  </div>
+
+</div>
+
+
+
+</main><footer class="kaki"><div class="wadah"><div class="kaki-isi"><div class="kaki-merek"><img src="./assets/logher.png" alt="HEROES"><div><div class="kaki-nama">Point Blank Heroes</div><div class="kaki-kecil">Private Server Indonesia &middot; bagian dari HEROES GAMING</div></div></div><div class="kaki-kanan"><div class="kaki-sosial"><a class="kaki-wa" href="https://wa.link/sqa5sq" target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-wa"/></svg>WhatsApp</a><a class="kaki-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-discord"/></svg>Discord</a></div><nav class="kaki-tautan"><a href="./">Beranda</a><a href="./news/">Berita</a><a href="./informasi.html">Informasi</a><a href="./#unduh">Unduh</a><a href="./../">Semua Server</a></nav></div></div><div class="kaki-bawah"><span>&copy; 2026 Point Blank HEROES &mdash; Private Server. Point Blank adalah merek dagang pemiliknya.</span></div></div></footer><script>(function(){var t=document.getElementById("navBuka"),m=document.getElementById("navTautan");if(!t||!m)return;t.addEventListener("click",function(){var b=m.classList.toggle("buka");t.setAttribute("aria-expanded",b?"true":"false");});})();</script></body></html>

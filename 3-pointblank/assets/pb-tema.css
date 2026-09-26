@@ -204,3 +204,16 @@
     .side { position: static; }
     .unduh-kotak { grid-template-columns: 1fr; padding: 20px; }
 }
+
+/* ---------------------------------------------------------- video hero
+   Trailer resmi Point Blank (assets/video/pointblank.mp4) di atas gambar
+   hero-pb.jpg - aturan .hero-video, .hero-suara, dan .ada-video ada di
+   heroes.css (salinan tema Dragon Nest). Kecerahan gambar diatur di sini,
+   BUKAN lewat style="opacity" di halaman: gaya sebaris mengalahkan aturan
+   .hero.ada-video .hero-latar { opacity: 0 }, dan gambar lalu bercampur
+   keruh dengan video di atasnya. */
+.pb-hero .hero-latar { opacity: .85; }
+.pb-hero.ada-video .hero-latar { opacity: 0; }
+/* Trailer ini CG taktis yang gelap; tanpa dicerahkan sedikit ia
+   tenggelam di bawah tirai gelap hero dan halaman tampak kosong. */
+.pb-hero.ada-video .hero-video { opacity: .9; filter: brightness(1.25) contrast(1.05); }

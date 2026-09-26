@@ -9,7 +9,7 @@
 <link rel="icon" href="favicon.ico">
 <link rel="stylesheet" href="assets/atlantica.css">
 </head>
-<body><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Kamu melihat salinan situs di GitHub. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div>
+<body><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Ini salinan online situs HEROES. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://wa.link/sqa5sq" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">WhatsApp</a> atau <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div>
 
 <header class="nav">
   <div class="wadah nav-isi">
@@ -23,6 +23,9 @@
       <a href="index.html#info">Info Server</a>
       <a href="index.html#peringkat">Peringkat</a>
       <a href="index.html#unduh">Unduh</a>
+      <a href="informasi.html">Informasi</a>
+      <a class="nav-ikon nav-wa" href="https://wa.link/sqa5sq" target="_blank" rel="noopener" aria-label="WhatsApp admin" title="WhatsApp">
+        <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-wa"/></svg></a>
       <a class="nav-ikon" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" aria-label="Discord" title="Discord">
         <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg></a>
       <a class="tbl tbl-garis tbl-kecil" href="#" data-portal>Semua Server</a>
@@ -31,7 +34,14 @@
 </header>
 
 <section class="hero" style="min-height:360px;padding:60px 0 70px">
-  <div class="hero-latar"></div>
+  <div class="hero-latar">
+    <video class="hero-video" id="heroVideo" loop playsinline muted preload="auto" poster="assets/video/atlantica-poster.jpg">
+      <source src="assets/video/atlantica.mp4" type="video/mp4">
+    </video>
+  </div>
+  <button class="hero-suara" id="heroSuara" type="button" hidden aria-label="Nyalakan suara video">
+    <span id="heroSuaraIkon">&#128263;</span><span>Suara video</span>
+  </button>
   <div class="hero-cahaya"></div>
   <div class="wadah">
     <div class="hero-isi">
@@ -87,7 +97,8 @@
       <div class="kaki-merek"><img src="assets/logo.png" alt="HEROES">
         <div><b>Atlantica Heroes</b><small>Server pribadi Atlantica Online &middot; bagian dari HEROES GAMING</small></div></div>
       <nav class="kaki-tautan">
-        <a href="index.html">Beranda</a><a href="index.html#peringkat">Peringkat</a><a href="#" data-portal>Semua Server</a>
+        <a href="index.html">Beranda</a><a href="index.html#peringkat">Peringkat</a><a href="informasi.html">Informasi</a><a href="#" data-portal>Semua Server</a>
+        <a href="https://wa.link/sqa5sq" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">Discord</a>
       </nav>
     </div>
@@ -163,5 +174,6 @@
   });
 })();
 </script>
-<script>(function(){var f=document.querySelector("form");if(!f)return;var n=document.createElement("div");n.style.cssText="margin:0 0 16px;padding:12px 14px;border-radius:6px;border:1px solid rgba(255,210,122,.5);background:rgba(255,210,122,.08);color:#ffd27a;font-size:14px";n.innerHTML="Pendaftaran tidak bisa dari salinan GitHub ini. Daftar lewat situs di server HEROES, atau hubungi admin di <a href=\"https://discord.com/users/1360304443379421436\" style=\"color:#fff;text-decoration:underline\">Discord</a>.";f.parentNode.insertBefore(n,f);Array.prototype.forEach.call(f.elements,function(e){e.disabled=true;});})();</script></body>
+<script src="assets/video-hero.js" defer></script>
+<script>(function(){var f=document.querySelector("form");if(!f)return;var n=document.createElement("div");n.style.cssText="margin:0 0 16px;padding:12px 14px;border-radius:6px;border:1px solid rgba(255,210,122,.5);background:rgba(255,210,122,.08);color:#ffd27a;font-size:14px";n.innerHTML="Pendaftaran tidak bisa dari salinan online ini. Daftar lewat situs di server HEROES, atau hubungi admin di <a href=\"https://wa.link/sqa5sq\" style=\"color:#fff;text-decoration:underline\">WhatsApp</a> atau <a href=\"https://discord.com/users/1360304443379421436\" style=\"color:#fff;text-decoration:underline\">Discord</a>.";f.parentNode.insertBefore(n,f);Array.prototype.forEach.call(f.elements,function(e){e.disabled=true;});})();</script></body>
 </html>

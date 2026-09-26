@@ -126,6 +126,7 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-tautan a.nav-ikon .ikon { width: 18px; height: 18px; }
 .nav-tautan a.nav-ikon:hover { background: #5865F2; border-color: #5865F2; color: #fff; }
+.nav-tautan a.nav-wa:hover { background: #128C7E; border-color: #25D366; color: #fff; }
 .nav-tautan a.tbl { color: #031018; }
 .nav-tautan a.tbl-garis { color: var(--text); }
 .nav-buka {
@@ -215,6 +216,56 @@ a { color: inherit; text-decoration: none; }
     50%  { transform: translate(14px, -45vh); }
     100% { transform: translate(-10px, -95vh); opacity: 0; }
 }
+
+/* ---------------------------------------------------------- video hero
+   Video trailer "Empires of Gold" (assets/video/atlantica.mp4) di DALAM
+   .hero-latar: gradasi gelap ::after tetap menutupinya supaya tulisan di
+   kiri terbaca, dan kalau videonya gagal dimuat, gambar hero.jpg di
+   bawahnya yang terlihat (lihat assets/video-hero.js). */
+.hero-video {
+    position: absolute; top: 0; bottom: 0; right: 0;
+    left: 30%;
+    width: 70%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity .8s;
+    /* Video di sisi KANAN, memudar ke kiri. Trailer ini penuh kartu
+       tulisan besar di tengah layarnya ("Explore the continent...",
+       "The first hero class..."); dipasang selebar hero, tulisan itu
+       menimpa judul halaman di kiri. Di kanan, keduanya tidak bertemu. */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 32%);
+}
+@media (max-width: 860px) {
+    /* Layar sempit: judul memenuhi lebar, video di belakangnya penuh
+       dan diredupkan gradasi .hero-latar::after seperti biasa. */
+    .hero-video { left: 0; width: 100%; -webkit-mask-image: none; mask-image: none; }
+}
+.hero.ada-video .hero-video { opacity: 1; }
+/* Dengan video, gradasi kiri dibuat lebih tipis: adegannya bergerak dan
+   terang, tulisannya tetap dijaga bayangan teks dan sisi kiri yang gelap. */
+.hero.ada-video .hero-latar::after {
+    background:
+        linear-gradient(90deg, rgba(3, 16, 24, .92) 0%, rgba(3, 16, 24, .62) 36%, rgba(3, 16, 24, .12) 68%, rgba(3, 16, 24, .35) 100%),
+        linear-gradient(180deg, rgba(3, 16, 24, .35) 0%, transparent 25%, transparent 60%, var(--canvas) 100%);
+}
+.hero-suara {
+    position: absolute; right: 20px; bottom: 20px; z-index: 4;
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 16px 9px 12px;
+    background: rgba(3, 16, 24, .82);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    color: #9FC3D1;
+    font-family: var(--font-body); font-size: .78rem;
+    cursor: pointer;
+    transition: color .15s, border-color .15s;
+}
+/* hidden HARUS disebut - display:flex di atas mengalahkan gaya bawaan. */
+.hero-suara[hidden] { display: none; }
+.hero-suara:hover { color: #fff; border-color: var(--accent); }
+.hero-suara.nyala { color: var(--gold-soft); border-color: rgba(var(--gold-rgb), .6); }
 
 .hero-isi { position: relative; max-width: 620px; }
 .hero-lencana {
