@@ -105,7 +105,7 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-isi { display: flex; align-items: center; gap: 20px; height: 72px; }
 .nav-merek { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.nav-merek img { height: 44px; width: auto; filter: drop-shadow(0 0 10px rgba(var(--gold-rgb), .35)); }
+.nav-merek img { height: 58px; width: auto; filter: drop-shadow(0 0 10px rgba(var(--gold-rgb), .35)); }
 .nav-merek span { font-family: var(--font-display); font-weight: 700; letter-spacing: .08em; font-size: 1rem; line-height: 1.1; }
 .nav-merek small { display: block; color: var(--accent); font-family: var(--font-body); font-size: .62rem; font-weight: 800; letter-spacing: .3em; }
 
@@ -529,7 +529,7 @@ section { padding: 70px 0 0; }
 }
 .kaki-isi { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
 .kaki-merek { display: flex; align-items: center; gap: 12px; }
-.kaki-merek img { height: 46px; }
+.kaki-merek img { height: 72px; }
 .kaki-merek b { display: block; font-family: var(--font-display); letter-spacing: .06em; }
 .kaki-merek small { color: var(--dim); font-size: .78rem; }
 .kaki-tautan { display: flex; gap: 18px; flex-wrap: wrap; font-size: .86rem; color: var(--muted); }
@@ -564,4 +564,17 @@ section { padding: 70px 0 0; }
     .hero-latar::after { background: linear-gradient(180deg, rgba(3, 16, 24, .7), rgba(3, 16, 24, .92) 70%, var(--canvas)); }
     .fitur { grid-template-columns: 1fr; }
     .langkah { grid-template-columns: 1fr; }
+}
+
+/* Tombol suara berdenyut kalau peramban menolak video bersuara sejak awal
+   (video-hero.js memberi kelas .ajak). */
+.hero-suara.ajak {
+    color: #031018;
+    border-color: var(--gold);
+    background: var(--gold-soft);
+    animation: ajak-suara 1.4s ease-in-out infinite;
+}
+@keyframes ajak-suara {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(var(--gold-rgb), .6); }
+    50%      { box-shadow: 0 0 0 10px rgba(var(--gold-rgb), 0); }
 }

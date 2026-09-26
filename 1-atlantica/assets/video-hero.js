@@ -52,6 +52,8 @@
             ikon.innerHTML = video.muted ? '&#128263;' : '&#128266;';
             tombol.classList.toggle('nyala', !video.muted);
             tombol.setAttribute('aria-label', video.muted ? 'Nyalakan suara video' : 'Bisukan suara video');
+            var teks = tombol.querySelector('span:last-child');
+            if (teks && teks !== ikon) teks.textContent = video.muted ? 'Nyalakan suara' : 'Suara video';
         }
 
         /* Videonya bisa SUDAH termuat sebelum baris ini berjalan - berkas
@@ -76,16 +78,50 @@
             var p = video.play();
             if (p && p.catch) p.catch(function () {});
         }
-        putar();
 
-        var peristiwa = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
-        function bangun() {
+        /* Sentuhan yang diakui peramban sebagai izin memutar suara. scroll
+           dan touchstart TIDAK termasuk: menyalakan suara tanpa izin membuat
+           Chrome menghentikan video sama sekali. */
+        var peristiwa = ['pointerdown', 'pointerup', 'keydown', 'touchend', 'click'];
+        function lepas() {
+            peristiwa.forEach(function (n) { document.removeEventListener(n, bangun, true); });
+        }
+        function bangun(e) {
+            /* Klik di tombol suara diurus tombol itu sendiri - kalau ikut
+               diurus di sini, suara menyala lalu langsung dimatikan lagi. */
+            if (e && e.target && tombol.contains(e.target)) return;
             if (suaraDiinginkan && !sudahGagal) video.muted = false;
             putar();
+            tombol.classList.remove('ajak');
             segarkan();
-            peristiwa.forEach(function (n) { document.removeEventListener(n, bangun); });
+            lepas();
         }
-        peristiwa.forEach(function (n) { document.addEventListener(n, bangun, { passive: true }); });
+
+        /* LANGSUNG BERSUARA. Video dicoba diputar DENGAN suara sejak awal.
+           Peramban mengizinkannya kalau pengunjung datang lewat klik di situs
+           yang sama (misalnya dari portal), sudah sering menonton video di
+           situs ini, atau pengaturan autoplay-nya membolehkan. Kalau ditolak,
+           video tetap berjalan bisu, tombol suara berdenyut mengajak diklik,
+           dan suara menyala pada klik/ketukan/tombol keyboard pertama di mana
+           pun di halaman. Pengunjung yang pernah membisukan video tetap bisu. */
+        if (suaraDiinginkan) {
+            peristiwa.forEach(function (n) { document.addEventListener(n, bangun, true); });
+            video.muted = false;
+            var coba = video.play();
+            if (coba && coba.then) {
+                coba.then(function () { segarkan(); lepas(); })
+                    .catch(function () {
+                        video.muted = true;
+                        putar();
+                        tombol.classList.add('ajak');
+                        segarkan();
+                    });
+            } else {
+                segarkan();
+            }
+        } else {
+            putar();
+        }
 
         tombol.addEventListener('click', function (e) {
             e.stopPropagation();
@@ -93,6 +129,8 @@
             suaraDiinginkan = !video.muted;
             try { localStorage.setItem(SIMPAN, suaraDiinginkan ? 'suara' : 'bisu'); } catch (err) {}
             if (!video.muted) putar();
+            tombol.classList.remove('ajak');
+            lepas();
             segarkan();
         });
 

@@ -1410,3 +1410,38 @@ canvas.bara {
     --primary-bg: var(--canvas);
     --secondary-bg: var(--surface);
 }
+
+/* Logo HEROES berputar (assets/logo-putar.gif) - dipasang langsung di menu
+   dan kaki semua halaman sejak 27 September 2026, sedikit lebih besar dari
+   logo diam sebelumnya supaya putarannya terlihat jelas. GIF-nya sudah
+   dipotong rapat (tanpa ruang transparan), jadi tinggi ini = tinggi logo. */
+.nav-merek img.pakai-gif { height: 60px; }
+.kaki-merek img.pakai-gif { height: 80px; }
+@media (max-width: 860px) {
+    .nav-merek img.pakai-gif { height: 48px; }
+}
+
+/* Tombol suara berdenyut kalau peramban menolak memutar video bersuara
+   sejak awal (video-hero.js memberi kelas .ajak) - mengajak pengunjung
+   mengklik. Denyutnya lewat bayangan saja; ukurannya tidak berubah. */
+.hero-suara.ajak {
+    color: #fff;
+    border-color: var(--accent);
+    background: rgba(var(--accent-rgb), .35);
+    animation: ajak-suara 1.4s ease-in-out infinite;
+}
+@keyframes ajak-suara {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), .55); }
+    50%      { box-shadow: 0 0 0 10px rgba(var(--accent-rgb), 0); }
+}
+
+/* Menu tetap satu baris dengan logo berputar yang lebih besar: tautan
+   sedikit dirapatkan, dan di layar di bawah 1280 px tulisan nama situs di
+   samping logo disembunyikan (logonya sendiri sudah bertuliskan HEROES).
+   Tanpa ini tombol Daftar turun ke baris kedua di layar 1440 px. */
+@media (min-width: 861px) {
+    .nav-tautan a { padding: 8px 10px; }
+}
+@media (min-width: 861px) and (max-width: 1280px) {
+    .nav-merek span { display: none; }
+}
