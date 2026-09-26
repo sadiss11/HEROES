@@ -1,723 +1,350 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0A0607"><title>Informasi Senjata &amp; Karakter - POINT BLANK HEROES</title><link rel="icon" href="./favicon.ico"><link rel="stylesheet" href="./assets/heroes.css"><link rel="stylesheet" href="./assets/pb-tema.css"></head><body><header class="nav"><div class="wadah nav-isi"><a class="nav-merek" href="./"><img src="./assets/logher.png" alt="HEROES"><span>Point Blank Heroes</span></a><button class="nav-buka" id="navBuka" aria-label="Buka menu" aria-expanded="false">&#9776;</button><nav class="nav-tautan" id="navTautan"><a href="./">Beranda</a><a href="./news/">Berita</a><a href="./informasi.html" style="color:var(--text);background:rgba(var(--accent-rgb),.12)">Informasi</a><a href="./#unduh">Unduh Game</a><a class="nav-sosial nav-wa" href="https://wa.link/sqa5sq" target="_blank" rel="noopener" aria-label="WhatsApp admin" title="WhatsApp"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-wa"/></svg></a><a class="nav-sosial nav-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" aria-label="Discord" title="Discord"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-discord"/></svg></a><a class="tbl tbl-utama tbl-kecil" href="./../">Semua Server</a></nav></div></header><main class="wadah pb-isi"><svg width="0" height="0" style="position:absolute" aria-hidden="true">
-
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0A0607"><title>Informasi Senjata &amp; Karakter - POINT BLANK HEROES</title><link rel="icon" href="./favicon.ico"><link rel="stylesheet" href="./assets/heroes.css"><link rel="stylesheet" href="./assets/pb-tema.css"></head><body><header class="nav"><div class="wadah nav-isi"><a class="nav-merek" href="./"><img src="./assets/logher.png" alt="HEROES"><span>Point Blank Heroes</span></a><button class="nav-buka" id="navBuka" aria-label="Buka menu" aria-expanded="false">&#9776;</button><nav class="nav-tautan" id="navTautan"><a href="./">Beranda</a><a href="./news/">Berita</a><a href="./informasi.html" style="color:var(--text);background:rgba(var(--accent-rgb),.12)">Informasi</a><a href="./#unduh">Unduh Game</a><a class="nav-sosial nav-wa" href="https://wa.link/sqa5sq" target="_blank" rel="noopener" aria-label="WhatsApp admin" title="WhatsApp"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-wa"/></svg></a><a class="nav-sosial nav-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" aria-label="Discord" title="Discord"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-discord"/></svg></a><a class="tbl tbl-utama tbl-kecil" href="./../">Semua Server</a></nav></div></header><main class="wadah pb-isi"><link rel="stylesheet" href="./assets/pb-info.css">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="s-ar" viewBox="0 0 160 50"><path d="M4 22 24 18h6v12L10 34l-6-2zM30 17h62v12H30zM92 20h58v4H92zM92 18h30v10H92zM60 12h20v5H60zM62 29h10l4 15H66zM44 29h8l-2 13h-8z"/></symbol>
-
   <symbol id="s-smg" viewBox="0 0 160 50"><path d="M14 22l18-4v10l-14 3zM32 16h66v12H32zM98 19h28v5H98zM58 11h16v5H58zM60 28h8v18h-8zM42 28h8l-2 12h-8z"/></symbol>
-
   <symbol id="s-sr" viewBox="0 0 160 50"><path d="M2 22l26-5v13L8 34l-6-2zM28 18h56v10H28zM84 21h74v3H84zM40 8h38v7H40zM48 15h4v3h-4zM66 15h4v3h-4zM56 28h8v10h-8zM36 28h8l-2 12h-8zM120 24l-6 16h4l6-16z"/></symbol>
-
   <symbol id="s-sg" viewBox="0 0 160 50"><path d="M4 22l26-4v12L10 34zM30 18h50v10H30zM80 19h70v4H80zM80 25h60v3H80zM96 24h24v7H96zM40 28h8l-2 12h-8z"/></symbol>
-
   <symbol id="s-mg" viewBox="0 0 160 50"><path d="M2 20l24-4v16L6 34zM26 14h74v18H26zM100 20h56v5h-56zM50 32h30v12H50zM60 6h20v8h-4v-4H64v4h-4zM130 25l-6 17h4l8-17zM34 32h8l-2 12h-8z"/></symbol>
-
   <symbol id="s-hg" viewBox="0 0 160 50"><path d="M50 14h62v10H50zM50 24h46v4H50zM52 28h14l-4 18H48zM66 28h8v6h-8z"/></symbol>
-
   <symbol id="s-pisau" viewBox="0 0 160 50"><path d="M40 22l80-4 28 6-28 6-80-2zM34 14h6v22h-6zM8 20h26v10H8z"/></symbol>
-
   <symbol id="s-granat" viewBox="0 0 160 50"><circle cx="80" cy="31" r="14"/><path d="M74 10h12v8H74zM86 11l12 3-2 12-8-8z"/><circle cx="70" cy="10" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-
+  <symbol id="s-helm" viewBox="0 0 160 50"><path d="M52 36c0-16 12-28 28-28s28 12 28 28H52zM46 36h68v6H46zM64 22h32v5H64z"/></symbol>
+  <symbol id="s-topeng" viewBox="0 0 160 50"><path d="M58 8h44c4 0 6 3 6 7v12c0 12-12 21-28 21S52 39 52 27V15c0-4 2-7 6-7zM64 20v6h12v-6zM84 20v6h12v-6zM70 34h20v3H70z" fill-rule="evenodd"/></symbol>
+  <symbol id="s-baret" viewBox="0 0 160 50"><path d="M46 30c4-14 22-22 40-20 18 2 30 10 28 20-2 6-12 8-30 8-20 0-40-2-38-8zM48 32h64v6H48zM104 12l8-4 2 4-8 3z"/></symbol>
 </svg>
 
-
-
-<style>
-
-  .info-kepala { text-align: center; padding: 26px 0 10px; }
-
-  .info-kepala h1 { margin: 0 0 10px; font-family: var(--font-display); font-weight: 400; font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-
-    letter-spacing: .04em; line-height: 1.05; background: var(--api); -webkit-background-clip: text; background-clip: text; color: transparent;
-
-    filter: drop-shadow(0 0 22px rgba(var(--accent-rgb), .45)); }
-
-  .info-kepala p { max-width: 62ch; margin: 0 auto; color: var(--muted); }
-
-  .info-loncat { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 18px 0 8px; }
-
-  .info-loncat a { padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--muted); font-size: .84rem; font-weight: 600; }
-
-  .info-loncat a:hover { color: #fff; border-color: var(--accent); background: rgba(var(--accent-rgb), .15); }
-
-
-
-  .kat-kisi { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
-
-  .kartu-kat { position: relative; overflow: hidden; border-radius: 14px; border: 1px solid var(--line-2);
-
-    background: linear-gradient(180deg, var(--surface-2), var(--surface)); box-shadow: 0 14px 30px rgba(0,0,0,.45);
-
-    transform-style: preserve-3d; transition: transform .25s ease, box-shadow .25s, border-color .25s; will-change: transform; }
-
-  .kartu-kat.tilt-aktif, .kartu-kar.tilt-aktif { transition: box-shadow .25s, border-color .25s; border-color: rgba(var(--accent-rgb), .7);
-
-    box-shadow: 0 24px 50px rgba(0,0,0,.6), 0 0 30px rgba(var(--accent-rgb), .25); }
-
-  .tilt-kilau { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; border-radius: inherit; }
-
-  .kat-atas { display: flex; align-items: center; gap: 14px; padding: 18px 18px 8px; }
-
-  .siluet { width: 118px; height: 37px; flex: none; fill: currentColor; color: var(--ember);
-
-    filter: drop-shadow(0 0 10px rgba(var(--ember-rgb), .55)); }
-
-  .kat-atas h3 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; }
-
-  .kat-atas small { display: block; color: var(--dim); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
-
-  .kat-desk { margin: 0; padding: 0 18px 12px; color: var(--muted); font-size: .88rem; }
-
-  .senjata { list-style: none; margin: 0; padding: 0 12px 14px; display: grid; gap: 8px; }
-
-  .senjata li { padding: 10px 12px; border-radius: 10px; background: rgba(0,0,0,.35); border: 1px solid var(--line); }
-
-  .senjata .nm { display: flex; justify-content: space-between; gap: 10px; font-weight: 700; color: var(--text); font-size: .92rem; }
-
-  .senjata .nm span { color: var(--gold-soft); font-size: .78rem; font-weight: 600; white-space: nowrap; }
-
-  .bar { display: grid; grid-template-columns: 70px 1fr 44px; gap: 8px; align-items: center; margin-top: 6px; font-size: .72rem; color: var(--dim); }
-
-  .bar i { display: block; height: 6px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
-
-  .bar i b { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent-deep), var(--accent), var(--gold-soft)); }
-
-  .bar em { font-style: normal; color: var(--muted); text-align: right; }
-
-
-
-  .baru-baris { display: flex; flex-wrap: wrap; gap: 10px; }
-
-  .baru-baris span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px;
-
-    border: 1px solid rgba(var(--accent-rgb), .45); background: rgba(var(--accent-rgb), .1); font-weight: 700; font-size: .88rem; }
-
-  .baru-baris small { color: var(--dim); font-weight: 600; font-size: .72rem; }
-
-
-
-  .tim { margin-bottom: 30px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-2); background: var(--surface); }
-
-  .tim-latar { position: relative; min-height: 300px; display: flex; align-items: flex-end; padding: 22px; background-size: cover; background-position: 60% 30%; }
-
-  /* Pemberontak di adegan ini berdiri di KIRI gambar - tulisannya dipindah ke kanan supaya wajahnya tidak tertutup. */
-
-  .tim-merah .tim-latar { justify-content: flex-end; text-align: right; background-position: 25% 22%; }
-
-  .tim-merah .tim-latar::before { background: linear-gradient(270deg, rgba(10,6,7,.95) 0%, rgba(10,6,7,.6) 45%, rgba(10,6,7,.1) 100%); }
-
-  .tim-latar::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,6,7,.95) 0%, rgba(10,6,7,.6) 45%, rgba(10,6,7,.1) 100%); }
-
-  .tim-merah .tim-latar::after, .tim-biru .tim-latar::after { content: ""; position: absolute; inset: auto 0 0 0; height: 4px; }
-
-  .tim-merah .tim-latar::after { background: linear-gradient(90deg, #FF2A1A, transparent); }
-
-  .tim-biru .tim-latar::after { background: linear-gradient(90deg, #3AA0FF, transparent); }
-
-  .tim-teks { position: relative; max-width: 440px; }
-
-  .tim-teks small { font-size: .72rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-
-  .tim-merah .tim-teks small { color: #FF7A6E; } .tim-biru .tim-teks small { color: #7CC4FF; }
-
-  .tim-teks h3 { margin: 4px 0 6px; font-family: var(--font-display); font-weight: 400; font-size: 2rem; }
-
-  .tim-teks p { margin: 0; color: var(--muted); }
-
-  .kar-kisi { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding: 16px; }
-
-  .kartu-kar { position: relative; overflow: hidden; padding: 16px 12px; border-radius: 12px; text-align: center;
-
-    border: 1px solid var(--line); background: rgba(0,0,0,.35); transform-style: preserve-3d;
-
-    transition: transform .25s ease, box-shadow .25s, border-color .25s; }
-
-  .tanda { display: grid; place-items: center; width: 56px; height: 56px; margin: 0 auto 10px; border-radius: 50%;
-
-    font-family: var(--font-display); font-size: 1.2rem; color: #fff; }
-
-  .tim-merah .tanda { background: radial-gradient(circle at 35% 30%, #FF7A6E, #A50D06); box-shadow: 0 0 18px rgba(255,42,26,.45); }
-
-  .tim-biru .tanda { background: radial-gradient(circle at 35% 30%, #7CC4FF, #0B4F9C); box-shadow: 0 0 18px rgba(58,160,255,.45); }
-
-  .kartu-kar b { display: block; font-size: .95rem; }
-
-  .kartu-kar small { color: var(--dim); font-size: .76rem; }
-
-
-
-  .baru-kar { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
-
-  .baru-kar .kartu-kar { text-align: left; padding: 18px; background: linear-gradient(180deg, var(--surface-2), var(--surface)); border-color: var(--line-2); }
-
-  .baru-kar .tanda { margin: 0 0 10px; background: radial-gradient(circle at 35% 30%, #FFD27A, #FF2A1A 60%, #3AA0FF); }
-
-  .baru-kar p { margin: 6px 0 0; color: var(--muted); font-size: .86rem; }
-
-  .lencana-baru { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 999px; font-size: .62rem; font-weight: 800;
-
-    letter-spacing: .12em; background: var(--accent); color: #fff; vertical-align: middle; }
-
-  .galat-info { padding: 14px 16px; border-radius: 10px; border: 1px solid rgba(var(--accent-rgb), .5); color: var(--gold-soft); margin-bottom: 18px; }
-
-  @media (max-width: 520px) { .kat-kisi { grid-template-columns: 1fr; } .siluet { width: 90px; height: 28px; } }
-
-</style>
-
-
-
+<div class="info-blok" id="informasi">
 <div class="info-kepala">
-
   <p class="hero-tag" style="justify-content:center">Informasi</p>
-
-  <h1>Senjata &amp; Karakter</h1>
-
-  <p>Kenali senjata dan karakter yang ada di Point Blank Heroes. Semua angka di halaman ini dibaca langsung
-
-    dari server. Arahkan tetikus ke kartu untuk melihatnya dalam 3D.</p>
-
+  <h1 class="info-judul">Senjata &amp; Karakter</h1>
+  <p>Kenali senjata, karakter, dan item yang ada di Point Blank Heroes. Semua data di bagian ini dibaca langsung
+    dari server. Klik kartu item untuk melihat detailnya.</p>
   <nav class="info-loncat" aria-label="Loncat ke bagian">
-
-    <a href="#senjata">Senjata</a><a href="#senjata-baru">Senjata Terbaru</a><a href="#karakter">Karakter</a><a href="#karakter-baru">Karakter Terbaru</a>
-
+    <a href="#senjata">Senjata</a><a href="#senjata-baru">Senjata Terbaru</a><a href="#karakter">Karakter</a><a href="#karakter-baru">Karakter Terbaru</a><a href="#item-lain">Item Lain</a>
   </nav>
-
 </div>
-
-
-
 
 
 <div class="sec" id="senjata" style="margin-top:24px">
-
   <h2><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-panah"/></svg>Jenis <b>Senjata</b></h2>
-
 </div>
-
 <div class="kat-kisi">
-
   <article class="kartu-kat" data-tilt id="ar">
-
     <div class="kat-atas"><svg class="siluet" aria-hidden="true"><use href="#s-ar"/></svg><div><small>Assault Rifle</small><h3>Senapan Serbu</h3></div></div>
-
     <p class="kat-desk">Senjata serba bisa untuk jarak menengah. Pilihan utama kebanyakan pemain.</p>
-
         <ul class="senjata">
-
             <li>
-
         <div class="nm">AK-47 DualMag<span>30 / 240</span></div>
-
         <div class="bar">Damage<i><b style="width:100%"></b></i><em>33</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>140 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:60%"></b></i><em>600 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">M4A1 SE<span>45 / 225</span></div>
-
         <div class="bar">Damage<i><b style="width:79%"></b></i><em>26</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:71%"></b></i><em>100 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:86%"></b></i><em>857 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">SC-2010<span>30 / 150</span></div>
-
         <div class="bar">Damage<i><b style="width:91%"></b></i><em>30</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:75%"></b></i><em>105 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:75%"></b></i><em>750 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">AUG A3 WOE<span>45 / 225</span></div>
-
         <div class="bar">Damage<i><b style="width:91%"></b></i><em>30</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:71%"></b></i><em>100 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:86%"></b></i><em>857 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">K2C<span>30 / 150</span></div>
-
         <div class="bar">Damage<i><b style="width:85%"></b></i><em>28</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>140 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:86%"></b></i><em>857 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">Pindad SS2 V4<span>30 / 120</span></div>
-
         <div class="bar">Damage<i><b style="width:82%"></b></i><em>27</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:54%"></b></i><em>75 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:86%"></b></i><em>857 rpm</em></div>      </li>
-
           </ul>
-
       </article>
-
   <article class="kartu-kat" data-tilt id="smg">
-
     <div class="kat-atas"><svg class="siluet" aria-hidden="true"><use href="#s-smg"/></svg><div><small>Sub Machine Gun</small><h3>SMG</h3></div></div>
-
     <p class="kat-desk">Ringan dan cepat. Unggul di jarak dekat dan untuk bergerak lincah.</p>
-
         <ul class="senjata">
-
             <li>
-
         <div class="nm">Kriss S.V<span>30 / 210</span></div>
-
         <div class="bar">Damage<i><b style="width:95%"></b></i><em>21</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:60%"></b></i><em>60 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:86%"></b></i><em>857 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">P90 M.C.<span>30 / 150</span></div>
-
         <div class="bar">Damage<i><b style="width:100%"></b></i><em>22</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>100 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:86%"></b></i><em>857 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">OA-93<span>30 / 210</span></div>
-
         <div class="bar">Damage<i><b style="width:100%"></b></i><em>22</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:60%"></b></i><em>60 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:100%"></b></i><em>1000 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">MP7 SL<span>40 / 280</span></div>
-
         <div class="bar">Damage<i><b style="width:95%"></b></i><em>21</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:60%"></b></i><em>60 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:100%"></b></i><em>1000 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">Spectre<span>50 / 300</span></div>
-
         <div class="bar">Damage<i><b style="width:100%"></b></i><em>22</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:45%"></b></i><em>45 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:86%"></b></i><em>857 rpm</em></div>      </li>
-
           </ul>
-
       </article>
-
   <article class="kartu-kat" data-tilt id="sr">
-
     <div class="kat-atas"><svg class="siluet" aria-hidden="true"><use href="#s-sr"/></svg><div><small>Sniper Rifle</small><h3>Sniper</h3></div></div>
-
     <p class="kat-desk">Satu tembakan dari jauh bisa langsung menjatuhkan lawan.</p>
-
         <ul class="senjata">
-
             <li>
-
         <div class="nm">Cheytac M200<span>5 / 30</span></div>
-
         <div class="bar">Damage<i><b style="width:48%"></b></i><em>95</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>200 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:17%"></b></i><em>171 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">Barrett M82A1<span>10 / 30</span></div>
-
         <div class="bar">Damage<i><b style="width:100%"></b></i><em>200</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>200 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:9%"></b></i><em>91 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">PGM Hecate II<span>7 / 42</span></div>
-
         <div class="bar">Damage<i><b style="width:49%"></b></i><em>97</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>200 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:17%"></b></i><em>171 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">L115A1<span>5 / 30</span></div>
-
         <div class="bar">Damage<i><b style="width:43%"></b></i><em>85</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>200 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:17%"></b></i><em>171 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">SVD Dragunov<span>10 / 30</span></div>
-
         <div class="bar">Damage<i><b style="width:39%"></b></i><em>78</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:80%"></b></i><em>160 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:10%"></b></i><em>100 rpm</em></div>      </li>
-
           </ul>
-
       </article>
-
   <article class="kartu-kat" data-tilt id="sg">
-
     <div class="kat-atas"><svg class="siluet" aria-hidden="true"><use href="#s-sg"/></svg><div><small>Shotgun</small><h3>Shotgun</h3></div></div>
-
     <p class="kat-desk">Sangat mematikan di jarak dekat, lemah di jarak jauh. Satu tembakan berisi beberapa butir; angka damage-nya untuk tiap butir.</p>
-
         <ul class="senjata">
-
             <li>
-
         <div class="nm">SPAS-15<span>6 / 30</span></div>
-
         <div class="bar">Damage<i><b style="width:100%"></b></i><em>25</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:93%"></b></i><em>65 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:8%"></b></i><em>80 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">M1887<span>8 / 32</span></div>
-
         <div class="bar">Damage<i><b style="width:92%"></b></i><em>23</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:93%"></b></i><em>65 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:6%"></b></i><em>55 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">Zombie Slayer<span>12 / 48</span></div>
-
         <div class="bar">Damage<i><b style="width:88%"></b></i><em>22</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>70 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:7%"></b></i><em>68 rpm</em></div>      </li>
-
           </ul>
-
       </article>
-
   <article class="kartu-kat" data-tilt id="mg">
-
     <div class="kat-atas"><svg class="siluet" aria-hidden="true"><use href="#s-mg"/></svg><div><small>Machine Gun</small><h3>Machine Gun</h3></div></div>
-
     <p class="kat-desk">Peluru sangat banyak untuk menahan musuh terus-menerus.</p>
-
         <ul class="senjata">
-
             <li>
-
         <div class="nm">MK46 SteadyAim<span>150 / 300</span></div>
-
         <div class="bar">Damage<i><b style="width:89%"></b></i><em>25</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>120 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:75%"></b></i><em>750 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">Ultimax 100<span>100 / 200</span></div>
-
         <div class="bar">Damage<i><b style="width:100%"></b></i><em>28</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>120 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:75%"></b></i><em>750 rpm</em></div>      </li>
-
           </ul>
-
       </article>
-
   <article class="kartu-kat" data-tilt id="hg">
-
     <div class="kat-atas"><svg class="siluet" aria-hidden="true"><use href="#s-hg"/></svg><div><small>Secondary</small><h3>Pistol</h3></div></div>
-
     <p class="kat-desk">Senjata cadangan saat peluru senjata utama habis.</p>
-
         <ul class="senjata">
-
             <li>
-
         <div class="nm">Glock 18<span>17 / 68</span></div>
-
         <div class="bar">Damage<i><b style="width:36%"></b></i><em>17</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:90%"></b></i><em>45 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:67%"></b></i><em>667 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">Colt Python<span>7 / 28</span></div>
-
         <div class="bar">Damage<i><b style="width:100%"></b></i><em>47</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:90%"></b></i><em>45 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:21%"></b></i><em>207 rpm</em></div>      </li>
-
             <li>
-
         <div class="nm">Scorpion Vz61<span>40 / 160</span></div>
-
         <div class="bar">Damage<i><b style="width:34%"></b></i><em>16</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>50 m</em></div>
-
         <div class="bar">Kecepatan<i><b style="width:75%"></b></i><em>750 rpm</em></div>      </li>
-
           </ul>
-
       </article>
-
   <article class="kartu-kat" data-tilt id="pisau">
-
     <div class="kat-atas"><svg class="siluet" aria-hidden="true"><use href="#s-pisau"/></svg><div><small>Melee</small><h3>Pisau</h3></div></div>
-
     <p class="kat-desk">Senjata jarak sangat dekat, tidak butuh peluru.</p>
-
         <ul class="senjata">
-
             <li>
-
         <div class="nm">M-7<span>tanpa peluru</span></div>
-
         <div class="bar">Damage<i><b style="width:80%"></b></i><em>70</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:68%"></b></i><em>1.5 m</em></div>
-
               </li>
-
             <li>
-
         <div class="nm">Fang Blade<span>tanpa peluru</span></div>
-
         <div class="bar">Damage<i><b style="width:100%"></b></i><em>88</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>2.2 m</em></div>
-
               </li>
-
             <li>
-
         <div class="nm">Kukri<span>tanpa peluru</span></div>
-
         <div class="bar">Damage<i><b style="width:95%"></b></i><em>84</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:91%"></b></i><em>2 m</em></div>
-
               </li>
-
             <li>
-
         <div class="nm">Karambit<span>tanpa peluru</span></div>
-
         <div class="bar">Damage<i><b style="width:68%"></b></i><em>60</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:77%"></b></i><em>1.7 m</em></div>
-
               </li>
-
           </ul>
-
       </article>
-
   <article class="kartu-kat" data-tilt id="granat">
-
     <div class="kat-atas"><svg class="siluet" aria-hidden="true"><use href="#s-granat"/></svg><div><small>Throwing</small><h3>Granat</h3></div></div>
-
     <p class="kat-desk">Dilempar untuk mengenai musuh di balik perlindungan.</p>
-
         <ul class="senjata">
-
             <li>
-
         <div class="nm">K-400<span>1 / 1</span></div>
-
         <div class="bar">Damage<i><b style="width:100%"></b></i><em>90</em></div>
-
         <div class="bar">Jangkauan<i><b style="width:100%"></b></i><em>30 m</em></div>
-
               </li>
-
           </ul>
-
       </article>
-
 </div>
-
-
 
 <div class="sec" id="senjata-baru" style="margin-top:50px">
-
   <h2><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-api"/></svg>Senjata <b>Terbaru</b></h2>
-
 </div>
-
-<p class="kat-desk" style="padding:0;margin:-6px 0 14px">Model terbaru yang sudah ada di toko server, beserta berbagai skin-nya.</p>
-
-<div class="baru-baris">
-
-  <span>MSBS <small>Senapan Serbu</small></span><span>AUG-HBAR <small>Senapan Serbu</small></span><span>HK416 TBA <small>Senapan Serbu</small></span><span>K2C EBR <small>Senapan Serbu</small></span><span>HK417-R <small>Senapan Serbu</small></span><span>Pindad SS3 <small>Senapan Serbu</small></span><span>Honey Badger <small>SMG</small></span><span>Thompson <small>SMG</small></span><span>PP19 <small>SMG</small></span><span>MP40 <small>SMG</small></span><span>Kar98k TSR <small>Sniper</small></span><span>PGM Hecate II <small>Sniper</small></span><span>Saiga-12 CQB <small>Shotgun</small></span><span>Gatling <small>Machine Gun</small></span><span>MK46-R <small>Machine Gun</small></span><span>K-3 <small>Machine Gun</small></span></div>
-
-
+<p class="info-sub">Senjata dan skin dengan nomor item paling baru di toko server, per jenis. Klik untuk detail.</p>
+<div class="item-kelompok">
+  <h3><svg class="siluet" aria-hidden="true"><use href="#s-ar"/></svg>Senapan Serbu <small>6 terbaru</small></h3>
+  <div class="item-kisi"><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:103999,&quot;nama&quot;:&quot;MSBS Arcade&quot;,&quot;jenis&quot;:&quot;Senapan Serbu&quot;,&quot;ikon&quot;:&quot;s-ar&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;21.294&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-ar"/></svg></span><span class="ki-nama">MSBS Arcade</span><span class="ki-bawah"><span>Senapan Serbu</span><span><b>21.294</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:103998,&quot;nama&quot;:&quot;AUG-HBAR Arcade&quot;,&quot;jenis&quot;:&quot;Senapan Serbu&quot;,&quot;ikon&quot;:&quot;s-ar&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;21.294&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-ar"/></svg></span><span class="ki-nama">AUG-HBAR Arcade</span><span class="ki-bawah"><span>Senapan Serbu</span><span><b>21.294</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:103997,&quot;nama&quot;:&quot;HK416 TBA Arcade&quot;,&quot;jenis&quot;:&quot;Senapan Serbu&quot;,&quot;ikon&quot;:&quot;s-ar&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;21.294&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-ar"/></svg></span><span class="ki-nama">HK416 TBA Arcade</span><span class="ki-bawah"><span>Senapan Serbu</span><span><b>21.294</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:103996,&quot;nama&quot;:&quot;K2C EBR Arcade&quot;,&quot;jenis&quot;:&quot;Senapan Serbu&quot;,&quot;ikon&quot;:&quot;s-ar&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;21.294&quot;]],&quot;stat&quot;:{&quot;damage&quot;:28,&quot;peluru&quot;:&quot;30 \/ 150&quot;,&quot;jangkauan&quot;:&quot;140 m&quot;,&quot;rpm&quot;:857,&quot;dasar&quot;:&quot;K2C&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-ar"/></svg></span><span class="ki-nama">K2C EBR Arcade</span><span class="ki-bawah"><span>Senapan Serbu</span><span><b>21.294</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:103995,&quot;nama&quot;:&quot;HK417 R Arcade&quot;,&quot;jenis&quot;:&quot;Senapan Serbu&quot;,&quot;ikon&quot;:&quot;s-ar&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;21.294&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-ar"/></svg></span><span class="ki-nama">HK417 R Arcade</span><span class="ki-bawah"><span>Senapan Serbu</span><span><b>21.294</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:103994,&quot;nama&quot;:&quot;Pindad SS3 Turkey&quot;,&quot;jenis&quot;:&quot;Senapan Serbu&quot;,&quot;ikon&quot;:&quot;s-ar&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;21.294&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-ar"/></svg></span><span class="ki-nama">Pindad SS3 Turkey</span><span class="ki-bawah"><span>Senapan Serbu</span><span><b>21.294</b> cash</span></span></button></div>
+</div>
+<div class="item-kelompok">
+  <h3><svg class="siluet" aria-hidden="true"><use href="#s-smg"/></svg>SMG <small>6 terbaru</small></h3>
+  <div class="item-kisi"><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:104999,&quot;nama&quot;:&quot;OA-93 Champion&quot;,&quot;jenis&quot;:&quot;SMG&quot;,&quot;ikon&quot;:&quot;s-smg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.102&quot;],[&quot;7 hari&quot;,&quot;13.650&quot;],[&quot;30 hari&quot;,&quot;32.578&quot;]],&quot;stat&quot;:{&quot;damage&quot;:22,&quot;peluru&quot;:&quot;60 \/ 60&quot;,&quot;jangkauan&quot;:&quot;60 m&quot;,&quot;rpm&quot;:1000,&quot;dasar&quot;:&quot;OA-93&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-smg"/></svg></span><span class="ki-nama">OA-93 Champion</span><span class="ki-bawah"><span>SMG</span><span><b>32.578</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:104997,&quot;nama&quot;:&quot;OA-93 Barong&quot;,&quot;jenis&quot;:&quot;SMG&quot;,&quot;ikon&quot;:&quot;s-smg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.102&quot;],[&quot;7 hari&quot;,&quot;13.650&quot;],[&quot;30 hari&quot;,&quot;32.578&quot;]],&quot;stat&quot;:{&quot;damage&quot;:22,&quot;peluru&quot;:&quot;60 \/ 60&quot;,&quot;jangkauan&quot;:&quot;60 m&quot;,&quot;rpm&quot;:1000,&quot;dasar&quot;:&quot;OA-93&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-smg"/></svg></span><span class="ki-nama">OA-93 Barong</span><span class="ki-bawah"><span>SMG</span><span><b>32.578</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:104995,&quot;nama&quot;:&quot;Kriss S.V Barong&quot;,&quot;jenis&quot;:&quot;SMG&quot;,&quot;ikon&quot;:&quot;s-smg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.102&quot;],[&quot;7 hari&quot;,&quot;13.650&quot;],[&quot;30 hari&quot;,&quot;32.578&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-smg"/></svg></span><span class="ki-nama">Kriss S.V Barong</span><span class="ki-bawah"><span>SMG</span><span><b>32.578</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:104993,&quot;nama&quot;:&quot;OA-93 Team Epic&quot;,&quot;jenis&quot;:&quot;SMG&quot;,&quot;ikon&quot;:&quot;s-smg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;7.644&quot;],[&quot;7 hari&quot;,&quot;11.102&quot;],[&quot;30 hari&quot;,&quot;18.382&quot;]],&quot;stat&quot;:{&quot;damage&quot;:22,&quot;peluru&quot;:&quot;60 \/ 60&quot;,&quot;jangkauan&quot;:&quot;60 m&quot;,&quot;rpm&quot;:1000,&quot;dasar&quot;:&quot;OA-93&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-smg"/></svg></span><span class="ki-nama">OA-93 Team Epic</span><span class="ki-bawah"><span>SMG</span><span><b>18.382</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:104991,&quot;nama&quot;:&quot;Kriss S.V Team Epic&quot;,&quot;jenis&quot;:&quot;SMG&quot;,&quot;ikon&quot;:&quot;s-smg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;7.644&quot;],[&quot;7 hari&quot;,&quot;11.102&quot;],[&quot;30 hari&quot;,&quot;18.382&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-smg"/></svg></span><span class="ki-nama">Kriss S.V Team Epic</span><span class="ki-bawah"><span>SMG</span><span><b>18.382</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:104990,&quot;nama&quot;:&quot;Pink Dragon SMG&quot;,&quot;jenis&quot;:&quot;SMG&quot;,&quot;ikon&quot;:&quot;s-smg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;22.022&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-smg"/></svg></span><span class="ki-nama">Pink Dragon SMG</span><span class="ki-bawah"><span>SMG</span><span><b>22.022</b> cash</span></span></button></div>
+</div>
+<div class="item-kelompok">
+  <h3><svg class="siluet" aria-hidden="true"><use href="#s-sr"/></svg>Sniper <small>6 terbaru</small></h3>
+  <div class="item-kisi"><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:105670,&quot;nama&quot;:&quot;PGM-Hecate2 Point&quot;,&quot;jenis&quot;:&quot;Sniper&quot;,&quot;ikon&quot;:&quot;s-sr&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.374&quot;]],&quot;stat&quot;:{&quot;damage&quot;:97,&quot;peluru&quot;:&quot;7 \/ 42&quot;,&quot;jangkauan&quot;:&quot;200 m&quot;,&quot;rpm&quot;:171,&quot;dasar&quot;:&quot;PGM-Hecate2&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sr"/></svg></span><span class="ki-nama">PGM-Hecate2 Point</span><span class="ki-bawah"><span>Sniper</span><span><b>10.374</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:105663,&quot;nama&quot;:&quot;Kar98k TSR Wildcats&quot;,&quot;jenis&quot;:&quot;Sniper&quot;,&quot;ikon&quot;:&quot;s-sr&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.648&quot;],[&quot;7 hari&quot;,&quot;14.014&quot;],[&quot;30 hari&quot;,&quot;33.980&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sr"/></svg></span><span class="ki-nama">Kar98k TSR Wildcats</span><span class="ki-bawah"><span>Sniper</span><span><b>33.980</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:105661,&quot;nama&quot;:&quot;Kar98k TSR Persian&quot;,&quot;jenis&quot;:&quot;Sniper&quot;,&quot;ikon&quot;:&quot;s-sr&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;22.204&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sr"/></svg></span><span class="ki-nama">Kar98k TSR Persian</span><span class="ki-bawah"><span>Sniper</span><span><b>22.204</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:105659,&quot;nama&quot;:&quot;Barrett Persian&quot;,&quot;jenis&quot;:&quot;Sniper&quot;,&quot;ikon&quot;:&quot;s-sr&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;22.204&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sr"/></svg></span><span class="ki-nama">Barrett Persian</span><span class="ki-bawah"><span>Sniper</span><span><b>22.204</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:105658,&quot;nama&quot;:&quot;Barrett Popcorn&quot;,&quot;jenis&quot;:&quot;Sniper&quot;,&quot;ikon&quot;:&quot;s-sr&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;22.204&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sr"/></svg></span><span class="ki-nama">Barrett Popcorn</span><span class="ki-bawah"><span>Sniper</span><span><b>22.204</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:105657,&quot;nama&quot;:&quot;Kar98k TSR Popcorn&quot;,&quot;jenis&quot;:&quot;Sniper&quot;,&quot;ikon&quot;:&quot;s-sr&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.648&quot;],[&quot;7 hari&quot;,&quot;14.014&quot;],[&quot;30 hari&quot;,&quot;33.980&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sr"/></svg></span><span class="ki-nama">Kar98k TSR Popcorn</span><span class="ki-bawah"><span>Sniper</span><span><b>33.980</b> cash</span></span></button></div>
+</div>
+<div class="item-kelompok">
+  <h3><svg class="siluet" aria-hidden="true"><use href="#s-sg"/></svg>Shotgun <small>6 terbaru</small></h3>
+  <div class="item-kisi"><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:106316,&quot;nama&quot;:&quot;Saiga-12 Point&quot;,&quot;jenis&quot;:&quot;Shotgun&quot;,&quot;ikon&quot;:&quot;s-sg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.102&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sg"/></svg></span><span class="ki-nama">Saiga-12 Point</span><span class="ki-bawah"><span>Shotgun</span><span><b>11.102</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:106312,&quot;nama&quot;:&quot;Saiga-12 CQB Astel&quot;,&quot;jenis&quot;:&quot;Shotgun&quot;,&quot;ikon&quot;:&quot;s-sg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;22.568&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sg"/></svg></span><span class="ki-nama">Saiga-12 CQB Astel</span><span class="ki-bawah"><span>Shotgun</span><span><b>22.568</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:106311,&quot;nama&quot;:&quot;Zombie Slayer Persian&quot;,&quot;jenis&quot;:&quot;Shotgun&quot;,&quot;ikon&quot;:&quot;s-sg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;22.568&quot;]],&quot;stat&quot;:{&quot;damage&quot;:22,&quot;peluru&quot;:&quot;12 \/ 48&quot;,&quot;jangkauan&quot;:&quot;70 m&quot;,&quot;rpm&quot;:68,&quot;dasar&quot;:&quot;Zombie Slayer&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sg"/></svg></span><span class="ki-nama">Zombie Slayer Persian</span><span class="ki-bawah"><span>Shotgun</span><span><b>22.568</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:106310,&quot;nama&quot;:&quot;Zombie Slayer Popcorn&quot;,&quot;jenis&quot;:&quot;Shotgun&quot;,&quot;ikon&quot;:&quot;s-sg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.284&quot;],[&quot;7 hari&quot;,&quot;14.014&quot;],[&quot;30 hari&quot;,&quot;33.670&quot;]],&quot;stat&quot;:{&quot;damage&quot;:22,&quot;peluru&quot;:&quot;12 \/ 48&quot;,&quot;jangkauan&quot;:&quot;70 m&quot;,&quot;rpm&quot;:68,&quot;dasar&quot;:&quot;Zombie Slayer&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sg"/></svg></span><span class="ki-nama">Zombie Slayer Popcorn</span><span class="ki-bawah"><span>Shotgun</span><span><b>33.670</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:106309,&quot;nama&quot;:&quot;M1887 Deadly Hydra&quot;,&quot;jenis&quot;:&quot;Shotgun&quot;,&quot;ikon&quot;:&quot;s-sg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;22.568&quot;]],&quot;stat&quot;:{&quot;damage&quot;:23,&quot;peluru&quot;:&quot;8 \/ 32&quot;,&quot;jangkauan&quot;:&quot;65 m&quot;,&quot;rpm&quot;:55,&quot;dasar&quot;:&quot;M1887&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sg"/></svg></span><span class="ki-nama">M1887 Deadly Hydra</span><span class="ki-bawah"><span>Shotgun</span><span><b>22.568</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:106308,&quot;nama&quot;:&quot;Zombie Slayer Unix Paradise&quot;,&quot;jenis&quot;:&quot;Shotgun&quot;,&quot;ikon&quot;:&quot;s-sg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.284&quot;],[&quot;7 hari&quot;,&quot;14.014&quot;],[&quot;30 hari&quot;,&quot;33.670&quot;]],&quot;stat&quot;:{&quot;damage&quot;:22,&quot;peluru&quot;:&quot;12 \/ 48&quot;,&quot;jangkauan&quot;:&quot;70 m&quot;,&quot;rpm&quot;:68,&quot;dasar&quot;:&quot;Zombie Slayer&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-sg"/></svg></span><span class="ki-nama">Zombie Slayer Unix Paradise</span><span class="ki-bawah"><span>Shotgun</span><span><b>33.670</b> cash</span></span></button></div>
+</div>
+<div class="item-kelompok">
+  <h3><svg class="siluet" aria-hidden="true"><use href="#s-mg"/></svg>Machine Gun <small>6 terbaru</small></h3>
+  <div class="item-kisi"><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:110037,&quot;nama&quot;:&quot;Gatling Point&quot;,&quot;jenis&quot;:&quot;Machine Gun&quot;,&quot;ikon&quot;:&quot;s-mg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.374&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-mg"/></svg></span><span class="ki-nama">Gatling Point</span><span class="ki-bawah"><span>Machine Gun</span><span><b>10.374</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:110035,&quot;nama&quot;:&quot;Gatling Astel&quot;,&quot;jenis&quot;:&quot;Machine Gun&quot;,&quot;ikon&quot;:&quot;s-mg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;22.750&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-mg"/></svg></span><span class="ki-nama">Gatling Astel</span><span class="ki-bawah"><span>Machine Gun</span><span><b>22.750</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:110034,&quot;nama&quot;:&quot;MK46 R Block&quot;,&quot;jenis&quot;:&quot;Machine Gun&quot;,&quot;ikon&quot;:&quot;s-mg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.102&quot;],[&quot;7 hari&quot;,&quot;13.650&quot;],[&quot;30 hari&quot;,&quot;32.578&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-mg"/></svg></span><span class="ki-nama">MK46 R Block</span><span class="ki-bawah"><span>Machine Gun</span><span><b>32.578</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:110033,&quot;nama&quot;:&quot;MK46 R Hwarang&quot;,&quot;jenis&quot;:&quot;Machine Gun&quot;,&quot;ikon&quot;:&quot;s-mg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;22.750&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-mg"/></svg></span><span class="ki-nama">MK46 R Hwarang</span><span class="ki-bawah"><span>Machine Gun</span><span><b>22.750</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:110032,&quot;nama&quot;:&quot;K-3&quot;,&quot;jenis&quot;:&quot;Machine Gun&quot;,&quot;ikon&quot;:&quot;s-mg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;22.568&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-mg"/></svg></span><span class="ki-nama">K-3</span><span class="ki-bawah"><span>Machine Gun</span><span><b>22.568</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:110029,&quot;nama&quot;:&quot;MK46 R Halloween2024&quot;,&quot;jenis&quot;:&quot;Machine Gun&quot;,&quot;ikon&quot;:&quot;s-mg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;22.568&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-mg"/></svg></span><span class="ki-nama">MK46 R Halloween2024</span><span class="ki-bawah"><span>Machine Gun</span><span><b>22.568</b> cash</span></span></button></div>
+</div>
+<div class="item-kelompok">
+  <h3><svg class="siluet" aria-hidden="true"><use href="#s-hg"/></svg>Pistol <small>6 terbaru</small></h3>
+  <div class="item-kisi"><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:202306,&quot;nama&quot;:&quot;Hk45 Point&quot;,&quot;jenis&quot;:&quot;Pistol&quot;,&quot;ikon&quot;:&quot;s-hg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;25.298&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-hg"/></svg></span><span class="ki-nama">Hk45 Point</span><span class="ki-bawah"><span>Pistol</span><span><b>25.298</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:202302,&quot;nama&quot;:&quot;Taurus 454SS Scope Wildcats&quot;,&quot;jenis&quot;:&quot;Pistol&quot;,&quot;ikon&quot;:&quot;s-hg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.738&quot;],[&quot;7 hari&quot;,&quot;13.286&quot;],[&quot;30 hari&quot;,&quot;30.758&quot;]],&quot;stat&quot;:{&quot;damage&quot;:75,&quot;peluru&quot;:&quot;5 \/ 25&quot;,&quot;jangkauan&quot;:&quot;50 m&quot;,&quot;rpm&quot;:600,&quot;dasar&quot;:&quot;Taurus 454SS Scope&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-hg"/></svg></span><span class="ki-nama">Taurus 454SS Scope Wildcats</span><span class="ki-bawah"><span>Pistol</span><span><b>30.758</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:202301,&quot;nama&quot;:&quot;Taurus 454SS Scope Popcorn&quot;,&quot;jenis&quot;:&quot;Pistol&quot;,&quot;ikon&quot;:&quot;s-hg&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.738&quot;],[&quot;7 hari&quot;,&quot;13.286&quot;],[&quot;30 hari&quot;,&quot;30.758&quot;]],&quot;stat&quot;:{&quot;damage&quot;:75,&quot;peluru&quot;:&quot;5 \/ 25&quot;,&quot;jangkauan&quot;:&quot;50 m&quot;,&quot;rpm&quot;:600,&quot;dasar&quot;:&quot;Taurus 454SS Scope&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-hg"/></svg></span><span class="ki-nama">Taurus 454SS Scope Popcorn</span><span class="ki-bawah"><span>Pistol</span><span><b>30.758</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:202300,&quot;nama&quot;:&quot;Taurus 454SS Scope Deadly Hydra&quot;,&quot;jenis&quot;:&quot;Pistol&quot;,&quot;ikon&quot;:&quot;s-hg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;25.298&quot;]],&quot;stat&quot;:{&quot;damage&quot;:75,&quot;peluru&quot;:&quot;5 \/ 25&quot;,&quot;jangkauan&quot;:&quot;50 m&quot;,&quot;rpm&quot;:600,&quot;dasar&quot;:&quot;Taurus 454SS Scope&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-hg"/></svg></span><span class="ki-nama">Taurus 454SS Scope Deadly Hydra</span><span class="ki-bawah"><span>Pistol</span><span><b>25.298</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:202299,&quot;nama&quot;:&quot;Taurus 454SS Scope Arcade&quot;,&quot;jenis&quot;:&quot;Pistol&quot;,&quot;ikon&quot;:&quot;s-hg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;25.298&quot;]],&quot;stat&quot;:{&quot;damage&quot;:75,&quot;peluru&quot;:&quot;5 \/ 25&quot;,&quot;jangkauan&quot;:&quot;50 m&quot;,&quot;rpm&quot;:600,&quot;dasar&quot;:&quot;Taurus 454SS Scope&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-hg"/></svg></span><span class="ki-nama">Taurus 454SS Scope Arcade</span><span class="ki-bawah"><span>Pistol</span><span><b>25.298</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:202298,&quot;nama&quot;:&quot;Taurus 454SS Scope Turkey&quot;,&quot;jenis&quot;:&quot;Pistol&quot;,&quot;ikon&quot;:&quot;s-hg&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;25.298&quot;]],&quot;stat&quot;:{&quot;damage&quot;:75,&quot;peluru&quot;:&quot;5 \/ 25&quot;,&quot;jangkauan&quot;:&quot;50 m&quot;,&quot;rpm&quot;:600,&quot;dasar&quot;:&quot;Taurus 454SS Scope&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-hg"/></svg></span><span class="ki-nama">Taurus 454SS Scope Turkey</span><span class="ki-bawah"><span>Pistol</span><span><b>25.298</b> cash</span></span></button></div>
+</div>
+<div class="item-kelompok">
+  <h3><svg class="siluet" aria-hidden="true"><use href="#s-pisau"/></svg>Pisau <small>6 terbaru</small></h3>
+  <div class="item-kisi"><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:301477,&quot;nama&quot;:&quot;ButterflyKnife Wildcats&quot;,&quot;jenis&quot;:&quot;Pisau&quot;,&quot;ikon&quot;:&quot;s-pisau&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.374&quot;],[&quot;7 hari&quot;,&quot;13.104&quot;],[&quot;30 hari&quot;,&quot;29.848&quot;]],&quot;stat&quot;:{&quot;damage&quot;:86,&quot;peluru&quot;:&quot;tanpa peluru&quot;,&quot;jangkauan&quot;:&quot;1.5 m&quot;,&quot;rpm&quot;:null,&quot;dasar&quot;:&quot;Butterfly Knife&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-pisau"/></svg></span><span class="ki-nama">ButterflyKnife Wildcats</span><span class="ki-bawah"><span>Pisau</span><span><b>29.848</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:301475,&quot;nama&quot;:&quot;CheeringStick Astel&quot;,&quot;jenis&quot;:&quot;Pisau&quot;,&quot;ikon&quot;:&quot;s-pisau&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;26.208&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-pisau"/></svg></span><span class="ki-nama">CheeringStick Astel</span><span class="ki-bawah"><span>Pisau</span><span><b>26.208</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:301474,&quot;nama&quot;:&quot;FangBlade Persian&quot;,&quot;jenis&quot;:&quot;Pisau&quot;,&quot;ikon&quot;:&quot;s-pisau&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;26.208&quot;]],&quot;stat&quot;:{&quot;damage&quot;:88,&quot;peluru&quot;:&quot;tanpa peluru&quot;,&quot;jangkauan&quot;:&quot;2.2 m&quot;,&quot;rpm&quot;:null,&quot;dasar&quot;:&quot;FangBlade&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-pisau"/></svg></span><span class="ki-nama">FangBlade Persian</span><span class="ki-bawah"><span>Pisau</span><span><b>26.208</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:301473,&quot;nama&quot;:&quot;FangBlade Popcorn&quot;,&quot;jenis&quot;:&quot;Pisau&quot;,&quot;ikon&quot;:&quot;s-pisau&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.738&quot;],[&quot;7 hari&quot;,&quot;13.286&quot;],[&quot;30 hari&quot;,&quot;30.576&quot;]],&quot;stat&quot;:{&quot;damage&quot;:88,&quot;peluru&quot;:&quot;tanpa peluru&quot;,&quot;jangkauan&quot;:&quot;2.2 m&quot;,&quot;rpm&quot;:null,&quot;dasar&quot;:&quot;FangBlade&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-pisau"/></svg></span><span class="ki-nama">FangBlade Popcorn</span><span class="ki-bawah"><span>Pisau</span><span><b>30.576</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:301470,&quot;nama&quot;:&quot;FangBlade Unix Paradise&quot;,&quot;jenis&quot;:&quot;Pisau&quot;,&quot;ikon&quot;:&quot;s-pisau&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.374&quot;],[&quot;7 hari&quot;,&quot;13.286&quot;],[&quot;30 hari&quot;,&quot;30.030&quot;]],&quot;stat&quot;:{&quot;damage&quot;:88,&quot;peluru&quot;:&quot;tanpa peluru&quot;,&quot;jangkauan&quot;:&quot;2.2 m&quot;,&quot;rpm&quot;:null,&quot;dasar&quot;:&quot;FangBlade&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-pisau"/></svg></span><span class="ki-nama">FangBlade Unix Paradise</span><span class="ki-bawah"><span>Pisau</span><span><b>30.030</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:301469,&quot;nama&quot;:&quot;FangBlade Arcade&quot;,&quot;jenis&quot;:&quot;Pisau&quot;,&quot;ikon&quot;:&quot;s-pisau&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;26.208&quot;]],&quot;stat&quot;:{&quot;damage&quot;:88,&quot;peluru&quot;:&quot;tanpa peluru&quot;,&quot;jangkauan&quot;:&quot;2.2 m&quot;,&quot;rpm&quot;:null,&quot;dasar&quot;:&quot;FangBlade&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-pisau"/></svg></span><span class="ki-nama">FangBlade Arcade</span><span class="ki-bawah"><span>Pisau</span><span><b>26.208</b> cash</span></span></button></div>
+</div>
+<div class="item-kelompok">
+  <h3><svg class="siluet" aria-hidden="true"><use href="#s-granat"/></svg>Granat &amp; Lempar <small>6 terbaru</small></h3>
+  <div class="item-kisi"><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:407117,&quot;nama&quot;:&quot;K-400 AoeXe Basic&quot;,&quot;jenis&quot;:&quot;Granat &amp; Lempar&quot;,&quot;ikon&quot;:&quot;s-granat&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;27.664&quot;]],&quot;stat&quot;:{&quot;damage&quot;:90,&quot;peluru&quot;:&quot;1 \/ 1&quot;,&quot;jangkauan&quot;:&quot;30 m&quot;,&quot;rpm&quot;:null,&quot;dasar&quot;:&quot;K-400&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-granat"/></svg></span><span class="ki-nama">K-400 AoeXe Basic</span><span class="ki-bawah"><span>Granat &amp; Lempar</span><span><b>27.664</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:407115,&quot;nama&quot;:&quot;C5 Bayram24&quot;,&quot;jenis&quot;:&quot;Granat &amp; Lempar&quot;,&quot;ikon&quot;:&quot;s-granat&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.192&quot;],[&quot;7 hari&quot;,&quot;13.104&quot;],[&quot;30 hari&quot;,&quot;29.120&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-granat"/></svg></span><span class="ki-nama">C5 Bayram24</span><span class="ki-bawah"><span>Granat &amp; Lempar</span><span><b>29.120</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:407114,&quot;nama&quot;:&quot;C5 PBST24&quot;,&quot;jenis&quot;:&quot;Granat &amp; Lempar&quot;,&quot;ikon&quot;:&quot;s-granat&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.192&quot;],[&quot;7 hari&quot;,&quot;13.104&quot;],[&quot;30 hari&quot;,&quot;28.938&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-granat"/></svg></span><span class="ki-nama">C5 PBST24</span><span class="ki-bawah"><span>Granat &amp; Lempar</span><span><b>28.938</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:407113,&quot;nama&quot;:&quot;M18A1 Claymore Champion&quot;,&quot;jenis&quot;:&quot;Granat &amp; Lempar&quot;,&quot;ikon&quot;:&quot;s-granat&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.192&quot;],[&quot;7 hari&quot;,&quot;13.104&quot;],[&quot;30 hari&quot;,&quot;29.120&quot;]],&quot;stat&quot;:{&quot;damage&quot;:65,&quot;peluru&quot;:&quot;1 \/ 1&quot;,&quot;jangkauan&quot;:&quot;30 m&quot;,&quot;rpm&quot;:null,&quot;dasar&quot;:&quot;M18 A1 Claymore&quot;}}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-granat"/></svg></span><span class="ki-nama">M18A1 Claymore Champion</span><span class="ki-bawah"><span>Granat &amp; Lempar</span><span><b>29.120</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:407112,&quot;nama&quot;:&quot;CakeBomb&quot;,&quot;jenis&quot;:&quot;Granat &amp; Lempar&quot;,&quot;ikon&quot;:&quot;s-granat&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.738&quot;],[&quot;7 hari&quot;,&quot;13.286&quot;],[&quot;30 hari&quot;,&quot;30.576&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-granat"/></svg></span><span class="ki-nama">CakeBomb</span><span class="ki-bawah"><span>Granat &amp; Lempar</span><span><b>30.576</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:407111,&quot;nama&quot;:&quot;Maracas Summer2023 Grenade&quot;,&quot;jenis&quot;:&quot;Granat &amp; Lempar&quot;,&quot;ikon&quot;:&quot;s-granat&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.374&quot;],[&quot;7 hari&quot;,&quot;13.104&quot;],[&quot;30 hari&quot;,&quot;29.302&quot;]],&quot;stat&quot;:null}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-granat"/></svg></span><span class="ki-nama">Maracas Summer2023 Grenade</span><span class="ki-bawah"><span>Granat &amp; Lempar</span><span><b>29.302</b> cash</span></span></button></div>
+</div>
 
 <div class="sec" id="karakter" style="margin-top:56px">
-
   <h2><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-perisai"/></svg>Karakter <b>Dua Tim</b></h2>
-
 </div>
-
 <div class="tim tim-merah">
-
   <div class="tim-latar" style="background-image:url('./assets/info/tim-fr.webp')">
-
     <div class="tim-teks"><small>Tim Merah</small><h3>Free Rebels</h3><p>Pihak pemberontak. Masuk ke medan tempur untuk menanam bom dan menguasai wilayah.</p></div>
-
   </div>
-
   <div class="kar-kisi">
-
         <div class="kartu-kar" data-tilt><span class="tanda">RB</span><b>Red Bulls</b>
-
       <small>39 kostum di toko</small></div>
-
         <div class="kartu-kar" data-tilt><span class="tanda">TA</span><b>Tarantula</b>
-
       <small>93 kostum di toko</small></div>
-
         <div class="kartu-kar" data-tilt><span class="tanda">VR</span><b>Viper Red</b>
-
       <small>104 kostum di toko</small></div>
-
         <div class="kartu-kar" data-tilt><span class="tanda">DF</span><b>D-Fox</b>
-
       <small>43 kostum di toko</small></div>
-
         <div class="kartu-kar" data-tilt><span class="tanda">RI</span><b>Rica</b>
-
       <small>86 kostum di toko</small></div>
-
         <div class="kartu-kar" data-tilt><span class="tanda">CG</span><b>Caiman Grey</b>
-
       <small>13 kostum di toko</small></div>
-
       </div>
-
 </div>
-
 <div class="tim tim-biru">
-
   <div class="tim-latar" style="background-image:url('./assets/info/tim-ct.webp')">
-
     <div class="tim-teks"><small>Tim Biru</small><h3>CT-Force</h3><p>Pasukan anti-teror. Bertugas menjinakkan bom dan menghentikan pemberontak.</p></div>
-
   </div>
-
   <div class="kar-kisi">
-
         <div class="kartu-kar" data-tilt><span class="tanda">AP</span><b>Acid Pool</b>
-
       <small>40 kostum di toko</small></div>
-
         <div class="kartu-kar" data-tilt><span class="tanda">KE</span><b>Keen Eyes</b>
-
       <small>89 kostum di toko</small></div>
-
         <div class="kartu-kar" data-tilt><span class="tanda">LE</span><b>Leopard</b>
-
       <small>48 kostum di toko</small></div>
-
         <div class="kartu-kar" data-tilt><span class="tanda">HI</span><b>Hide</b>
-
       <small>115 kostum di toko</small></div>
-
         <div class="kartu-kar" data-tilt><span class="tanda">CH</span><b>Chou</b>
-
       <small>86 kostum di toko</small></div>
-
         <div class="kartu-kar" data-tilt><span class="tanda">WO</span><b>Wolf</b>
-
       <small>13 kostum di toko</small></div>
-
       </div>
-
 </div>
-
-
 
 <div class="sec" id="karakter-baru" style="margin-top:40px">
-
   <h2><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-mahkota"/></svg>Karakter <b>Terbaru</b></h2>
+</div>
+<p class="info-sub">Karakter dan kostum dengan nomor item paling baru di toko server. Klik untuk detail.</p>
+<div class="item-kisi" style="margin-bottom:20px"><button type="button" class="kartu-item tim-biru" data-tilt data-info="{&quot;kode&quot;:664890,&quot;nama&quot;:&quot;Gowoon Shaman Blue&quot;,&quot;jenis&quot;:&quot;Karakter Tim Biru&quot;,&quot;tim&quot;:&quot;biru&quot;,&quot;tanda&quot;:&quot;GS&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.210&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">GS</span></span><span class="ki-nama">Gowoon Shaman Blue</span><span class="ki-bawah"><span>Karakter Tim Biru</span><span><b>28.210</b> cash</span></span></button><button type="button" class="kartu-item tim-biru" data-tilt data-info="{&quot;kode&quot;:664888,&quot;nama&quot;:&quot;Dajeong Shaman Blue&quot;,&quot;jenis&quot;:&quot;Karakter Tim Biru&quot;,&quot;tim&quot;:&quot;biru&quot;,&quot;tanda&quot;:&quot;DS&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.210&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">DS</span></span><span class="ki-nama">Dajeong Shaman Blue</span><span class="ki-bawah"><span>Karakter Tim Biru</span><span><b>28.210</b> cash</span></span></button><button type="button" class="kartu-item tim-merah" data-tilt data-info="{&quot;kode&quot;:601884,&quot;nama&quot;:&quot;ViperRed Snowfall Sovereign&quot;,&quot;jenis&quot;:&quot;Karakter Tim Merah&quot;,&quot;tim&quot;:&quot;merah&quot;,&quot;tanda&quot;:&quot;VS&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;27.846&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">VS</span></span><span class="ki-nama">ViperRed Snowfall Sovereign</span><span class="ki-bawah"><span>Karakter Tim Merah</span><span><b>27.846</b> cash</span></span></button><button type="button" class="kartu-item tim-biru" data-tilt data-info="{&quot;kode&quot;:602883,&quot;nama&quot;:&quot;Hide Snowfall Sovereign&quot;,&quot;jenis&quot;:&quot;Karakter Tim Biru&quot;,&quot;tim&quot;:&quot;biru&quot;,&quot;tanda&quot;:&quot;HS&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.210&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">HS</span></span><span class="ki-nama">Hide Snowfall Sovereign</span><span class="ki-bawah"><span>Karakter Tim Biru</span><span><b>28.210</b> cash</span></span></button><button type="button" class="kartu-item tim-merah" data-tilt data-info="{&quot;kode&quot;:601880,&quot;nama&quot;:&quot;D-Fox Point&quot;,&quot;jenis&quot;:&quot;Karakter Tim Merah&quot;,&quot;tim&quot;:&quot;merah&quot;,&quot;tanda&quot;:&quot;DF&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.192&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">DF</span></span><span class="ki-nama">D-Fox Point</span><span class="ki-bawah"><span>Karakter Tim Merah</span><span><b>10.192</b> cash</span></span></button><button type="button" class="kartu-item tim-biru" data-tilt data-info="{&quot;kode&quot;:602879,&quot;nama&quot;:&quot;Leopard Point&quot;,&quot;jenis&quot;:&quot;Karakter Tim Biru&quot;,&quot;tim&quot;:&quot;biru&quot;,&quot;tanda&quot;:&quot;LP&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.192&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">LP</span></span><span class="ki-nama">Leopard Point</span><span class="ki-bawah"><span>Karakter Tim Biru</span><span><b>10.192</b> cash</span></span></button><button type="button" class="kartu-item tim-merah" data-tilt data-info="{&quot;kode&quot;:601878,&quot;nama&quot;:&quot;Reinforced REBEL Female Point&quot;,&quot;jenis&quot;:&quot;Karakter Tim Merah&quot;,&quot;tim&quot;:&quot;merah&quot;,&quot;tanda&quot;:&quot;RR&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.284&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">RR</span></span><span class="ki-nama">Reinforced REBEL Female Point</span><span class="ki-bawah"><span>Karakter Tim Merah</span><span><b>11.284</b> cash</span></span></button><button type="button" class="kartu-item tim-biru" data-tilt data-info="{&quot;kode&quot;:602877,&quot;nama&quot;:&quot;Reinforced SWAT Female Point&quot;,&quot;jenis&quot;:&quot;Karakter Tim Biru&quot;,&quot;tim&quot;:&quot;biru&quot;,&quot;tanda&quot;:&quot;RS&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.284&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">RS</span></span><span class="ki-nama">Reinforced SWAT Female Point</span><span class="ki-bawah"><span>Karakter Tim Biru</span><span><b>11.284</b> cash</span></span></button><button type="button" class="kartu-item tim-merah" data-tilt data-info="{&quot;kode&quot;:601874,&quot;nama&quot;:&quot;Caimangrey AeroStrikeCorps&quot;,&quot;jenis&quot;:&quot;Karakter Tim Merah&quot;,&quot;tim&quot;:&quot;merah&quot;,&quot;tanda&quot;:&quot;CA&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;27.846&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">CA</span></span><span class="ki-nama">Caimangrey AeroStrikeCorps</span><span class="ki-bawah"><span>Karakter Tim Merah</span><span><b>27.846</b> cash</span></span></button><button type="button" class="kartu-item tim-biru" data-tilt data-info="{&quot;kode&quot;:602873,&quot;nama&quot;:&quot;Wolf AeroStrikeCorps&quot;,&quot;jenis&quot;:&quot;Karakter Tim Biru&quot;,&quot;tim&quot;:&quot;biru&quot;,&quot;tanda&quot;:&quot;WA&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.210&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">WA</span></span><span class="ki-nama">Wolf AeroStrikeCorps</span><span class="ki-bawah"><span>Karakter Tim Biru</span><span><b>28.210</b> cash</span></span></button><button type="button" class="kartu-item tim-merah" data-tilt data-info="{&quot;kode&quot;:601872,&quot;nama&quot;:&quot;ViperRed Point&quot;,&quot;jenis&quot;:&quot;Karakter Tim Merah&quot;,&quot;tim&quot;:&quot;merah&quot;,&quot;tanda&quot;:&quot;VP&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.192&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">VP</span></span><span class="ki-nama">ViperRed Point</span><span class="ki-bawah"><span>Karakter Tim Merah</span><span><b>10.192</b> cash</span></span></button><button type="button" class="kartu-item tim-biru" data-tilt data-info="{&quot;kode&quot;:602871,&quot;nama&quot;:&quot;Hide Point&quot;,&quot;jenis&quot;:&quot;Karakter Tim Biru&quot;,&quot;tim&quot;:&quot;biru&quot;,&quot;tanda&quot;:&quot;HP&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.192&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><span class="tanda">HP</span></span><span class="ki-nama">Hide Point</span><span class="ki-bawah"><span>Karakter Tim Biru</span><span><b>10.192</b> cash</span></span></button></div>
 
+<div class="sec" id="item-lain" style="margin-top:40px">
+  <h2><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-hadiah"/></svg>Item <b>Lainnya</b></h2>
+</div>
+<p class="info-sub">Aksesori terbaru di toko server. Klik untuk detail.</p>
+<div class="item-kelompok">
+  <h3><svg class="siluet" aria-hidden="true"><use href="#s-helm"/></svg>Helm &amp; Rambut <small>6 terbaru</small></h3>
+  <div class="item-kisi"><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:700363,&quot;nama&quot;:&quot;PBIC2026&quot;,&quot;jenis&quot;:&quot;Helm &amp; Rambut&quot;,&quot;ikon&quot;:&quot;s-helm&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.392&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-helm"/></svg></span><span class="ki-nama">PBIC2026</span><span class="ki-bawah"><span>Helm &amp; Rambut</span><span><b>28.392</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:700362,&quot;nama&quot;:&quot;Red-Devil Point&quot;,&quot;jenis&quot;:&quot;Helm &amp; Rambut&quot;,&quot;ikon&quot;:&quot;s-helm&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.392&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-helm"/></svg></span><span class="ki-nama">Red-Devil Point</span><span class="ki-bawah"><span>Helm &amp; Rambut</span><span><b>28.392</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:700361,&quot;nama&quot;:&quot;Zombie Halloween2025&quot;,&quot;jenis&quot;:&quot;Helm &amp; Rambut&quot;,&quot;ikon&quot;:&quot;s-helm&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.392&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-helm"/></svg></span><span class="ki-nama">Zombie Halloween2025</span><span class="ki-bawah"><span>Helm &amp; Rambut</span><span><b>28.392</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:700360,&quot;nama&quot;:&quot;Zombie&quot;,&quot;jenis&quot;:&quot;Helm &amp; Rambut&quot;,&quot;ikon&quot;:&quot;s-helm&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.392&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-helm"/></svg></span><span class="ki-nama">Zombie</span><span class="ki-bawah"><span>Helm &amp; Rambut</span><span><b>28.392</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:700359,&quot;nama&quot;:&quot;AeroStrikeCorps&quot;,&quot;jenis&quot;:&quot;Helm &amp; Rambut&quot;,&quot;ikon&quot;:&quot;s-helm&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.392&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-helm"/></svg></span><span class="ki-nama">AeroStrikeCorps</span><span class="ki-bawah"><span>Helm &amp; Rambut</span><span><b>28.392</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:700357,&quot;nama&quot;:&quot;Parasol Band Summer2025&quot;,&quot;jenis&quot;:&quot;Helm &amp; Rambut&quot;,&quot;ikon&quot;:&quot;s-helm&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.392&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-helm"/></svg></span><span class="ki-nama">Parasol Band Summer2025</span><span class="ki-bawah"><span>Helm &amp; Rambut</span><span><b>28.392</b> cash</span></span></button></div>
+</div>
+<div class="item-kelompok">
+  <h3><svg class="siluet" aria-hidden="true"><use href="#s-topeng"/></svg>Topeng <small>6 terbaru</small></h3>
+  <div class="item-kisi"><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:800549,&quot;nama&quot;:&quot;Jason Tarantula&quot;,&quot;jenis&quot;:&quot;Topeng&quot;,&quot;ikon&quot;:&quot;s-topeng&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.938&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-topeng"/></svg></span><span class="ki-nama">Jason Tarantula</span><span class="ki-bawah"><span>Topeng</span><span><b>28.938</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:800548,&quot;nama&quot;:&quot;Jason Snowfall Sovereign Half&quot;,&quot;jenis&quot;:&quot;Topeng&quot;,&quot;ikon&quot;:&quot;s-topeng&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.938&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-topeng"/></svg></span><span class="ki-nama">Jason Snowfall Sovereign Half</span><span class="ki-bawah"><span>Topeng</span><span><b>28.938</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:800547,&quot;nama&quot;:&quot;Jason MechHero Point&quot;,&quot;jenis&quot;:&quot;Topeng&quot;,&quot;ikon&quot;:&quot;s-topeng&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;28.938&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-topeng"/></svg></span><span class="ki-nama">Jason MechHero Point</span><span class="ki-bawah"><span>Topeng</span><span><b>28.938</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:800546,&quot;nama&quot;:&quot;Jason Mystic Pastel Point&quot;,&quot;jenis&quot;:&quot;Topeng&quot;,&quot;ikon&quot;:&quot;s-topeng&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.284&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-topeng"/></svg></span><span class="ki-nama">Jason Mystic Pastel Point</span><span class="ki-bawah"><span>Topeng</span><span><b>11.284</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:800545,&quot;nama&quot;:&quot;Frail-Skull Gold Point&quot;,&quot;jenis&quot;:&quot;Topeng&quot;,&quot;ikon&quot;:&quot;s-topeng&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.284&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-topeng"/></svg></span><span class="ki-nama">Frail-Skull Gold Point</span><span class="ki-bawah"><span>Topeng</span><span><b>11.284</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:800544,&quot;nama&quot;:&quot;Jason Mask-2 Point&quot;,&quot;jenis&quot;:&quot;Topeng&quot;,&quot;ikon&quot;:&quot;s-topeng&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;11.284&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-topeng"/></svg></span><span class="ki-nama">Jason Mask-2 Point</span><span class="ki-bawah"><span>Topeng</span><span><b>11.284</b> cash</span></span></button></div>
+</div>
+<div class="item-kelompok">
+  <h3><svg class="siluet" aria-hidden="true"><use href="#s-baret"/></svg>Baret <small>6 terbaru</small></h3>
+  <div class="item-kisi"><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:2700062,&quot;nama&quot;:&quot;Beret Brazuca&quot;,&quot;jenis&quot;:&quot;Baret&quot;,&quot;ikon&quot;:&quot;s-baret&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;25.480&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-baret"/></svg></span><span class="ki-nama">Beret Brazuca</span><span class="ki-bawah"><span>Baret</span><span><b>25.480</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:2700061,&quot;nama&quot;:&quot;Beret PBNC Champion&quot;,&quot;jenis&quot;:&quot;Baret&quot;,&quot;ikon&quot;:&quot;s-baret&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;25.480&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-baret"/></svg></span><span class="ki-nama">Beret PBNC Champion</span><span class="ki-bawah"><span>Baret</span><span><b>25.480</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:2700060,&quot;nama&quot;:&quot;Beret A3 Deluxe&quot;,&quot;jenis&quot;:&quot;Baret&quot;,&quot;ikon&quot;:&quot;s-baret&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.192&quot;],[&quot;7 hari&quot;,&quot;13.104&quot;],[&quot;30 hari&quot;,&quot;29.302&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-baret"/></svg></span><span class="ki-nama">Beret A3 Deluxe</span><span class="ki-bawah"><span>Baret</span><span><b>29.302</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:2700059,&quot;nama&quot;:&quot;Beret A3 Basic&quot;,&quot;jenis&quot;:&quot;Baret&quot;,&quot;ikon&quot;:&quot;s-baret&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;25.480&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-baret"/></svg></span><span class="ki-nama">Beret A3 Basic</span><span class="ki-bawah"><span>Baret</span><span><b>25.480</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:2700058,&quot;nama&quot;:&quot;Beret 2024Anniversary&quot;,&quot;jenis&quot;:&quot;Baret&quot;,&quot;ikon&quot;:&quot;s-baret&quot;,&quot;harga&quot;:[[&quot;30 hari&quot;,&quot;25.480&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-baret"/></svg></span><span class="ki-nama">Beret 2024Anniversary</span><span class="ki-bawah"><span>Baret</span><span><b>25.480</b> cash</span></span></button><button type="button" class="kartu-item" data-tilt data-info="{&quot;kode&quot;:2700057,&quot;nama&quot;:&quot;Beret PBIC2023 Premium&quot;,&quot;jenis&quot;:&quot;Baret&quot;,&quot;ikon&quot;:&quot;s-baret&quot;,&quot;harga&quot;:[[&quot;3 hari&quot;,&quot;10.374&quot;],[&quot;7 hari&quot;,&quot;13.286&quot;],[&quot;30 hari&quot;,&quot;30.212&quot;]]}"><span class="ki-lihat">LIHAT</span><span class="ki-visual"><svg class="siluet" aria-hidden="true"><use href="#s-baret"/></svg></span><span class="ki-nama">Beret PBIC2023 Premium</span><span class="ki-bawah"><span>Baret</span><span><b>30.212</b> cash</span></span></button></div>
+</div>
 </div>
 
-<div class="baru-kar" style="margin-bottom:20px">
-
-    <div class="kartu-kar" data-tilt><span class="tanda">DA</span>
-
-    <b>Dajeong<span class="lencana-baru">BARU</span></b>
-
-    <small>14 kostum di toko</small>    <p>Karakter idol, ada versi Tim Merah dan Tim Biru. Kostum Astel, Neon, Hanbok, Office, dan Shaman.</p></div>
-
-    <div class="kartu-kar" data-tilt><span class="tanda">DA</span>
-
-    <b>Dasom<span class="lencana-baru">BARU</span></b>
-
-    <small>10 kostum di toko</small>    <p>Karakter idol, ada versi Tim Merah dan Tim Biru. Kostum Astel, Neon, Hanbok, dan Office.</p></div>
-
-    <div class="kartu-kar" data-tilt><span class="tanda">GO</span>
-
-    <b>Gowoon<span class="lencana-baru">BARU</span></b>
-
-    <small>12 kostum di toko</small>    <p>Karakter idol, ada versi Tim Merah dan Tim Biru. Kostum Astel, Neon, Hanbok, Office, dan Shaman.</p></div>
-
-    <div class="kartu-kar" data-tilt><span class="tanda">NA</span>
-
-    <b>Natasha<span class="lencana-baru">BARU</span></b>
-
-    <small>14 kostum di toko</small>    <p>Karakter Tim Merah dengan kostum Shinobi dan Black.</p></div>
-
+<div class="pb-panel" id="pbPanel" hidden role="dialog" aria-modal="true" aria-labelledby="pbPanelJudul">
+  <div class="pb-panel-isi">
+    <button type="button" class="pb-tutup" id="pbTutup" aria-label="Tutup">&times;</button>
+    <div class="pb-panggung" id="pbPanggung">
+      <div class="pb-benda" id="pbBenda"></div>
+      <div class="pb-lantai" aria-hidden="true"></div>
+      <p class="pb-petunjuk">Seret untuk memutar</p>
+    </div>
+    <div class="pb-teks">
+      <small id="pbPanelJenis"></small>
+      <h3 id="pbPanelJudul"></h3>
+      <dl id="pbPanelData"></dl>
+      <ul class="pb-harga" id="pbPanelHarga"></ul>
+      <p class="pb-catatan">Siluet 3D di kiri digambar untuk situs ini, bukan model asli game. Angka dan harga dari toko server.</p>
+    </div>
   </div>
-
-
+</div>
 
 <script src="./assets/tilt3d.js" defer></script>
-
+<script src="./assets/pb-info.js" defer></script>
 </main><footer class="kaki"><div class="wadah"><div class="kaki-isi"><div class="kaki-merek"><img src="./assets/logher.png" alt="HEROES"><div><div class="kaki-nama">Point Blank Heroes</div><div class="kaki-kecil">Private Server Indonesia &middot; bagian dari HEROES GAMING</div></div></div><div class="kaki-kanan"><div class="kaki-sosial"><a class="kaki-wa" href="https://wa.link/sqa5sq" target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-wa"/></svg>WhatsApp</a><a class="kaki-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener"><svg class="ikon" aria-hidden="true"><use href="./assets/ikon.svg#i-discord"/></svg>Discord</a></div><nav class="kaki-tautan"><a href="./">Beranda</a><a href="./news/">Berita</a><a href="./informasi.html">Informasi</a><a href="./#unduh">Unduh</a><a href="./../">Semua Server</a></nav></div></div><div class="kaki-bawah"><span>&copy; 2026 Point Blank HEROES &mdash; Private Server. Point Blank adalah merek dagang pemiliknya.</span></div></div></footer><script>(function(){var t=document.getElementById("navBuka"),m=document.getElementById("navTautan");if(!t||!m)return;t.addEventListener("click",function(){var b=m.classList.toggle("buka");t.setAttribute("aria-expanded",b?"true":"false");});})();</script></body></html>

@@ -14,6 +14,7 @@
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="assets/logher.png">
 <link rel="stylesheet" href="assets/dnheroes.css">
+<link rel="stylesheet" href="assets/informasi.css">
 </head>
 <body data-musik="mati"><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Ini salinan online situs HEROES. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://wa.link/sqa5sq" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">WhatsApp</a> atau <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div>
 
@@ -358,6 +359,480 @@
   </div>
 </section>
 
+<div class="info-blok" id="informasi">
+<section class="info-hero">
+  <div class="wadah">
+    <p class="hero-tag" style="justify-content:center">Informasi</p>
+    <h2 class="info-judul">Class Dragon Nest</h2>
+    <p>Ada <b>10 class dasar</b> dan <b>29 jalur job</b> di Dragon Nest Heroes. Class dipilih saat membuat
+      karakter; job dan spesialisasinya dipilih seiring naik level. Arahkan tetikus ke kartu untuk melihatnya dalam 3D.</p>
+  </div>
+</section>
+
+<nav class="kelas-pil" aria-label="Pilih class">
+  <a href="#warrior">Warrior</a>
+  <a href="#archer">Archer</a>
+  <a href="#sorceress">Sorceress</a>
+  <a href="#cleric">Cleric</a>
+  <a href="#academic">Academic</a>
+  <a href="#kali">Kali</a>
+  <a href="#assassin">Assassin</a>
+  <a href="#lancea">Lancea</a>
+  <a href="#machina">Machina</a>
+  <a href="#vandar">Vandar</a>
+</nav>
+
+<section class="kelas-bagian" id="warrior">
+  <div class="wadah">
+    <div class="kelas-kepala">
+      <div class="kelas-gambar"><img class="kelas-besar" src="assets/kelas/besar-swordmaster.webp" alt="Warrior" loading="lazy"></div>
+      <div class="kelas-teks">
+        <span class="kelas-peran">Jarak dekat</span>
+        <h3 class="kelas-nama">Warrior</h3>
+        <p class="kelas-desk">Petarung garis depan bertubuh kuat. Maju paling dulu dengan pedang besar atau kapak, dan paling tahan dipukul.</p>
+        <ul class="kelas-jalur"><li><b>Swordmaster</b> &rarr; Gladiator / Moonlord</li><li><b>Mercenary</b> &rarr; Barbarian / Destroyer</li><li><b>Avenger</b> &rarr; Dark Avenger</li><li><b>Knight</b> &rarr; Mystic Knight / Grand Master</li></ul>
+      </div>
+    </div>
+    <div class="job-kisi">
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/swordmaster.webp" alt="Swordmaster" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Swordmaster </h3>
+          <p class="kj-desk">Ahli pedang besar yang cepat dan lincah; tebasannya menjangkau musuh dari berbagai jarak.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR &middot; serangan fisik</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Gladiator</b> &mdash; Menyatu dengan pedang dan menebas musuh dalam sekejap.</li><li><b>Moonlord</b> &mdash; Menembakkan bilah energi yang mengenai musuh walau pedangnya tidak sampai (INT).</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/mercenary.webp" alt="Mercenary" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Mercenary </h3>
+          <p class="kj-desk">Petarung penerjang bersenjata kapak; paling jago menghancurkan Super Armor musuh.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR &middot; serangan fisik</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Barbarian</b> &mdash; Serangan berat yang hampir tak terkalahkan di jarak dekat.</li><li><b>Destroyer</b> &mdash; Kekuatan penghancur yang meratakan seisi medan tempur.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/avenger.webp" alt="Avenger" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Avenger <span class="kj-tag">Spin-off</span></h3>
+          <p class="kj-desk">Pedang api kegelapan. Setiap serangannya membakar musuh dan menambah kerusakan.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR &middot; serangan fisik</p>
+          <p class="kj-label">Berubah menjadi</p>
+          <ul class="kj-spes"><li><b>Dark Avenger</b> &mdash; Bentuk lanjutan Avenger dengan kekuatan kegelapan penuh.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/knight.webp" alt="Knight" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Knight </h3>
+          <p class="kj-desk">Pendekar pedang yang juga menguasai sihir kuat.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>INT &middot; serangan sihir</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Mystic Knight</b> &mdash; Bertarung bersama naga dan pedang iblis, memanggil bayangan untuk menyapu musuh.</li><li><b>Grand Master</b> &mdash; Menciptakan berbagai senjata dari bayangan yang memukau musuh.</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="kelas-bagian" id="archer">
+  <div class="wadah">
+    <div class="kelas-kepala">
+      <div class="kelas-gambar"><img class="kelas-besar" src="assets/kelas/besar-bowmaster.webp" alt="Archer" loading="lazy"></div>
+      <div class="kelas-teks">
+        <span class="kelas-peran">Jarak jauh</span>
+        <h3 class="kelas-nama">Archer</h3>
+        <p class="kelas-desk">Penembak lincah yang menyerang dari kejauhan dan pandai menghindar.</p>
+        <ul class="kelas-jalur"><li><b>Bowmaster</b> &rarr; Sniper / Artillery</li><li><b>Acrobat</b> &rarr; Tempest / Wind Walker</li><li><b>Hunter</b> &rarr; Silver Hunter</li></ul>
+      </div>
+    </div>
+    <div class="job-kisi">
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/bowmaster.webp" alt="Bowmaster" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Bowmaster </h3>
+          <p class="kj-desk">Pemanah jarak jauh terbaik; panahnya selalu menemukan sasaran.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>AGI &middot; serangan fisik</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Sniper</b> &mdash; Panahnya menjangkau seluruh medan dan menembus barisan musuh.</li><li><b>Artillery</b> &mdash; Memakai panah sihir yang meledak (INT).</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/acrobat.webp" alt="Acrobat" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Acrobat </h3>
+          <p class="kj-desk">Pemanah yang menguasai bela diri dan bergerak secepat angin.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>AGI &middot; serangan fisik</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Tempest</b> &mdash; Serangan beruntun bak badai, musuh tak sempat membalas.</li><li><b>Wind Walker</b> &mdash; Melayang di udara dan menyerang dari atas.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/sliverhunter.webp" alt="Hunter" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Hunter <span class="kj-tag">Spin-off</span></h3>
+          <p class="kj-desk">Elang putih bercahaya suci yang terbang dan menghujani musuh dengan panah suci.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>INT &middot; serangan sihir</p>
+          <p class="kj-label">Berubah menjadi</p>
+          <ul class="kj-spes"><li><b>Silver Hunter</b> &mdash; Bentuk lanjutan Hunter.</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="kelas-bagian" id="sorceress">
+  <div class="wadah">
+    <div class="kelas-kepala">
+      <div class="kelas-gambar"><img class="kelas-besar" src="assets/kelas/besar-elementallord.webp" alt="Sorceress" loading="lazy"></div>
+      <div class="kelas-teks">
+        <span class="kelas-peran">Sihir jarak jauh</span>
+        <h3 class="kelas-nama">Sorceress</h3>
+        <p class="kelas-desk">Penyihir yang menyerang dari jauh dengan sihir berdaya rusak besar.</p>
+        <ul class="kelas-jalur"><li><b>Elemental Lord</b> &rarr; Saleana / Elestra</li><li><b>Force User</b> &rarr; Smasher / Majesty</li><li><b>Mara</b> &rarr; Black Mara</li></ul>
+      </div>
+    </div>
+    <div class="job-kisi">
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/elementallord.webp" alt="Elemental Lord" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Elemental Lord </h3>
+          <p class="kj-desk">Menguasai sihir api dan air.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>INT &middot; serangan sihir</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Saleana</b> &mdash; Murid Dewa Api: api neraka yang terus membakar musuh.</li><li><b>Elestra</b> &mdash; Murid Dewa Air: badai salju dan es yang membekukan.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/forceuser.webp" alt="Force User" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Force User </h3>
+          <p class="kj-desk">Mengendalikan ruang, waktu, dan cahaya untuk melemahkan musuh.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>INT &middot; serangan sihir</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Smasher</b> &mdash; Laser cahaya yang cukup tajam untuk menembus kulit naga.</li><li><b>Majesty</b> &mdash; Bola gravitasi yang menahan gerak musuh.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/blackmara.webp" alt="Mara" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Mara <span class="kj-tag">Spin-off</span></h3>
+          <p class="kj-desk">Penyihir yang jatuh ke kegelapan demi kekuatan, bertarung lincah dengan sabit.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>INT &middot; serangan sihir</p>
+          <p class="kj-label">Berubah menjadi</p>
+          <ul class="kj-spes"><li><b>Black Mara</b> &mdash; Bentuk lanjutan Mara.</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="kelas-bagian" id="cleric">
+  <div class="wadah">
+    <div class="kelas-kepala">
+      <div class="kelas-gambar"><img class="kelas-besar" src="assets/kelas/besar-paladin.webp" alt="Cleric" loading="lazy"></div>
+      <div class="kelas-teks">
+        <span class="kelas-peran">Pelindung &amp; penyembuh</span>
+        <h3 class="kelas-nama">Cleric</h3>
+        <p class="kelas-desk">Pelindung dan penyembuh tim, bertarung dengan palu dan perisai.</p>
+        <ul class="kelas-jalur"><li><b>Paladin</b> &rarr; Guardian / Crusader</li><li><b>Priest</b> &rarr; Saint / Inquisitor</li><li><b>Heretic</b> &rarr; Arch Heretic</li></ul>
+      </div>
+    </div>
+    <div class="job-kisi">
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/paladin.webp" alt="Paladin" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Paladin </h3>
+          <p class="kj-desk">Tiang pelindung yang menjaga rekan satu tim.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR + INT &middot; hibrida</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Guardian</b> &mdash; Perisai hidup yang menahan semua serangan untuk tim.</li><li><b>Crusader</b> &mdash; Bertahan sambil menyerang dengan senjatanya.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/priest.webp" alt="Priest" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Priest </h3>
+          <p class="kj-desk">Membawa cahaya berkah untuk teman dan penghakiman untuk musuh.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>INT &middot; serangan sihir</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Saint</b> &mdash; Penyembuh terbaik dan pemberi berkah untuk tim.</li><li><b>Inquisitor</b> &mdash; Menyambar musuh dengan petir suci.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/heretic.webp" alt="Heretic" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Heretic <span class="kj-tag">Spin-off</span></h3>
+          <p class="kj-desk">Memakai kekuatan gelap untuk menghancurkan dan melemahkan semangat musuh.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR &middot; serangan fisik</p>
+          <p class="kj-label">Berubah menjadi</p>
+          <ul class="kj-spes"><li><b>Arch Heretic</b> &mdash; Bentuk lanjutan Heretic.</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="kelas-bagian" id="academic">
+  <div class="wadah">
+    <div class="kelas-kepala">
+      <div class="kelas-gambar"><img class="kelas-besar" src="assets/kelas/besar-engineer.webp" alt="Academic" loading="lazy"></div>
+      <div class="kelas-teks">
+        <span class="kelas-peran">Teknologi &amp; ramuan</span>
+        <h3 class="kelas-nama">Academic</h3>
+        <p class="kelas-desk">Ilmuwan cilik yang bertarung dengan mesin buatan sendiri dan ramuan kimia.</p>
+        <ul class="kelas-jalur"><li><b>Engineer</b> &rarr; Shooting Star / Gear Master</li><li><b>Alchemist</b> &rarr; Adept / Physician</li><li><b>Mechanic</b> &rarr; Ray Mechanic</li></ul>
+      </div>
+    </div>
+    <div class="job-kisi">
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/engineer.webp" alt="Engineer" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Engineer </h3>
+          <p class="kj-desk">Ahli mesin yang bertarung bersama golem Alfredo.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>AGI &middot; serangan fisik</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Shooting Star</b> &mdash; Rudal dan meriam untuk serangan area luas.</li><li><b>Gear Master</b> &mdash; Membangun menara dan Mecha Duck yang terus menembak.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/alchemist.webp" alt="Alchemist" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Alchemist </h3>
+          <p class="kj-desk">Ahli kimia yang bisa membantu tim sekaligus menyerang.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>INT &middot; serangan sihir</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Adept</b> &mdash; Ramuan api dan air yang meledak di tengah musuh.</li><li><b>Physician</b> &mdash; Racun untuk musuh dan Slime yang membantu teman.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/raymechanic.webp" alt="Mechanic" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Mechanic <span class="kj-tag">Spin-off</span></h3>
+          <p class="kj-desk">Teknisi dari masa depan yang menunggangi Alfredo ke medan tempur.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>AGI &middot; serangan fisik</p>
+          <p class="kj-label">Berubah menjadi</p>
+          <ul class="kj-spes"><li><b>Ray Mechanic</b> &mdash; Bentuk lanjutan Mechanic.</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="kelas-bagian" id="kali">
+  <div class="wadah">
+    <div class="kelas-kepala">
+      <div class="kelas-gambar"><img class="kelas-besar" src="assets/kelas/besar-kali.webp" alt="Kali" loading="lazy"></div>
+      <div class="kelas-teks">
+        <span class="kelas-peran">Roh &amp; tarian</span>
+        <h3 class="kelas-nama">Kali</h3>
+        <p class="kelas-desk">Penari mistis yang memanggil kekuatan roh dan dewa.</p>
+        <ul class="kelas-jalur"><li><b>Screamer</b> &rarr; Dark Summoner / Soul Eater</li><li><b>Dancer</b> &rarr; Blade Dancer / Spirit Dancer</li><li><b>Oracle</b> &rarr; Oracle Elder</li></ul>
+      </div>
+    </div>
+    <div class="job-kisi">
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/screamer.webp" alt="Screamer" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Screamer </h3>
+          <p class="kj-desk">Memakai jimat, sihir, dan roh untuk menguasai medan.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>INT &middot; serangan sihir</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Dark Summoner</b> &mdash; Tangan roh yang terus mencabik musuh di sekitarnya.</li><li><b>Soul Eater</b> &mdash; Jimat yang terus menyiksa jiwa musuh.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/dancer.webp" alt="Dancer" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Dancer </h3>
+          <p class="kj-desk">Penari bersenjata chakram yang memukau musuh dengan gerakannya.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR &middot; serangan fisik</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Blade Dancer</b> &mdash; Tarian yang memanggil angin setajam pisau.</li><li><b>Spirit Dancer</b> &mdash; Memanggil roh kuno untuk memperkuat diri.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/oracleelder.webp" alt="Oracle" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Oracle <span class="kj-tag">Spin-off</span></h3>
+          <p class="kj-desk">Dukun cahaya dengan gaya bertarung yang cepat dan menyilaukan.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR &middot; serangan fisik</p>
+          <p class="kj-label">Berubah menjadi</p>
+          <ul class="kj-spes"><li><b>Oracle Elder</b> &mdash; Bentuk lanjutan Oracle.</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="kelas-bagian" id="assassin">
+  <div class="wadah">
+    <div class="kelas-kepala">
+      <div class="kelas-gambar"><img class="kelas-besar" src="assets/kelas/besar-chaser.webp" alt="Assassin" loading="lazy"></div>
+      <div class="kelas-teks">
+        <span class="kelas-peran">Serangan senyap</span>
+        <h3 class="kelas-nama">Assassin</h3>
+        <p class="kelas-desk">Pembunuh senyap yang cepat, menyerang sebelum musuh sadar.</p>
+        <ul class="kelas-jalur"><li><b>Chaser</b> &rarr; Ripper / Raven</li><li><b>Bringer</b> &rarr; Light Fury / Abyss Walker</li><li><b>Phantom</b> &rarr; Bleed Phantom</li></ul>
+      </div>
+    </div>
+    <div class="job-kisi">
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/chaser.webp" alt="Chaser" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Chaser </h3>
+          <p class="kj-desk">Menguasai teknik pembunuhan kuno; musuh tumbang sebelum melihatnya.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR + AGI &middot; serangan fisik</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Ripper</b> &mdash; Bela diri dengan tenaga ledakan dari bayangan.</li><li><b>Raven</b> &mdash; Energi gelap dan kawanan gagak yang muncul tiba-tiba.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/bringer.webp" alt="Bringer" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Bringer </h3>
+          <p class="kj-desk">Menguasai cahaya dan kegelapan di dalam diri.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR + AGI &middot; serangan fisik</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Light Fury</b> &mdash; Kekuatan kebajikan dalam bentuk cakra, bertarung bersama tim.</li><li><b>Abyss Walker</b> &mdash; Kekuatan jurang yang menakutkan musuh.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/bleedphantom.webp" alt="Phantom" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Phantom <span class="kj-tag">Spin-off</span></h3>
+          <p class="kj-desk">Mengandalkan kecepatan; membuat musuh berdarah dan menandai sasaran.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR + AGI &middot; serangan fisik</p>
+          <p class="kj-label">Berubah menjadi</p>
+          <ul class="kj-spes"><li><b>Bleed Phantom</b> &mdash; Bentuk lanjutan Phantom.</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="kelas-bagian" id="lancea">
+  <div class="wadah">
+    <div class="kelas-kepala">
+      <div class="kelas-gambar"><img class="kelas-besar" src="assets/kelas/besar-piercer.webp" alt="Lancea" loading="lazy"></div>
+      <div class="kelas-teks">
+        <span class="kelas-peran">Tombak</span>
+        <h3 class="kelas-nama">Lancea</h3>
+        <p class="kelas-desk">Prajurit bertombak raksasa yang menjangkau musuh dari jarak menengah.</p>
+        <ul class="kelas-jalur"><li><b>Piercer</b> &rarr; Flurry / Sting Breezer</li><li><b>Knightess</b> &rarr; Avalanche / Randgrid</li><li><b>Plaga</b> &rarr; Vena Plaga</li></ul>
+      </div>
+    </div>
+    <div class="job-kisi">
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/piercer.webp" alt="Piercer" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Piercer </h3>
+          <p class="kj-desk">Mengayunkan tombak yang lebih besar dari tubuhnya dengan mudah.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR &middot; serangan fisik</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Flurry</b> &mdash; Menyerang seperti hembusan angin dan mengincar titik lemah.</li><li><b>Sting Breezer</b> &mdash; Tombak bersihir dengan jurus yang indah (INT).</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/knightess.webp" alt="Knightess" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Knightess </h3>
+          <p class="kj-desk">Ksatria wanita dengan tombak raksasa yang menembus segala rintangan.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR atau INT &middot; tergantung spesialisasi</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Avalanche</b> &mdash; Tombak es yang membekukan tanah (INT).</li><li><b>Randgrid</b> &mdash; Kuda perang api dan perisai api untuk serangan balik (STR).</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/plaga.webp" alt="Plaga" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Plaga <span class="kj-tag">Spin-off</span></h3>
+          <p class="kj-desk">Kegelapan batin berubah menjadi duri tajam yang dipanggil ke medan.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>STR &middot; serangan fisik</p>
+          <p class="kj-label">Berubah menjadi</p>
+          <ul class="kj-spes"><li><b>Vena Plaga</b> &mdash; Bentuk lanjutan Plaga.</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="kelas-bagian" id="machina">
+  <div class="wadah">
+    <div class="kelas-kepala">
+      <div class="kelas-gambar"><img class="kelas-besar" src="assets/kelas/besar-machina.webp" alt="Machina" loading="lazy"></div>
+      <div class="kelas-teks">
+        <span class="kelas-peran">Tinju mesin</span>
+        <h3 class="kelas-nama">Machina</h3>
+        <p class="kelas-desk">Petarung bertubuh ramping dengan sarung tangan mesin yang dahsyat.</p>
+        <ul class="kelas-jalur"><li><b>Patrona</b> &rarr; Defensio / Ruina</li><li><b>Launcher</b> &rarr; Impactor / Luster</li></ul>
+      </div>
+    </div>
+    <div class="job-kisi">
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/patrona.webp" alt="Patrona" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Patrona </h3>
+          <p class="kj-desk">Tinju Knuckle Gear dan gerakan lincah seperti hewan buas.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>AGI &middot; serangan fisik</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Defensio</b> &mdash; Bela diri bertahan untuk melindungi teman.</li><li><b>Ruina</b> &mdash; Bela diri menyerang tanpa memberi jeda.</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/launcher.webp" alt="Launcher" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Launcher </h3>
+          <p class="kj-desk">Menyatu dengan senjata Blaster dan bergerak dinamis.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>AGI atau INT &middot; tergantung spesialisasi</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Impactor</b> &mdash; Ledakan cahaya untuk memperkuat diri dan menekan musuh (AGI).</li><li><b>Luster</b> &mdash; Cahaya yang mendukung teman dan menarik musuh (INT).</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="kelas-bagian" id="vandar">
+  <div class="wadah">
+    <div class="kelas-kepala">
+      <div class="kelas-gambar"><img class="kelas-besar kelas-besar-kartu" src="assets/kelas/treasurehunter.webp" alt="Vandar" loading="lazy"></div>
+      <div class="kelas-teks">
+        <span class="kelas-peran">Pedang &amp; wristbow</span>
+        <h3 class="kelas-nama">Vandar</h3>
+        <p class="kelas-desk">Petualang bekas tentara bayaran yang bertarung dengan pedang dan panah pergelangan (wristbow).</p>
+        <ul class="kelas-jalur"><li><b>Treasure Hunter</b> &rarr; Duelist / Trickster</li><li><b>Wanderer</b> &rarr; Revenant / Outlaw</li></ul>
+      </div>
+    </div>
+    <div class="job-kisi">
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/treasurehunter.webp" alt="Treasure Hunter" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Treasure Hunter </h3>
+          <p class="kj-desk">Ahli pedang dan wristbow hasil pengalaman bertahun-tahun.</p>
+          <p class="kj-stat"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>AGI atau INT &middot; tergantung spesialisasi</p>
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Duelist</b> &mdash; Ilmu pedang secepat kilat (AGI).</li><li><b>Trickster</b> &mdash; Tembakan wristbow dan gerakan yang tak terduga (INT).</li></ul>
+        </div>
+      </article>
+      <article class="kartu-job" data-tilt>
+        <div class="kj-gambar"><img src="assets/kelas/vandar.webp" alt="Wanderer" loading="lazy"></div>
+        <div class="kj-isi">
+          <h3>Wanderer </h3>
+          <p class="kj-desk">Jalur kedua Vandar.</p>
+          
+          <p class="kj-label">Spesialisasi</p>
+          <ul class="kj-spes"><li><b>Revenant</b></li><li><b>Outlaw</b></li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+</div>
+
 <footer class="kaki">
   <div class="wadah">
     <div class="kaki-isi">
@@ -604,5 +1079,6 @@ function aman(s) {
     });
 })();
 </script>
+<script src="assets/tilt3d.js" defer></script>
 </body>
 </html>
