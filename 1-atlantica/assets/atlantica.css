@@ -578,3 +578,9 @@ section { padding: 70px 0 0; }
     0%, 100% { box-shadow: 0 0 0 0 rgba(var(--gold-rgb), .6); }
     50%      { box-shadow: 0 0 0 10px rgba(var(--gold-rgb), 0); }
 }
+
+/* HP: tombol suara video pindah ke pojok kanan ATAS hero - di bawah ia
+   menimpa jalur status yang ditarik naik ke tepi bawah hero. */
+@media (max-width: 860px) {
+    .hero-suara { top: 12px; bottom: auto; right: 12px; }
+}

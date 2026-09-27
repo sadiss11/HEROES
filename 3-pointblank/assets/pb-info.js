@@ -2,26 +2,32 @@
    Point Blank HEROES - panel detail item (bagian Informasi)
    -------------------------------------------------------------------------
    Setiap .kartu-item membawa data-info (JSON dari inc/informasi-isi.php):
-   nama, jenis, kode item, ikon siluet atau tanda karakter, statistik, dan
-   daftar harga. Diklik -> panel terbuka dengan "benda" 3D di kiri.
+   nama, jenis, kode item, gambar resmi, model 3D resmi, statistik, harga.
+   Diklik -> panel terbuka. Panggung di kiri punya tiga cara tampil:
 
-   BENDA 3D: siluet yang sama ditumpuk LAPIS demi lapis ke arah kedalaman
-   (translateZ), lapis tengah lebih gelap, lalu seluruh tumpukan diputar.
-   Hasilnya siluet yang tampak padat bertebal saat berputar. Ini BUKAN model
-   asli game - model PB di klien terenkripsi (lihat inc/informasi-isi.php) -
-   dan panel menyebutkannya.
+     3D     item punya model .glb resmi -> three.js lewat assets/3d/pb-3d.js
+            (dimuat saat pertama dibutuhkan; seret untuk memutar, roda/cubit
+            untuk mendekat). Kalau skin model resmi berbeda dengan skin
+            item di server, catatan di panel menyebutnya.
+     foto   item punya gambar resmi toko -> gambar itu dipajang di panggung,
+            bergoyang pelan, seret untuk memiringkan.
+     siluet cadangan kalau keduanya tidak ada: siluet SVG ditumpuk berlapis
+            jadi benda tebal yang berputar.
 
-   Berputar sendiri pelan-pelan; seret (tetikus atau jari) untuk memutar
-   sendiri. Tutup: tombol x, Esc, atau klik di luar panel. Fokus kembali ke
-   kartu yang tadi diklik.
+   Tutup: tombol x, Esc, atau klik di luar panel. Fokus kembali ke kartu.
    ========================================================================= */
 (function () {
     'use strict';
 
-    var LAPIS = 18, TEBAL = 2.2;   /* jumlah lapis dan jarak antar-lapis (px) */
+    var LAPIS = 18, TEBAL = 2.2;
+    var DASAR = (function () {
+        var s = document.currentScript;
+        return new URL((s && s.getAttribute('data-dasar')) || './', location.href).href;
+    })();
 
-    var panel, benda, panggung, judul, jenis, data, harga, tutup;
-    var sudutY = -25, sudutX = -8, putar = true, seret = null, jalan = null, asal = null;
+    var panel, benda, panggung, tiga, foto, fotoImg, lencana, petunjuk, catatan, judul, jenis, data, harga, tutup;
+    var sudutY = -25, sudutX = -8, putar = true, seret = null, jalan = null, asal = null, mode = 'siluet';
+    var penampil = null, modul = null, t0 = 0;
 
     function el(tag, kelas, teks) {
         var e = document.createElement(tag);
@@ -48,10 +54,8 @@
                 s.setAttribute('class', 'siluet');
                 s.setAttribute('viewBox', '0 0 160 50');
                 var u = document.createElementNS(svgNS, 'use');
-                u.setAttribute('href', '#' + info.ikon);
+                u.setAttribute('href', '#' + (info.ikon || 's-ar'));
                 s.appendChild(u);
-                /* Tepi depan/belakang menyala, lapis dalam lebih gelap - dari
-                   samping terlihat seperti sisi benda yang padat. */
                 s.style.color = tepi ? '#FF8A3D' : 'hsl(18, 80%, ' + (22 + 10 * Math.abs(i - LAPIS / 2) / LAPIS) + '%)';
                 if (tepi) s.style.filter = 'drop-shadow(0 0 12px rgba(255,122,24,.75))';
                 lapis.appendChild(s);
@@ -61,11 +65,19 @@
     }
 
     function gambar() {
-        benda.style.transform = 'rotateX(' + sudutX.toFixed(1) + 'deg) rotateY(' + sudutY.toFixed(1) + 'deg)';
+        if (mode === 'siluet') {
+            benda.style.transform = 'rotateX(' + sudutX.toFixed(1) + 'deg) rotateY(' + sudutY.toFixed(1) + 'deg)';
+        } else if (mode === 'foto') {
+            fotoImg.style.transform = 'rotateX(' + sudutX.toFixed(1) + 'deg) rotateY(' + sudutY.toFixed(1) + 'deg)';
+        }
     }
 
-    function langkah() {
-        if (putar && !seret) { sudutY += 0.35; gambar(); }
+    function langkah(t) {
+        if (putar && !seret) {
+            if (mode === 'siluet') sudutY += 0.35;
+            else if (mode === 'foto') { sudutY = Math.sin((t - t0) / 1400) * 18; sudutX = -4 + Math.sin((t - t0) / 2100) * 4; }
+            gambar();
+        }
         jalan = requestAnimationFrame(langkah);
     }
 
@@ -74,10 +86,59 @@
         data.appendChild(el('dd', '', dd));
     }
 
+    function pilihMode(m) {
+        mode = m;
+        benda.hidden = m !== 'siluet';
+        tiga.hidden = m !== '3d';
+        foto.hidden = m !== 'foto';
+        panggung.classList.toggle('mode-3d', m === '3d');
+    }
+
+    function hentikan3d() {
+        if (penampil) { try { penampil.hentikan(); } catch (e) {} penampil = null; }
+        tiga.textContent = '';
+    }
+
+    function tampilFoto(info) {
+        pilihMode('foto');
+        fotoImg.src = DASAR + info.gambar;
+        fotoImg.alt = info.nama || '';
+        sudutY = 0; sudutX = -4; gambar();
+        lencana.textContent = 'Gambar resmi';
+        lencana.hidden = false;
+        petunjuk.textContent = 'Seret untuk memiringkan';
+    }
+
+    function tampilSiluet(info) {
+        pilihMode('siluet');
+        buatBenda(info);
+        sudutY = -25; sudutX = -8; gambar();
+        lencana.hidden = true;
+        petunjuk.textContent = 'Seret untuk memutar';
+    }
+
+    function tampil3d(info) {
+        pilihMode('3d');
+        lencana.textContent = 'Memuat model 3D…';
+        lencana.hidden = false;
+        petunjuk.textContent = 'Seret untuk memutar · roda atau cubit untuk mendekat';
+        var cadangan = function () { hentikan3d(); if (info.gambar) tampilFoto(info); else tampilSiluet(info); };
+        var muat = modul ? Promise.resolve(modul) : import(DASAR + 'assets/3d/pb-3d.js').then(function (m) { modul = m; return m; });
+        muat.then(function (m) {
+            if (panel.hidden || asal === null) return;
+            penampil = m.tampilkan(tiga, DASAR + info.model, {
+                putar: true,
+                siap: function () { lencana.textContent = 'Model 3D resmi'; },
+                gagal: cadangan
+            });
+        }).catch(cadangan);
+    }
+
     function buka(kartu) {
         var info;
         try { info = JSON.parse(kartu.getAttribute('data-info')); } catch (e) { return; }
         asal = kartu;
+        hentikan3d();
         jenis.textContent = info.jenis || '';
         judul.textContent = info.nama || '';
         data.textContent = '';
@@ -93,14 +154,27 @@
         (info.harga || []).forEach(function (h) {
             var li = el('li');
             li.appendChild(el('span', '', h[0]));
-            var b = el('b', '', h[1] + ' cash');
-            li.appendChild(b);
+            li.appendChild(el('b', '', h[1] + ' cash'));
             harga.appendChild(li);
         });
         if (!(info.harga || []).length) harga.appendChild(el('li', '', 'Harga belum diatur di toko.'));
 
-        buatBenda(info);
-        sudutY = -25; sudutX = -8; putar = true; gambar();
+        var c = [];
+        if (info.model) {
+            c.push(info.catatan_model ? info.catatan_model + '.' : 'Model 3D resmi Point Blank untuk item ini.');
+        } else if (info.gambar) {
+            c.push('Gambar resmi dari toko Point Blank' + (info.resmi && info.resmi !== info.nama ? ' ("' + info.resmi + '")' : '') + '.');
+        } else {
+            c.push('Siluet digambar untuk situs ini, bukan model asli game.');
+        }
+        c.push('Angka dan harga dari toko server.');
+        catatan.textContent = c.join(' ');
+
+        t0 = performance.now(); putar = true;
+        if (info.model) tampil3d(info);
+        else if (info.gambar) tampilFoto(info);
+        else tampilSiluet(info);
+
         panel.hidden = false;
         document.body.style.overflow = 'hidden';
         tutup.focus();
@@ -110,8 +184,10 @@
     function selesai() {
         panel.hidden = true;
         document.body.style.overflow = '';
+        hentikan3d();
         if (jalan) { cancelAnimationFrame(jalan); jalan = null; }
-        if (asal) asal.focus();
+        var a = asal; asal = null;
+        if (a) a.focus();
     }
 
     function mulai() {
@@ -119,6 +195,12 @@
         if (!panel) return;
         benda = document.getElementById('pbBenda');
         panggung = document.getElementById('pbPanggung');
+        tiga = document.getElementById('pb3d');
+        foto = document.getElementById('pbFoto');
+        fotoImg = document.getElementById('pbFotoImg');
+        lencana = document.getElementById('pbLencana');
+        petunjuk = document.getElementById('pbPetunjuk');
+        catatan = document.getElementById('pbCatatan');
         judul = document.getElementById('pbPanelJudul');
         jenis = document.getElementById('pbPanelJenis');
         data = document.getElementById('pbPanelData');
@@ -133,15 +215,19 @@
         panel.addEventListener('click', function (e) { if (e.target === panel) selesai(); });
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) selesai(); });
 
+        /* Seret memutar siluet / memiringkan foto. Mode 3D diurus OrbitControls. */
         panggung.addEventListener('pointerdown', function (e) {
+            if (mode === '3d') return;
             seret = { x: e.clientX, y: e.clientY, sy: sudutY, sx: sudutX };
             putar = false;
             panggung.setPointerCapture(e.pointerId);
         });
         panggung.addEventListener('pointermove', function (e) {
             if (!seret) return;
-            sudutY = seret.sy + (e.clientX - seret.x) * 0.6;
-            sudutX = Math.max(-60, Math.min(60, seret.sx - (e.clientY - seret.y) * 0.4));
+            var batas = mode === 'foto' ? 35 : 360;
+            sudutY = seret.sy + (e.clientX - seret.x) * 0.5;
+            if (mode === 'foto') sudutY = Math.max(-batas, Math.min(batas, sudutY));
+            sudutX = Math.max(-40, Math.min(40, seret.sx - (e.clientY - seret.y) * 0.3));
             gambar();
         });
         function lepas() { seret = null; }

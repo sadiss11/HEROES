@@ -1445,3 +1445,9 @@ canvas.bara {
 @media (min-width: 861px) and (max-width: 1280px) {
     .nav-merek span { display: none; }
 }
+
+/* HP: tombol suara video pindah ke pojok kanan ATAS hero. Di bawah, ia
+   menimpa kotak status yang ditarik naik ke tepi bawah hero. */
+@media (max-width: 860px) {
+    .hero-suara { top: 12px; bottom: auto; right: 12px; }
+}
