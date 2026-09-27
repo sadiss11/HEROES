@@ -9,6 +9,7 @@
 <link rel="icon" href="favicon.ico?v=her">
 <link rel="stylesheet" href="assets/atlantica.css">
 <link rel="stylesheet" href="assets/informasi.css">
+<link rel="stylesheet" href="assets/video-kelas.css">
 </head>
 <body>
 
@@ -35,22 +36,25 @@
   </div>
 </header>
 
-<div class="info-blok" id="informasi">
+<div class="info-blok" id="informasi" data-video-dasar="assets/video/hero/" data-video-rasio="0.6667"
+     data-video-catatan="Animasi dari layar pilih class Atlantica Online &mdash; gerakan yang diperagakan hero saat dipilih.">
 <section class="info-hero">
   <div class="wadah">
     <span class="info-lencana">Informasi</span>
     <h1 class="info-judul">Hero Atlantica</h1>
     <p>Hero adalah karakter utamamu, dan <b>jobnya ditentukan oleh senjatanya</b>. Di Atlantica Heroes ada
-      <b>7 hero</b>. Pilih yang paling cocok dengan gayamu. Arahkan tetikus ke kartu untuk melihatnya dalam 3D.</p>
+      <b>7 hero</b>. Pilih yang paling cocok dengan gayamu. <b>Klik kartu untuk melihat animasi hero-nya</b>,
+      atau arahkan tetikus ke kartu untuk melihatnya dalam 3D.</p>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wadah">
     <div class="hero-kisi">
-    <article class="kartu-hero" id="hero-knight" data-tilt>
+    <article class="kartu-hero" id="hero-knight" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Knight&quot;,&quot;sub&quot;:&quot;Pedang · Jarak dekat&quot;,&quot;daftar&quot;:[[&quot;Knight&quot;,&quot;knight&quot;,&quot;Pendekar pedang di barisan depan. Serangannya terpusat ke satu musuh, dan tubuhnya kuat menahan pukulan sehingga menjaga teman di belakangnya. Cocok untuk: Pemain yang suka bertahan dan menjadi tameng tim.&quot;]]}">
       <div class="kh-gambar"><img src="assets/hero/knight.webp" alt="Hero Knight" loading="lazy">
-        <span class="kh-senjata">Pedang</span></div>
+        <span class="kh-senjata">Pedang</span>
+        <button class="kv-putar" type="button" aria-label="Putar animasi Knight">Animasi</button></div>
       <div class="kh-isi">
         <span class="kh-tipe">Jarak dekat</span>
         <h3>Knight</h3>
@@ -59,9 +63,10 @@
         <p class="kh-cocok"><b>Cocok untuk:</b> Pemain yang suka bertahan dan menjadi tameng tim.</p>
       </div>
     </article>
-    <article class="kartu-hero" id="hero-reaver" data-tilt>
+    <article class="kartu-hero" id="hero-reaver" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Reaver&quot;,&quot;sub&quot;:&quot;Kapak · Jarak dekat&quot;,&quot;daftar&quot;:[[&quot;Reaver&quot;,&quot;reaver&quot;,&quot;Pengayun kapak besar. Satu ayunan menyapu seluruh barisan depan musuh sekaligus. Cocok untuk: Membersihkan banyak musuh lemah dengan cepat.&quot;]]}">
       <div class="kh-gambar"><img src="assets/hero/reaver.webp" alt="Hero Reaver" loading="lazy">
-        <span class="kh-senjata">Kapak</span></div>
+        <span class="kh-senjata">Kapak</span>
+        <button class="kv-putar" type="button" aria-label="Putar animasi Reaver">Animasi</button></div>
       <div class="kh-isi">
         <span class="kh-tipe">Jarak dekat</span>
         <h3>Reaver</h3>
@@ -70,9 +75,10 @@
         <p class="kh-cocok"><b>Cocok untuk:</b> Membersihkan banyak musuh lemah dengan cepat.</p>
       </div>
     </article>
-    <article class="kartu-hero" id="hero-dragoon" data-tilt>
+    <article class="kartu-hero" id="hero-dragoon" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Dragoon&quot;,&quot;sub&quot;:&quot;Tombak · Jarak dekat&quot;,&quot;daftar&quot;:[[&quot;Dragoon&quot;,&quot;dragoon&quot;,&quot;Tombak panjang yang menembus musuh di depan sekaligus musuh yang berdiri di belakangnya. Cocok untuk: Menyerang dua musuh sekaligus tanpa harus mundur.&quot;]]}">
       <div class="kh-gambar"><img src="assets/hero/dragoon.webp" alt="Hero Dragoon" loading="lazy">
-        <span class="kh-senjata">Tombak</span></div>
+        <span class="kh-senjata">Tombak</span>
+        <button class="kv-putar" type="button" aria-label="Putar animasi Dragoon">Animasi</button></div>
       <div class="kh-isi">
         <span class="kh-tipe">Jarak dekat</span>
         <h3>Dragoon</h3>
@@ -81,9 +87,10 @@
         <p class="kh-cocok"><b>Cocok untuk:</b> Menyerang dua musuh sekaligus tanpa harus mundur.</p>
       </div>
     </article>
-    <article class="kartu-hero" id="hero-marksman" data-tilt>
+    <article class="kartu-hero" id="hero-marksman" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Marksman&quot;,&quot;sub&quot;:&quot;Busur · Jarak jauh&quot;,&quot;daftar&quot;:[[&quot;Marksman&quot;,&quot;marksman&quot;,&quot;Pemanah dari barisan belakang. Bebas memilih sasaran di mana saja, cocok untuk menjatuhkan penyihir atau penyembuh musuh lebih dulu. Cocok untuk: Pemain yang suka memilih sasaran penting.&quot;]]}">
       <div class="kh-gambar"><img src="assets/hero/marksman.webp" alt="Hero Marksman" loading="lazy">
-        <span class="kh-senjata">Busur</span></div>
+        <span class="kh-senjata">Busur</span>
+        <button class="kv-putar" type="button" aria-label="Putar animasi Marksman">Animasi</button></div>
       <div class="kh-isi">
         <span class="kh-tipe">Jarak jauh</span>
         <h3>Marksman</h3>
@@ -92,9 +99,10 @@
         <p class="kh-cocok"><b>Cocok untuk:</b> Pemain yang suka memilih sasaran penting.</p>
       </div>
     </article>
-    <article class="kartu-hero" id="hero-rifleman" data-tilt>
+    <article class="kartu-hero" id="hero-rifleman" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Rifleman&quot;,&quot;sub&quot;:&quot;Senapan · Jarak jauh&quot;,&quot;daftar&quot;:[[&quot;Rifleman&quot;,&quot;rifleman&quot;,&quot;Pelurunya menembus satu garis musuh dari depan sampai belakang. Cocok untuk: Musuh yang berbaris lurus.&quot;]]}">
       <div class="kh-gambar"><img src="assets/hero/rifleman.webp" alt="Hero Rifleman" loading="lazy">
-        <span class="kh-senjata">Senapan</span></div>
+        <span class="kh-senjata">Senapan</span>
+        <button class="kv-putar" type="button" aria-label="Putar animasi Rifleman">Animasi</button></div>
       <div class="kh-isi">
         <span class="kh-tipe">Jarak jauh</span>
         <h3>Rifleman</h3>
@@ -103,9 +111,10 @@
         <p class="kh-cocok"><b>Cocok untuk:</b> Musuh yang berbaris lurus.</p>
       </div>
     </article>
-    <article class="kartu-hero" id="hero-bombardier" data-tilt>
+    <article class="kartu-hero" id="hero-bombardier" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Bombardier&quot;,&quot;sub&quot;:&quot;Meriam · Jarak jauh&quot;,&quot;daftar&quot;:[[&quot;Bombardier&quot;,&quot;bombardier&quot;,&quot;Meriam berat yang meledak berbentuk tanda tambah dan bisa mengenai hingga lima musuh. Cocok untuk: Kerumunan musuh yang rapat.&quot;]]}">
       <div class="kh-gambar"><img src="assets/hero/bombardier.webp" alt="Hero Bombardier" loading="lazy">
-        <span class="kh-senjata">Meriam</span></div>
+        <span class="kh-senjata">Meriam</span>
+        <button class="kv-putar" type="button" aria-label="Putar animasi Bombardier">Animasi</button></div>
       <div class="kh-isi">
         <span class="kh-tipe">Jarak jauh</span>
         <h3>Bombardier</h3>
@@ -114,9 +123,10 @@
         <p class="kh-cocok"><b>Cocok untuk:</b> Kerumunan musuh yang rapat.</p>
       </div>
     </article>
-    <article class="kartu-hero" id="hero-mage" data-tilt>
+    <article class="kartu-hero" id="hero-mage" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Mage&quot;,&quot;sub&quot;:&quot;Tongkat sihir · Sihir&quot;,&quot;daftar&quot;:[[&quot;Mage&quot;,&quot;mage&quot;,&quot;Penyihir dengan serangan biasa ke satu musuh di depan, tetapi kekuatan sebenarnya ada di skill sihir yang bisa mengenai banyak musuh. Cocok untuk: Pemain yang suka mengandalkan skill.&quot;]]}">
       <div class="kh-gambar"><img src="assets/hero/mage.webp" alt="Hero Mage" loading="lazy">
-        <span class="kh-senjata">Tongkat sihir</span></div>
+        <span class="kh-senjata">Tongkat sihir</span>
+        <button class="kv-putar" type="button" aria-label="Putar animasi Mage">Animasi</button></div>
       <div class="kh-isi">
         <span class="kh-tipe">Sihir</span>
         <h3>Mage</h3>
@@ -158,6 +168,7 @@
 </footer>
 
 <script src="assets/tilt3d.js" defer></script>
+<script src="assets/video-kelas.js" defer></script>
 <script>
 (function () {
   var t = document.getElementById('navBuka'), m = document.getElementById('navTautan');

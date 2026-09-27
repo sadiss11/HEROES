@@ -15,6 +15,7 @@
 <link rel="apple-touch-icon" href="assets/her.png">
 <link rel="stylesheet" href="assets/dnheroes.css">
 <link rel="stylesheet" href="assets/informasi.css">
+<link rel="stylesheet" href="assets/video-kelas.css">
 </head>
 <body data-musik="mati"><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Ini salinan online situs HEROES. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://wa.link/sqa5sq" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">WhatsApp</a> atau <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div>
 
@@ -359,13 +360,15 @@
   </div>
 </section>
 
-<div class="info-blok" id="informasi">
+<div class="info-blok" id="informasi" data-video-dasar="assets/video/kelas/" data-video-rasio="1"
+     data-video-catatan="Video resmi dari klien Dragon Nest &mdash; pratinjau yang sama dengan yang diputar game saat memilih class dan job.">
 <section class="info-hero">
   <div class="wadah">
     <p class="hero-tag" style="justify-content:center">Informasi</p>
     <h2 class="info-judul">Class Dragon Nest</h2>
     <p>Ada <b>10 class dasar</b> dan <b>29 jalur job</b> di Dragon Nest Heroes. Class dipilih saat membuat
-      karakter; job dan spesialisasinya dipilih seiring naik level. Arahkan tetikus ke kartu untuk melihatnya dalam 3D.</p>
+      karakter; job dan spesialisasinya dipilih seiring naik level. <b>Klik kartu untuk melihat video class-nya</b>,
+      atau arahkan tetikus ke kartu untuk melihatnya dalam 3D.</p>
   </div>
 </section>
 
@@ -391,11 +394,13 @@
         <h3 class="kelas-nama">Warrior</h3>
         <p class="kelas-desk">Petarung garis depan bertubuh kuat. Maju paling dulu dengan pedang besar atau kapak, dan paling tahan dipukul.</p>
         <ul class="kelas-jalur"><li><b>Swordmaster</b> &rarr; Gladiator / Moonlord</li><li><b>Mercenary</b> &rarr; Barbarian / Destroyer</li><li><b>Avenger</b> &rarr; Dark Avenger</li><li><b>Knight</b> &rarr; Mystic Knight / Grand Master</li></ul>
+        <button class="kv-putar kv-kelas" type="button" data-video="{&quot;judul&quot;:&quot;Warrior&quot;,&quot;sub&quot;:&quot;Class dasar&quot;,&quot;daftar&quot;:[[&quot;Warrior&quot;,&quot;warior&quot;,&quot;Petarung garis depan bertubuh kuat. Maju paling dulu dengan pedang besar atau kapak, dan paling tahan dipukul.&quot;]]}">Video class Warrior</button>
       </div>
     </div>
     <div class="job-kisi">
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/swordmaster.webp" alt="Swordmaster" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Swordmaster&quot;,&quot;sub&quot;:&quot;Warrior&quot;,&quot;daftar&quot;:[[&quot;Swordmaster&quot;,&quot;swordmaster&quot;,&quot;Ahli pedang besar yang cepat dan lincah; tebasannya menjangkau musuh dari berbagai jarak.&quot;],[&quot;Gladiator&quot;,&quot;gladiator&quot;,&quot;Menyatu dengan pedang dan menebas musuh dalam sekejap.&quot;],[&quot;Moonlord&quot;,&quot;moonload&quot;,&quot;Menembakkan bilah energi yang mengenai musuh walau pedangnya tidak sampai (INT).&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/swordmaster.webp" alt="Swordmaster" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Swordmaster">Video</button></div>
         <div class="kj-isi">
           <h3>Swordmaster </h3>
           <p class="kj-desk">Ahli pedang besar yang cepat dan lincah; tebasannya menjangkau musuh dari berbagai jarak.</p>
@@ -404,8 +409,9 @@
           <ul class="kj-spes"><li><b>Gladiator</b> &mdash; Menyatu dengan pedang dan menebas musuh dalam sekejap.</li><li><b>Moonlord</b> &mdash; Menembakkan bilah energi yang mengenai musuh walau pedangnya tidak sampai (INT).</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/mercenary.webp" alt="Mercenary" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Mercenary&quot;,&quot;sub&quot;:&quot;Warrior&quot;,&quot;daftar&quot;:[[&quot;Mercenary&quot;,&quot;mercenary&quot;,&quot;Petarung penerjang bersenjata kapak; paling jago menghancurkan Super Armor musuh.&quot;],[&quot;Barbarian&quot;,&quot;babarian&quot;,&quot;Serangan berat yang hampir tak terkalahkan di jarak dekat.&quot;],[&quot;Destroyer&quot;,&quot;destroyer&quot;,&quot;Kekuatan penghancur yang meratakan seisi medan tempur.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/mercenary.webp" alt="Mercenary" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Mercenary">Video</button></div>
         <div class="kj-isi">
           <h3>Mercenary </h3>
           <p class="kj-desk">Petarung penerjang bersenjata kapak; paling jago menghancurkan Super Armor musuh.</p>
@@ -414,8 +420,9 @@
           <ul class="kj-spes"><li><b>Barbarian</b> &mdash; Serangan berat yang hampir tak terkalahkan di jarak dekat.</li><li><b>Destroyer</b> &mdash; Kekuatan penghancur yang meratakan seisi medan tempur.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/avenger.webp" alt="Avenger" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Avenger&quot;,&quot;sub&quot;:&quot;Warrior&quot;,&quot;daftar&quot;:[[&quot;Avenger&quot;,&quot;darkavenger&quot;,&quot;Pedang api kegelapan. Setiap serangannya membakar musuh dan menambah kerusakan.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/avenger.webp" alt="Avenger" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Avenger">Video</button></div>
         <div class="kj-isi">
           <h3>Avenger <span class="kj-tag">Spin-off</span></h3>
           <p class="kj-desk">Pedang api kegelapan. Setiap serangannya membakar musuh dan menambah kerusakan.</p>
@@ -424,8 +431,9 @@
           <ul class="kj-spes"><li><b>Dark Avenger</b> &mdash; Bentuk lanjutan Avenger dengan kekuatan kegelapan penuh.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/knight.webp" alt="Knight" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Knight&quot;,&quot;sub&quot;:&quot;Warrior&quot;,&quot;daftar&quot;:[[&quot;Knight&quot;,&quot;knight&quot;,&quot;Pendekar pedang yang juga menguasai sihir kuat.&quot;],[&quot;Mystic Knight&quot;,&quot;mysticknight&quot;,&quot;Bertarung bersama naga dan pedang iblis, memanggil bayangan untuk menyapu musuh.&quot;],[&quot;Grand Master&quot;,&quot;grandmaster&quot;,&quot;Menciptakan berbagai senjata dari bayangan yang memukau musuh.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/knight.webp" alt="Knight" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Knight">Video</button></div>
         <div class="kj-isi">
           <h3>Knight </h3>
           <p class="kj-desk">Pendekar pedang yang juga menguasai sihir kuat.</p>
@@ -447,11 +455,13 @@
         <h3 class="kelas-nama">Archer</h3>
         <p class="kelas-desk">Penembak lincah yang menyerang dari kejauhan dan pandai menghindar.</p>
         <ul class="kelas-jalur"><li><b>Bowmaster</b> &rarr; Sniper / Artillery</li><li><b>Acrobat</b> &rarr; Tempest / Wind Walker</li><li><b>Hunter</b> &rarr; Silver Hunter</li></ul>
+        <button class="kv-putar kv-kelas" type="button" data-video="{&quot;judul&quot;:&quot;Archer&quot;,&quot;sub&quot;:&quot;Class dasar&quot;,&quot;daftar&quot;:[[&quot;Archer&quot;,&quot;archer&quot;,&quot;Penembak lincah yang menyerang dari kejauhan dan pandai menghindar.&quot;]]}">Video class Archer</button>
       </div>
     </div>
     <div class="job-kisi">
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/bowmaster.webp" alt="Bowmaster" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Bowmaster&quot;,&quot;sub&quot;:&quot;Archer&quot;,&quot;daftar&quot;:[[&quot;Bowmaster&quot;,&quot;bowmaster&quot;,&quot;Pemanah jarak jauh terbaik; panahnya selalu menemukan sasaran.&quot;],[&quot;Sniper&quot;,&quot;sniper&quot;,&quot;Panahnya menjangkau seluruh medan dan menembus barisan musuh.&quot;],[&quot;Artillery&quot;,&quot;artillery&quot;,&quot;Memakai panah sihir yang meledak (INT).&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/bowmaster.webp" alt="Bowmaster" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Bowmaster">Video</button></div>
         <div class="kj-isi">
           <h3>Bowmaster </h3>
           <p class="kj-desk">Pemanah jarak jauh terbaik; panahnya selalu menemukan sasaran.</p>
@@ -460,8 +470,9 @@
           <ul class="kj-spes"><li><b>Sniper</b> &mdash; Panahnya menjangkau seluruh medan dan menembus barisan musuh.</li><li><b>Artillery</b> &mdash; Memakai panah sihir yang meledak (INT).</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/acrobat.webp" alt="Acrobat" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Acrobat&quot;,&quot;sub&quot;:&quot;Archer&quot;,&quot;daftar&quot;:[[&quot;Acrobat&quot;,&quot;acrobat&quot;,&quot;Pemanah yang menguasai bela diri dan bergerak secepat angin.&quot;],[&quot;Tempest&quot;,&quot;tempest&quot;,&quot;Serangan beruntun bak badai, musuh tak sempat membalas.&quot;],[&quot;Wind Walker&quot;,&quot;windwalker&quot;,&quot;Melayang di udara dan menyerang dari atas.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/acrobat.webp" alt="Acrobat" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Acrobat">Video</button></div>
         <div class="kj-isi">
           <h3>Acrobat </h3>
           <p class="kj-desk">Pemanah yang menguasai bela diri dan bergerak secepat angin.</p>
@@ -470,8 +481,9 @@
           <ul class="kj-spes"><li><b>Tempest</b> &mdash; Serangan beruntun bak badai, musuh tak sempat membalas.</li><li><b>Wind Walker</b> &mdash; Melayang di udara dan menyerang dari atas.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/sliverhunter.webp" alt="Hunter" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Hunter&quot;,&quot;sub&quot;:&quot;Archer&quot;,&quot;daftar&quot;:[[&quot;Hunter&quot;,&quot;silverhunter&quot;,&quot;Elang putih bercahaya suci yang terbang dan menghujani musuh dengan panah suci.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/sliverhunter.webp" alt="Hunter" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Hunter">Video</button></div>
         <div class="kj-isi">
           <h3>Hunter <span class="kj-tag">Spin-off</span></h3>
           <p class="kj-desk">Elang putih bercahaya suci yang terbang dan menghujani musuh dengan panah suci.</p>
@@ -493,11 +505,13 @@
         <h3 class="kelas-nama">Sorceress</h3>
         <p class="kelas-desk">Penyihir yang menyerang dari jauh dengan sihir berdaya rusak besar.</p>
         <ul class="kelas-jalur"><li><b>Elemental Lord</b> &rarr; Saleana / Elestra</li><li><b>Force User</b> &rarr; Smasher / Majesty</li><li><b>Mara</b> &rarr; Black Mara</li></ul>
+        <button class="kv-putar kv-kelas" type="button" data-video="{&quot;judul&quot;:&quot;Sorceress&quot;,&quot;sub&quot;:&quot;Class dasar&quot;,&quot;daftar&quot;:[[&quot;Sorceress&quot;,&quot;sorceress&quot;,&quot;Penyihir yang menyerang dari jauh dengan sihir berdaya rusak besar.&quot;]]}">Video class Sorceress</button>
       </div>
     </div>
     <div class="job-kisi">
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/elementallord.webp" alt="Elemental Lord" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Elemental Lord&quot;,&quot;sub&quot;:&quot;Sorceress&quot;,&quot;daftar&quot;:[[&quot;Elemental Lord&quot;,&quot;elementallord&quot;,&quot;Menguasai sihir api dan air.&quot;],[&quot;Saleana&quot;,&quot;saleana&quot;,&quot;Murid Dewa Api: api neraka yang terus membakar musuh.&quot;],[&quot;Elestra&quot;,&quot;elestra&quot;,&quot;Murid Dewa Air: badai salju dan es yang membekukan.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/elementallord.webp" alt="Elemental Lord" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Elemental Lord">Video</button></div>
         <div class="kj-isi">
           <h3>Elemental Lord </h3>
           <p class="kj-desk">Menguasai sihir api dan air.</p>
@@ -506,8 +520,9 @@
           <ul class="kj-spes"><li><b>Saleana</b> &mdash; Murid Dewa Api: api neraka yang terus membakar musuh.</li><li><b>Elestra</b> &mdash; Murid Dewa Air: badai salju dan es yang membekukan.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/forceuser.webp" alt="Force User" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Force User&quot;,&quot;sub&quot;:&quot;Sorceress&quot;,&quot;daftar&quot;:[[&quot;Force User&quot;,&quot;forceuser&quot;,&quot;Mengendalikan ruang, waktu, dan cahaya untuk melemahkan musuh.&quot;],[&quot;Smasher&quot;,&quot;smasher&quot;,&quot;Laser cahaya yang cukup tajam untuk menembus kulit naga.&quot;],[&quot;Majesty&quot;,&quot;majesy&quot;,&quot;Bola gravitasi yang menahan gerak musuh.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/forceuser.webp" alt="Force User" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Force User">Video</button></div>
         <div class="kj-isi">
           <h3>Force User </h3>
           <p class="kj-desk">Mengendalikan ruang, waktu, dan cahaya untuk melemahkan musuh.</p>
@@ -516,8 +531,9 @@
           <ul class="kj-spes"><li><b>Smasher</b> &mdash; Laser cahaya yang cukup tajam untuk menembus kulit naga.</li><li><b>Majesty</b> &mdash; Bola gravitasi yang menahan gerak musuh.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/blackmara.webp" alt="Mara" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Mara&quot;,&quot;sub&quot;:&quot;Sorceress&quot;,&quot;daftar&quot;:[[&quot;Mara&quot;,&quot;blackmara&quot;,&quot;Penyihir yang jatuh ke kegelapan demi kekuatan, bertarung lincah dengan sabit.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/blackmara.webp" alt="Mara" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Mara">Video</button></div>
         <div class="kj-isi">
           <h3>Mara <span class="kj-tag">Spin-off</span></h3>
           <p class="kj-desk">Penyihir yang jatuh ke kegelapan demi kekuatan, bertarung lincah dengan sabit.</p>
@@ -539,11 +555,13 @@
         <h3 class="kelas-nama">Cleric</h3>
         <p class="kelas-desk">Pelindung dan penyembuh tim, bertarung dengan palu dan perisai.</p>
         <ul class="kelas-jalur"><li><b>Paladin</b> &rarr; Guardian / Crusader</li><li><b>Priest</b> &rarr; Saint / Inquisitor</li><li><b>Heretic</b> &rarr; Arch Heretic</li></ul>
+        <button class="kv-putar kv-kelas" type="button" data-video="{&quot;judul&quot;:&quot;Cleric&quot;,&quot;sub&quot;:&quot;Class dasar&quot;,&quot;daftar&quot;:[[&quot;Cleric&quot;,&quot;cleric&quot;,&quot;Pelindung dan penyembuh tim, bertarung dengan palu dan perisai.&quot;]]}">Video class Cleric</button>
       </div>
     </div>
     <div class="job-kisi">
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/paladin.webp" alt="Paladin" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Paladin&quot;,&quot;sub&quot;:&quot;Cleric&quot;,&quot;daftar&quot;:[[&quot;Paladin&quot;,&quot;paladin&quot;,&quot;Tiang pelindung yang menjaga rekan satu tim.&quot;],[&quot;Guardian&quot;,&quot;guardian&quot;,&quot;Perisai hidup yang menahan semua serangan untuk tim.&quot;],[&quot;Crusader&quot;,&quot;crusades&quot;,&quot;Bertahan sambil menyerang dengan senjatanya.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/paladin.webp" alt="Paladin" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Paladin">Video</button></div>
         <div class="kj-isi">
           <h3>Paladin </h3>
           <p class="kj-desk">Tiang pelindung yang menjaga rekan satu tim.</p>
@@ -552,8 +570,9 @@
           <ul class="kj-spes"><li><b>Guardian</b> &mdash; Perisai hidup yang menahan semua serangan untuk tim.</li><li><b>Crusader</b> &mdash; Bertahan sambil menyerang dengan senjatanya.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/priest.webp" alt="Priest" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Priest&quot;,&quot;sub&quot;:&quot;Cleric&quot;,&quot;daftar&quot;:[[&quot;Priest&quot;,&quot;priest&quot;,&quot;Membawa cahaya berkah untuk teman dan penghakiman untuk musuh.&quot;],[&quot;Saint&quot;,&quot;saint&quot;,&quot;Penyembuh terbaik dan pemberi berkah untuk tim.&quot;],[&quot;Inquisitor&quot;,&quot;inquisitor&quot;,&quot;Menyambar musuh dengan petir suci.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/priest.webp" alt="Priest" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Priest">Video</button></div>
         <div class="kj-isi">
           <h3>Priest </h3>
           <p class="kj-desk">Membawa cahaya berkah untuk teman dan penghakiman untuk musuh.</p>
@@ -562,8 +581,9 @@
           <ul class="kj-spes"><li><b>Saint</b> &mdash; Penyembuh terbaik dan pemberi berkah untuk tim.</li><li><b>Inquisitor</b> &mdash; Menyambar musuh dengan petir suci.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/heretic.webp" alt="Heretic" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Heretic&quot;,&quot;sub&quot;:&quot;Cleric&quot;,&quot;daftar&quot;:[[&quot;Heretic&quot;,&quot;archheretic&quot;,&quot;Memakai kekuatan gelap untuk menghancurkan dan melemahkan semangat musuh.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/heretic.webp" alt="Heretic" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Heretic">Video</button></div>
         <div class="kj-isi">
           <h3>Heretic <span class="kj-tag">Spin-off</span></h3>
           <p class="kj-desk">Memakai kekuatan gelap untuk menghancurkan dan melemahkan semangat musuh.</p>
@@ -585,11 +605,13 @@
         <h3 class="kelas-nama">Academic</h3>
         <p class="kelas-desk">Ilmuwan cilik yang bertarung dengan mesin buatan sendiri dan ramuan kimia.</p>
         <ul class="kelas-jalur"><li><b>Engineer</b> &rarr; Shooting Star / Gear Master</li><li><b>Alchemist</b> &rarr; Adept / Physician</li><li><b>Mechanic</b> &rarr; Ray Mechanic</li></ul>
+        <button class="kv-putar kv-kelas" type="button" data-video="{&quot;judul&quot;:&quot;Academic&quot;,&quot;sub&quot;:&quot;Class dasar&quot;,&quot;daftar&quot;:[[&quot;Academic&quot;,&quot;academic&quot;,&quot;Ilmuwan cilik yang bertarung dengan mesin buatan sendiri dan ramuan kimia.&quot;]]}">Video class Academic</button>
       </div>
     </div>
     <div class="job-kisi">
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/engineer.webp" alt="Engineer" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Engineer&quot;,&quot;sub&quot;:&quot;Academic&quot;,&quot;daftar&quot;:[[&quot;Engineer&quot;,&quot;engineer&quot;,&quot;Ahli mesin yang bertarung bersama golem Alfredo.&quot;],[&quot;Shooting Star&quot;,&quot;shootingstar&quot;,&quot;Rudal dan meriam untuk serangan area luas.&quot;],[&quot;Gear Master&quot;,&quot;gearmaster&quot;,&quot;Membangun menara dan Mecha Duck yang terus menembak.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/engineer.webp" alt="Engineer" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Engineer">Video</button></div>
         <div class="kj-isi">
           <h3>Engineer </h3>
           <p class="kj-desk">Ahli mesin yang bertarung bersama golem Alfredo.</p>
@@ -598,8 +620,9 @@
           <ul class="kj-spes"><li><b>Shooting Star</b> &mdash; Rudal dan meriam untuk serangan area luas.</li><li><b>Gear Master</b> &mdash; Membangun menara dan Mecha Duck yang terus menembak.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/alchemist.webp" alt="Alchemist" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Alchemist&quot;,&quot;sub&quot;:&quot;Academic&quot;,&quot;daftar&quot;:[[&quot;Alchemist&quot;,&quot;alchemist&quot;,&quot;Ahli kimia yang bisa membantu tim sekaligus menyerang.&quot;],[&quot;Adept&quot;,&quot;adept&quot;,&quot;Ramuan api dan air yang meledak di tengah musuh.&quot;],[&quot;Physician&quot;,&quot;physician&quot;,&quot;Racun untuk musuh dan Slime yang membantu teman.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/alchemist.webp" alt="Alchemist" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Alchemist">Video</button></div>
         <div class="kj-isi">
           <h3>Alchemist </h3>
           <p class="kj-desk">Ahli kimia yang bisa membantu tim sekaligus menyerang.</p>
@@ -608,8 +631,9 @@
           <ul class="kj-spes"><li><b>Adept</b> &mdash; Ramuan api dan air yang meledak di tengah musuh.</li><li><b>Physician</b> &mdash; Racun untuk musuh dan Slime yang membantu teman.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/raymechanic.webp" alt="Mechanic" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Mechanic&quot;,&quot;sub&quot;:&quot;Academic&quot;,&quot;daftar&quot;:[[&quot;Mechanic&quot;,&quot;raymechanic&quot;,&quot;Teknisi dari masa depan yang menunggangi Alfredo ke medan tempur.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/raymechanic.webp" alt="Mechanic" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Mechanic">Video</button></div>
         <div class="kj-isi">
           <h3>Mechanic <span class="kj-tag">Spin-off</span></h3>
           <p class="kj-desk">Teknisi dari masa depan yang menunggangi Alfredo ke medan tempur.</p>
@@ -631,11 +655,13 @@
         <h3 class="kelas-nama">Kali</h3>
         <p class="kelas-desk">Penari mistis yang memanggil kekuatan roh dan dewa.</p>
         <ul class="kelas-jalur"><li><b>Screamer</b> &rarr; Dark Summoner / Soul Eater</li><li><b>Dancer</b> &rarr; Blade Dancer / Spirit Dancer</li><li><b>Oracle</b> &rarr; Oracle Elder</li></ul>
+        <button class="kv-putar kv-kelas" type="button" data-video="{&quot;judul&quot;:&quot;Kali&quot;,&quot;sub&quot;:&quot;Class dasar&quot;,&quot;daftar&quot;:[[&quot;Kali&quot;,&quot;kali&quot;,&quot;Penari mistis yang memanggil kekuatan roh dan dewa.&quot;]]}">Video class Kali</button>
       </div>
     </div>
     <div class="job-kisi">
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/screamer.webp" alt="Screamer" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Screamer&quot;,&quot;sub&quot;:&quot;Kali&quot;,&quot;daftar&quot;:[[&quot;Screamer&quot;,&quot;screamer&quot;,&quot;Memakai jimat, sihir, dan roh untuk menguasai medan.&quot;],[&quot;Dark Summoner&quot;,&quot;darksummoner&quot;,&quot;Tangan roh yang terus mencabik musuh di sekitarnya.&quot;],[&quot;Soul Eater&quot;,&quot;souleater&quot;,&quot;Jimat yang terus menyiksa jiwa musuh.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/screamer.webp" alt="Screamer" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Screamer">Video</button></div>
         <div class="kj-isi">
           <h3>Screamer </h3>
           <p class="kj-desk">Memakai jimat, sihir, dan roh untuk menguasai medan.</p>
@@ -644,8 +670,9 @@
           <ul class="kj-spes"><li><b>Dark Summoner</b> &mdash; Tangan roh yang terus mencabik musuh di sekitarnya.</li><li><b>Soul Eater</b> &mdash; Jimat yang terus menyiksa jiwa musuh.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/dancer.webp" alt="Dancer" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Dancer&quot;,&quot;sub&quot;:&quot;Kali&quot;,&quot;daftar&quot;:[[&quot;Dancer&quot;,&quot;dancer&quot;,&quot;Penari bersenjata chakram yang memukau musuh dengan gerakannya.&quot;],[&quot;Blade Dancer&quot;,&quot;bladedancer&quot;,&quot;Tarian yang memanggil angin setajam pisau.&quot;],[&quot;Spirit Dancer&quot;,&quot;spiritdancer&quot;,&quot;Memanggil roh kuno untuk memperkuat diri.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/dancer.webp" alt="Dancer" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Dancer">Video</button></div>
         <div class="kj-isi">
           <h3>Dancer </h3>
           <p class="kj-desk">Penari bersenjata chakram yang memukau musuh dengan gerakannya.</p>
@@ -654,8 +681,9 @@
           <ul class="kj-spes"><li><b>Blade Dancer</b> &mdash; Tarian yang memanggil angin setajam pisau.</li><li><b>Spirit Dancer</b> &mdash; Memanggil roh kuno untuk memperkuat diri.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/oracleelder.webp" alt="Oracle" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Oracle&quot;,&quot;sub&quot;:&quot;Kali&quot;,&quot;daftar&quot;:[[&quot;Oracle&quot;,&quot;oracleelder&quot;,&quot;Dukun cahaya dengan gaya bertarung yang cepat dan menyilaukan.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/oracleelder.webp" alt="Oracle" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Oracle">Video</button></div>
         <div class="kj-isi">
           <h3>Oracle <span class="kj-tag">Spin-off</span></h3>
           <p class="kj-desk">Dukun cahaya dengan gaya bertarung yang cepat dan menyilaukan.</p>
@@ -677,11 +705,13 @@
         <h3 class="kelas-nama">Assassin</h3>
         <p class="kelas-desk">Pembunuh senyap yang cepat, menyerang sebelum musuh sadar.</p>
         <ul class="kelas-jalur"><li><b>Chaser</b> &rarr; Ripper / Raven</li><li><b>Bringer</b> &rarr; Light Fury / Abyss Walker</li><li><b>Phantom</b> &rarr; Bleed Phantom</li></ul>
+        <button class="kv-putar kv-kelas" type="button" data-video="{&quot;judul&quot;:&quot;Assassin&quot;,&quot;sub&quot;:&quot;Class dasar&quot;,&quot;daftar&quot;:[[&quot;Assassin&quot;,&quot;assassin&quot;,&quot;Pembunuh senyap yang cepat, menyerang sebelum musuh sadar.&quot;]]}">Video class Assassin</button>
       </div>
     </div>
     <div class="job-kisi">
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/chaser.webp" alt="Chaser" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Chaser&quot;,&quot;sub&quot;:&quot;Assassin&quot;,&quot;daftar&quot;:[[&quot;Chaser&quot;,&quot;chaser&quot;,&quot;Menguasai teknik pembunuhan kuno; musuh tumbang sebelum melihatnya.&quot;],[&quot;Ripper&quot;,&quot;ripper&quot;,&quot;Bela diri dengan tenaga ledakan dari bayangan.&quot;],[&quot;Raven&quot;,&quot;raven&quot;,&quot;Energi gelap dan kawanan gagak yang muncul tiba-tiba.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/chaser.webp" alt="Chaser" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Chaser">Video</button></div>
         <div class="kj-isi">
           <h3>Chaser </h3>
           <p class="kj-desk">Menguasai teknik pembunuhan kuno; musuh tumbang sebelum melihatnya.</p>
@@ -690,8 +720,9 @@
           <ul class="kj-spes"><li><b>Ripper</b> &mdash; Bela diri dengan tenaga ledakan dari bayangan.</li><li><b>Raven</b> &mdash; Energi gelap dan kawanan gagak yang muncul tiba-tiba.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/bringer.webp" alt="Bringer" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Bringer&quot;,&quot;sub&quot;:&quot;Assassin&quot;,&quot;daftar&quot;:[[&quot;Bringer&quot;,&quot;bringer&quot;,&quot;Menguasai cahaya dan kegelapan di dalam diri.&quot;],[&quot;Light Fury&quot;,&quot;lightfury&quot;,&quot;Kekuatan kebajikan dalam bentuk cakra, bertarung bersama tim.&quot;],[&quot;Abyss Walker&quot;,&quot;abysswalker&quot;,&quot;Kekuatan jurang yang menakutkan musuh.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/bringer.webp" alt="Bringer" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Bringer">Video</button></div>
         <div class="kj-isi">
           <h3>Bringer </h3>
           <p class="kj-desk">Menguasai cahaya dan kegelapan di dalam diri.</p>
@@ -700,8 +731,9 @@
           <ul class="kj-spes"><li><b>Light Fury</b> &mdash; Kekuatan kebajikan dalam bentuk cakra, bertarung bersama tim.</li><li><b>Abyss Walker</b> &mdash; Kekuatan jurang yang menakutkan musuh.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/bleedphantom.webp" alt="Phantom" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Phantom&quot;,&quot;sub&quot;:&quot;Assassin&quot;,&quot;daftar&quot;:[[&quot;Phantom&quot;,&quot;bleedphantom&quot;,&quot;Mengandalkan kecepatan; membuat musuh berdarah dan menandai sasaran.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/bleedphantom.webp" alt="Phantom" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Phantom">Video</button></div>
         <div class="kj-isi">
           <h3>Phantom <span class="kj-tag">Spin-off</span></h3>
           <p class="kj-desk">Mengandalkan kecepatan; membuat musuh berdarah dan menandai sasaran.</p>
@@ -723,11 +755,13 @@
         <h3 class="kelas-nama">Lancea</h3>
         <p class="kelas-desk">Prajurit bertombak raksasa yang menjangkau musuh dari jarak menengah.</p>
         <ul class="kelas-jalur"><li><b>Piercer</b> &rarr; Flurry / Sting Breezer</li><li><b>Knightess</b> &rarr; Avalanche / Randgrid</li><li><b>Plaga</b> &rarr; Vena Plaga</li></ul>
+        <button class="kv-putar kv-kelas" type="button" data-video="{&quot;judul&quot;:&quot;Lancea&quot;,&quot;sub&quot;:&quot;Class dasar&quot;,&quot;daftar&quot;:[[&quot;Lancea&quot;,&quot;lencea&quot;,&quot;Prajurit bertombak raksasa yang menjangkau musuh dari jarak menengah.&quot;]]}">Video class Lancea</button>
       </div>
     </div>
     <div class="job-kisi">
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/piercer.webp" alt="Piercer" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Piercer&quot;,&quot;sub&quot;:&quot;Lancea&quot;,&quot;daftar&quot;:[[&quot;Piercer&quot;,&quot;piercer&quot;,&quot;Mengayunkan tombak yang lebih besar dari tubuhnya dengan mudah.&quot;],[&quot;Flurry&quot;,&quot;flurry&quot;,&quot;Menyerang seperti hembusan angin dan mengincar titik lemah.&quot;],[&quot;Sting Breezer&quot;,&quot;stingbreezer&quot;,&quot;Tombak bersihir dengan jurus yang indah (INT).&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/piercer.webp" alt="Piercer" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Piercer">Video</button></div>
         <div class="kj-isi">
           <h3>Piercer </h3>
           <p class="kj-desk">Mengayunkan tombak yang lebih besar dari tubuhnya dengan mudah.</p>
@@ -736,8 +770,9 @@
           <ul class="kj-spes"><li><b>Flurry</b> &mdash; Menyerang seperti hembusan angin dan mengincar titik lemah.</li><li><b>Sting Breezer</b> &mdash; Tombak bersihir dengan jurus yang indah (INT).</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/knightess.webp" alt="Knightess" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Knightess&quot;,&quot;sub&quot;:&quot;Lancea&quot;,&quot;daftar&quot;:[[&quot;Knightess&quot;,&quot;knightess&quot;,&quot;Ksatria wanita dengan tombak raksasa yang menembus segala rintangan.&quot;],[&quot;Avalanche&quot;,&quot;avalanche&quot;,&quot;Tombak es yang membekukan tanah (INT).&quot;],[&quot;Randgrid&quot;,&quot;randgrid&quot;,&quot;Kuda perang api dan perisai api untuk serangan balik (STR).&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/knightess.webp" alt="Knightess" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Knightess">Video</button></div>
         <div class="kj-isi">
           <h3>Knightess </h3>
           <p class="kj-desk">Ksatria wanita dengan tombak raksasa yang menembus segala rintangan.</p>
@@ -746,8 +781,9 @@
           <ul class="kj-spes"><li><b>Avalanche</b> &mdash; Tombak es yang membekukan tanah (INT).</li><li><b>Randgrid</b> &mdash; Kuda perang api dan perisai api untuk serangan balik (STR).</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/plaga.webp" alt="Plaga" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Plaga&quot;,&quot;sub&quot;:&quot;Lancea&quot;,&quot;daftar&quot;:[[&quot;Plaga&quot;,&quot;venaplaga&quot;,&quot;Kegelapan batin berubah menjadi duri tajam yang dipanggil ke medan.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/plaga.webp" alt="Plaga" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Plaga">Video</button></div>
         <div class="kj-isi">
           <h3>Plaga <span class="kj-tag">Spin-off</span></h3>
           <p class="kj-desk">Kegelapan batin berubah menjadi duri tajam yang dipanggil ke medan.</p>
@@ -769,11 +805,13 @@
         <h3 class="kelas-nama">Machina</h3>
         <p class="kelas-desk">Petarung bertubuh ramping dengan sarung tangan mesin yang dahsyat.</p>
         <ul class="kelas-jalur"><li><b>Patrona</b> &rarr; Defensio / Ruina</li><li><b>Launcher</b> &rarr; Impactor / Luster</li></ul>
+        <button class="kv-putar kv-kelas" type="button" data-video="{&quot;judul&quot;:&quot;Machina&quot;,&quot;sub&quot;:&quot;Class dasar&quot;,&quot;daftar&quot;:[[&quot;Machina&quot;,&quot;machina&quot;,&quot;Petarung bertubuh ramping dengan sarung tangan mesin yang dahsyat.&quot;]]}">Video class Machina</button>
       </div>
     </div>
     <div class="job-kisi">
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/patrona.webp" alt="Patrona" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Patrona&quot;,&quot;sub&quot;:&quot;Machina&quot;,&quot;daftar&quot;:[[&quot;Patrona&quot;,&quot;patrona&quot;,&quot;Tinju Knuckle Gear dan gerakan lincah seperti hewan buas.&quot;],[&quot;Defensio&quot;,&quot;defensio&quot;,&quot;Bela diri bertahan untuk melindungi teman.&quot;],[&quot;Ruina&quot;,&quot;ruina&quot;,&quot;Bela diri menyerang tanpa memberi jeda.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/patrona.webp" alt="Patrona" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Patrona">Video</button></div>
         <div class="kj-isi">
           <h3>Patrona </h3>
           <p class="kj-desk">Tinju Knuckle Gear dan gerakan lincah seperti hewan buas.</p>
@@ -782,8 +820,9 @@
           <ul class="kj-spes"><li><b>Defensio</b> &mdash; Bela diri bertahan untuk melindungi teman.</li><li><b>Ruina</b> &mdash; Bela diri menyerang tanpa memberi jeda.</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/launcher.webp" alt="Launcher" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Launcher&quot;,&quot;sub&quot;:&quot;Machina&quot;,&quot;daftar&quot;:[[&quot;Launcher&quot;,&quot;launcher&quot;,&quot;Menyatu dengan senjata Blaster dan bergerak dinamis.&quot;],[&quot;Impactor&quot;,&quot;impactor&quot;,&quot;Ledakan cahaya untuk memperkuat diri dan menekan musuh (AGI).&quot;],[&quot;Luster&quot;,&quot;lustre&quot;,&quot;Cahaya yang mendukung teman dan menarik musuh (INT).&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/launcher.webp" alt="Launcher" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Launcher">Video</button></div>
         <div class="kj-isi">
           <h3>Launcher </h3>
           <p class="kj-desk">Menyatu dengan senjata Blaster dan bergerak dinamis.</p>
@@ -805,11 +844,13 @@
         <h3 class="kelas-nama">Vandar</h3>
         <p class="kelas-desk">Petualang bekas tentara bayaran yang bertarung dengan pedang dan panah pergelangan (wristbow).</p>
         <ul class="kelas-jalur"><li><b>Treasure Hunter</b> &rarr; Duelist / Trickster</li><li><b>Wanderer</b> &rarr; Revenant / Outlaw</li></ul>
+        <button class="kv-putar kv-kelas" type="button" data-video="{&quot;judul&quot;:&quot;Vandar&quot;,&quot;sub&quot;:&quot;Class dasar&quot;,&quot;daftar&quot;:[[&quot;Vandar&quot;,&quot;vandar&quot;,&quot;Petualang bekas tentara bayaran yang bertarung dengan pedang dan panah pergelangan (wristbow).&quot;]]}">Video class Vandar</button>
       </div>
     </div>
     <div class="job-kisi">
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/treasurehunter.webp" alt="Treasure Hunter" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Treasure Hunter&quot;,&quot;sub&quot;:&quot;Vandar&quot;,&quot;daftar&quot;:[[&quot;Treasure Hunter&quot;,&quot;treasurehunter&quot;,&quot;Ahli pedang dan wristbow hasil pengalaman bertahun-tahun.&quot;],[&quot;Duelist&quot;,&quot;duelist&quot;,&quot;Ilmu pedang secepat kilat (AGI).&quot;],[&quot;Trickster&quot;,&quot;trickster&quot;,&quot;Tembakan wristbow dan gerakan yang tak terduga (INT).&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/treasurehunter.webp" alt="Treasure Hunter" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Treasure Hunter">Video</button></div>
         <div class="kj-isi">
           <h3>Treasure Hunter </h3>
           <p class="kj-desk">Ahli pedang dan wristbow hasil pengalaman bertahun-tahun.</p>
@@ -818,8 +859,9 @@
           <ul class="kj-spes"><li><b>Duelist</b> &mdash; Ilmu pedang secepat kilat (AGI).</li><li><b>Trickster</b> &mdash; Tembakan wristbow dan gerakan yang tak terduga (INT).</li></ul>
         </div>
       </article>
-      <article class="kartu-job" data-tilt>
-        <div class="kj-gambar"><img src="assets/kelas/vandar.webp" alt="Wanderer" loading="lazy"></div>
+      <article class="kartu-job" data-tilt data-video-seri data-video="{&quot;judul&quot;:&quot;Wanderer&quot;,&quot;sub&quot;:&quot;Vandar&quot;,&quot;daftar&quot;:[[&quot;Wanderer&quot;,&quot;wanderer&quot;,&quot;Jalur kedua Vandar.&quot;],[&quot;Revenant&quot;,&quot;revenant&quot;,&quot;Spesialisasi lanjutan dari Wanderer.&quot;],[&quot;Outlaw&quot;,&quot;maverick&quot;,&quot;Spesialisasi lanjutan dari Wanderer.&quot;]]}">
+        <div class="kj-gambar"><img src="assets/kelas/vandar.webp" alt="Wanderer" loading="lazy">
+          <button class="kv-putar" type="button" aria-label="Putar video Wanderer">Video</button></div>
         <div class="kj-isi">
           <h3>Wanderer </h3>
           <p class="kj-desk">Jalur kedua Vandar.</p>
@@ -1080,5 +1122,6 @@ function aman(s) {
 })();
 </script>
 <script src="assets/tilt3d.js" defer></script>
+<script src="assets/video-kelas.js" defer></script>
 </body>
 </html>
