@@ -182,3 +182,108 @@
   font-size: .68rem; font-weight: 800; letter-spacing: .08em; color: #0a0607;
   background: linear-gradient(180deg, #FFD27A, #FF7A18); }
 .pb-lencana[hidden], .pb-3d[hidden], .pb-foto[hidden], .pb-benda[hidden] { display: none; }
+
+/* ---------------------------------------------------------- status di kartu
+   .ki-stat ada di setiap kartu (inc/informasi-isi.php, pb_info_stat_html).
+   Muncul saat tetikus diarahkan / kartu difokus keyboard, menutupi bagian
+   bawah kartu; batangnya tumbuh dari 0. Layar sentuh tidak punya "arahkan",
+   jadi di sana status dibaca lewat panel yang terbuka saat kartu diketuk. */
+.item-kisi-senjata { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.kelompok-desk { margin: -6px 0 12px; color: var(--muted); font-size: .86rem; }
+.ki-stat {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  display: flex; flex-direction: column; gap: 5px; padding: 12px 12px 12px;
+  background: linear-gradient(180deg, rgba(10,6,7,.72), rgba(10,6,7,.96) 22%);
+  border-top: 1px solid rgba(var(--accent-rgb), .45);
+  transform: translateY(101%); opacity: 0; pointer-events: none;
+  transition: transform .28s cubic-bezier(.2,.8,.2,1), opacity .2s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .kartu-item:hover .ki-stat, .kartu-item:focus-visible .ki-stat { transform: translateY(0); opacity: 1; }
+  .kartu-item:hover .ks-bar b, .kartu-item:focus-visible .ks-bar b { width: var(--p); }
+}
+.ks-bar, .ks-teks { display: grid; grid-template-columns: 78px 1fr auto; gap: 6px; align-items: center; font-size: .68rem; line-height: 1.2; }
+.ks-teks { grid-template-columns: 78px 1fr; }
+.ks-l { color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ks-n { color: var(--text); font-weight: 700; text-align: right; white-space: nowrap; }
+.ks-teks .ks-n { text-align: left; white-space: normal; }
+.ks-bar i { display: block; height: 5px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+.ks-bar b { display: block; width: 0; height: 100%; border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent), var(--gold-soft));
+  transition: width .6s cubic-bezier(.2,.8,.2,1) .08s; }
+.ki-stat-kosong em { color: var(--muted); font-style: normal; font-size: .72rem; }
+.kartu-item.tim-merah .ks-bar b { background: linear-gradient(90deg, #A50D06, #FF2A1A, #FFB199); }
+.kartu-item.tim-biru .ks-bar b { background: linear-gradient(90deg, #0B4F9C, #3AA0FF, #BDE3FF); }
+
+/* ---------------------------------------------------------- animasi karakter & aksesori
+   Gambar resmi bergerak pelan terus (melayang + bergoyang), dengan lantai
+   bercahaya dan kilau yang lewat berkala; tiap kartu mulai di waktu berbeda. */
+.kartu-karakter .ki-visual, .kartu-aksesori .ki-visual { position: relative; perspective: 600px; }
+.kartu-karakter .ki-visual img, .kartu-aksesori .ki-visual img {
+  position: relative; z-index: 1; transform-origin: 50% 90%;
+  animation: pb-idle 4.6s ease-in-out infinite;
+}
+.kartu-aksesori .ki-visual { height: 140px; }
+.kartu-aksesori .ki-visual img { max-height: 118px; animation-name: pb-putar; animation-duration: 5.2s; }
+.ki-lantai { position: absolute; left: 18%; right: 18%; bottom: 6px; height: 16px; z-index: 0; border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(var(--accent-rgb), .55), transparent 70%);
+  animation: pb-lantai 4.6s ease-in-out infinite; }
+.kartu-item.tim-biru .ki-lantai { background: radial-gradient(ellipse at center, rgba(58,160,255,.6), transparent 70%); }
+.kartu-karakter .ki-visual::after, .kartu-aksesori .ki-visual::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.22) 50%, transparent 62%);
+  background-size: 250% 100%; background-position: 130% 0; animation: pb-kilau 6s ease-in-out infinite;
+}
+.kartu-item:hover .ki-visual img { animation-duration: 2.2s; }
+.item-kisi .kartu-item:nth-child(4n+2) .ki-visual img, .item-kisi .kartu-item:nth-child(4n+2) .ki-lantai { animation-delay: -1.1s; }
+.item-kisi .kartu-item:nth-child(4n+3) .ki-visual img, .item-kisi .kartu-item:nth-child(4n+3) .ki-lantai { animation-delay: -2.3s; }
+.item-kisi .kartu-item:nth-child(4n+4) .ki-visual img, .item-kisi .kartu-item:nth-child(4n+4) .ki-lantai { animation-delay: -3.4s; }
+.item-kisi .kartu-item:nth-child(3n+2) .ki-visual::after { animation-delay: -2s; }
+.item-kisi .kartu-item:nth-child(3n+3) .ki-visual::after { animation-delay: -4s; }
+@keyframes pb-idle {
+  0%, 100% { transform: translateY(0) rotateY(-6deg) scale(1); }
+  50% { transform: translateY(-7px) rotateY(6deg) scale(1.015); }
+}
+@keyframes pb-putar {
+  0%, 100% { transform: translateY(0) rotateY(-22deg) rotateZ(-2deg); }
+  50% { transform: translateY(-8px) rotateY(22deg) rotateZ(2deg); }
+}
+@keyframes pb-lantai { 0%, 100% { transform: scaleX(1); opacity: .9; } 50% { transform: scaleX(.78); opacity: .55; } }
+@keyframes pb-kilau { 0%, 55% { background-position: 130% 0; } 85%, 100% { background-position: -30% 0; } }
+
+/* senjata: sedikit bergerak saat diarahkan */
+.kartu-senjata .ki-visual img { transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.kartu-senjata:hover .ki-visual img { transform: scale(1.08) rotate(-3deg) translateY(-4px); }
+
+/* ---------------------------------------------------------- tim */
+.tim-dasar { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0 !important; }
+.tim-merah .tim-dasar { justify-content: flex-end; }
+.tim-dasar span { padding: 3px 10px; border-radius: 999px; font-size: .74rem; font-weight: 700; color: var(--text);
+  background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.12); }
+.tim-dasar em { font-style: normal; color: var(--dim); font-weight: 600; }
+.tim-isi { padding: 14px 16px 6px; }
+.tim-jml { margin: 0 0 12px; color: var(--muted); font-size: .84rem; }
+
+/* ---------------------------------------------------------- status di panel */
+.pb-stat { display: grid; gap: 7px; margin: 0 0 14px; }
+.pb-stat:empty { display: none; }
+.pb-bar { display: grid; grid-template-columns: 118px 1fr 70px; gap: 10px; align-items: center; font-size: .82rem; }
+.pb-bar-l { color: var(--dim); }
+.pb-bar-n { color: var(--text); font-weight: 700; text-align: right; }
+.pb-bar i { display: block; height: 7px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+.pb-bar b { display: block; width: 0; height: 100%; border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent), var(--gold-soft)); transition: width .7s cubic-bezier(.2,.8,.2,1); }
+.pb-desk { margin: 0 0 12px; color: var(--muted); font-size: .84rem; line-height: 1.55; }
+.pb-desk[hidden] { display: none; }
+
+@media (max-width: 520px) {
+  .item-kisi-senjata, .item-kisi-aks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .item-kisi-sosok { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pb-bar { grid-template-columns: 96px 1fr 60px; font-size: .76rem; }
+  .tim-merah .tim-dasar { justify-content: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kartu-karakter .ki-visual img, .kartu-aksesori .ki-visual img, .ki-lantai,
+  .kartu-karakter .ki-visual::after, .kartu-aksesori .ki-visual::after { animation: none; }
+  .ks-bar b, .pb-bar b, .ki-stat { transition: none; }
+}

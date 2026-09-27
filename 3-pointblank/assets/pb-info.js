@@ -2,15 +2,19 @@
    Point Blank HEROES - panel detail item (bagian Informasi)
    -------------------------------------------------------------------------
    Setiap .kartu-item membawa data-info (JSON dari inc/informasi-isi.php):
-   nama, jenis, kode item, gambar resmi, model 3D resmi, statistik, harga.
+   nama, jenis, kode item, gambar resmi, model 3D resmi, status, harga.
+   Status = info.stat.baris: [label, teks, persen 0-100 atau null]; yang
+   berpersen digambar sebagai batang (sama dengan kotak status yang muncul
+   di kartu saat tetikus diarahkan - itu murni CSS, assets/pb-info.css).
    Diklik -> panel terbuka. Panggung di kiri punya tiga cara tampil:
 
      3D     item punya model .glb resmi -> three.js lewat assets/3d/pb-3d.js
             (dimuat saat pertama dibutuhkan; seret untuk memutar, roda/cubit
             untuk mendekat). Kalau skin model resmi berbeda dengan skin
             item di server, catatan di panel menyebutnya.
-     foto   item punya gambar resmi toko -> gambar itu dipajang di panggung,
-            bergoyang pelan, seret untuk memiringkan.
+     foto   item punya gambar resmi -> gambar itu dipajang di panggung,
+            bergoyang pelan (karakter & aksesori juga melayang naik-turun),
+            seret untuk memiringkan.
      siluet cadangan kalau keduanya tidak ada: siluet SVG ditumpuk berlapis
             jadi benda tebal yang berputar.
 
@@ -25,7 +29,8 @@
         return new URL((s && s.getAttribute('data-dasar')) || './', location.href).href;
     })();
 
-    var panel, benda, panggung, tiga, foto, fotoImg, lencana, petunjuk, catatan, judul, jenis, data, harga, tutup;
+    var panel, benda, panggung, tiga, foto, fotoImg, lencana, petunjuk, catatan, judul, jenis, data, harga, tutup, statEl, deskEl;
+    var melayang = false, naik = 0;
     var sudutY = -25, sudutX = -8, putar = true, seret = null, jalan = null, asal = null, mode = 'siluet';
     var penampil = null, modul = null, t0 = 0;
 
@@ -68,14 +73,18 @@
         if (mode === 'siluet') {
             benda.style.transform = 'rotateX(' + sudutX.toFixed(1) + 'deg) rotateY(' + sudutY.toFixed(1) + 'deg)';
         } else if (mode === 'foto') {
-            fotoImg.style.transform = 'rotateX(' + sudutX.toFixed(1) + 'deg) rotateY(' + sudutY.toFixed(1) + 'deg)';
+            fotoImg.style.transform = 'translateY(' + naik.toFixed(1) + 'px) rotateX(' + sudutX.toFixed(1) + 'deg) rotateY(' + sudutY.toFixed(1) + 'deg)';
         }
     }
 
     function langkah(t) {
         if (putar && !seret) {
             if (mode === 'siluet') sudutY += 0.35;
-            else if (mode === 'foto') { sudutY = Math.sin((t - t0) / 1400) * 18; sudutX = -4 + Math.sin((t - t0) / 2100) * 4; }
+            else if (mode === 'foto') {
+                sudutY = Math.sin((t - t0) / 1400) * (melayang ? 12 : 18);
+                sudutX = -4 + Math.sin((t - t0) / 2100) * 4;
+                naik = melayang ? Math.sin((t - t0) / 900) * 8 : 0;
+            }
             gambar();
         }
         jalan = requestAnimationFrame(langkah);
@@ -84,6 +93,18 @@
     function baris(dt, dd) {
         data.appendChild(el('dt', '', dt));
         data.appendChild(el('dd', '', dd));
+    }
+
+    /* Batang status; lebarnya diisi sesudah panel tampil supaya bergerak. */
+    function batang(label, teks, persen) {
+        var r = el('div', 'pb-bar');
+        r.appendChild(el('span', 'pb-bar-l', label));
+        var i = el('i'), b = el('b');
+        b.setAttribute('data-p', Math.max(0, Math.min(100, persen)));
+        i.appendChild(b);
+        r.appendChild(i);
+        r.appendChild(el('span', 'pb-bar-n', teks));
+        statEl.appendChild(r);
     }
 
     function pilihMode(m) {
@@ -142,14 +163,18 @@
         jenis.textContent = info.jenis || '';
         judul.textContent = info.nama || '';
         data.textContent = '';
-        baris('Kode item', String(info.kode));
-        if (info.stat) {
-            baris('Damage', String(info.stat.damage));
-            baris('Peluru', info.stat.peluru);
-            baris('Jangkauan', info.stat.jangkauan);
-            if (info.stat.rpm) baris('Kecepatan', info.stat.rpm + ' rpm');
-            if (info.stat.dasar) baris('Statistik', 'dari model dasar ' + info.stat.dasar);
+        statEl.textContent = '';
+        var st = info.stat;
+        if (st && st.baris) {
+            st.baris.forEach(function (b) {
+                if (b[2] !== null && b[2] !== undefined) batang(b[0], b[1], b[2]);
+                else baris(b[0], b[1]);
+            });
         }
+        baris('Kode item', String(info.kode));
+        if (st && st.dasar) baris('Status', 'dari model dasar ' + st.dasar);
+        deskEl.textContent = info.desk || '';
+        deskEl.hidden = !info.desk;
         harga.textContent = '';
         (info.harga || []).forEach(function (h) {
             var li = el('li');
@@ -163,20 +188,35 @@
         if (info.model) {
             c.push(info.catatan_model ? info.catatan_model + '.' : 'Model 3D resmi Point Blank untuk item ini.');
         } else if (info.gambar) {
-            c.push('Gambar resmi dari toko Point Blank' + (info.resmi && info.resmi !== info.nama ? ' ("' + info.resmi + '")' : '') + '.');
+            c.push('Gambar dari ' + (info.asal || 'toko resmi pointblank.id') + (info.resmi && info.resmi !== info.nama ? ' ("' + info.resmi + '")' : '') + '.');
         } else {
             c.push('Siluet digambar untuk situs ini, bukan model asli game.');
         }
-        c.push('Angka dan harga dari toko server.');
+        var sb = (st && st.sumber) || [];
+        if (!st || !st.baris || !st.baris.length) c.push('Status belum tercatat di basis data server.');
+        else if (info.mode === 'senjata') {
+            if (sb.indexOf('server') !== -1 && sb.indexOf('resmi') !== -1) c.push('Damage, peluru, jangkauan, dan laju tembak dari basis data server; skor recoil, kontrol, dan kecepatan dari halaman senjata resmi pointblank.id.');
+            else if (sb.indexOf('server') !== -1) c.push('Status dari basis data server.');
+            else if (sb.indexOf('resmi') !== -1) c.push('Item ini belum ada di tabel statistik server; status dari halaman senjata resmi pointblank.id untuk nomor item yang sama.');
+            else if (sb.indexOf('dasar') !== -1) c.push('Status dari model dasarnya di basis data server.');
+        } else if (info.mode === 'karakter') c.push('HP dari data karakter server; harga dari toko server.');
+        else c.push('Harga dan masa pakai dari toko server.');
         catatan.textContent = c.join(' ');
 
         t0 = performance.now(); putar = true;
+        melayang = info.mode === 'karakter' || info.mode === 'aksesori';
+        naik = 0;
         if (info.model) tampil3d(info);
         else if (info.gambar) tampilFoto(info);
         else tampilSiluet(info);
 
         panel.hidden = false;
         document.body.style.overflow = 'hidden';
+        requestAnimationFrame(function () {
+            Array.prototype.forEach.call(statEl.querySelectorAll('b[data-p]'), function (b) {
+                b.style.width = b.getAttribute('data-p') + '%';
+            });
+        });
         tutup.focus();
         if (!jalan) jalan = requestAnimationFrame(langkah);
     }
@@ -206,6 +246,8 @@
         data = document.getElementById('pbPanelData');
         harga = document.getElementById('pbPanelHarga');
         tutup = document.getElementById('pbTutup');
+        statEl = document.getElementById('pbPanelStat');
+        deskEl = document.getElementById('pbPanelDesk');
 
         document.addEventListener('click', function (e) {
             var k = e.target.closest && e.target.closest('.kartu-item');
