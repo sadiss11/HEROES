@@ -1,6 +1,6 @@
 # Daftar berkas klien Dragon Nest HEROES untuk DNLauncher (dibuat bangun-paket-pemain.ps1).
-# versi 1.0.0  2026-11-07 15:44
-# nama | ukuran | sha256 | jenis | id-drive (kosong = dicari dari folder Drive)
+# versi 1.0.0  2026-11-07 20:33
+# nama | ukuran | sha256 | jenis | sumber (kosong = dicari dari folder Drive; http... = alamat lengkap)
 !!DNHEROES.pak | 20139186 | 17609a3a39b68ad41ca36a39374f4beaee74a03e6ac4e679626c4463e52e5992 | berkas |
 !!DNHEROES_PROMO.pak | 153698894 | 0c7725e10e6adcf64a5bb3e42eb44691a42e1ac10dc7f73ce7491d8da1fac869 | berkas |
 !Resource000.pak | 180544 | db210f40d24eca3ed9617da0af8691973af6203ed4e30025e8913c3e20175190 | berkas |
@@ -30,5 +30,5 @@ Resource21.pak | 537196179 | d855da1af94b3b7a8eccf926854bc715f48671206fd80b4f82b
 Resource22.pak | 567372220 | 9654aed7614d29f7cecdc510a38e9ee63e13b94a660c09aecf0eb56d140368d7 | berkas |
 Resource23.pak | 609790961 | 6f4791299f305295211a51d146f9fcb85738b0e66a5c56b4bda6db88a9e57a28 | berkas |
 Resource24.pak | 415185802 | cd570b3dd9c992d68d66b9e7930ff62fefc661c84cc3456e2d012d1511116ef4 | berkas |
-EncodePak.dll | 2893312 | 86b29723abb0e5a5fabd5e04972a9b0f96f6766f970a79c09e33e537b6edfac4 | berkas |
-klien-inti.zip | 194012993 | eb30c10ff214592d8b7802d944a3e91bad5ddeae5ecb96c7d073fe293a383775 | zip |
+EncodePak.dll | 2893312 | 86b29723abb0e5a5fabd5e04972a9b0f96f6766f970a79c09e33e537b6edfac4 | berkas | http://26.89.110.16:8080/klien/EncodePak.dll
+klien-inti.zip | 194012993 | eb30c10ff214592d8b7802d944a3e91bad5ddeae5ecb96c7d073fe293a383775 | zip | http://26.89.110.16:8080/klien/klien-inti.zip
