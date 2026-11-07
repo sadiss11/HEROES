@@ -1,1 +1,1300 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kamus Item - Dragon Nest Heroes</title><link rel="stylesheet" href="assets/dnheroes.css"></head><body><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Ini salinan online situs HEROES. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://wa.me/628970249666" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">WhatsApp</a> atau <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div><main class="wadah" style="padding:80px 20px;text-align:center"><h1 class="judul-bagian" style="justify-content:center"><span class="judul-teks">Kamus Item</span></h1><p class="sub-bagian" style="margin:0 auto 24px">Kamus item membaca basis data game, jadi hanya bisa dibuka di situs server HEROES.</p><a class="tbl tbl-utama" href="index.html">Kembali ke Beranda</a></main></body></html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Kamus Item | Dragon Nest Heroes</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <style>
+        :root {
+            --primary-bg: #f8f9fa;
+            --secondary-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+        }
+
+        [data-theme="dark"] {
+            --primary-bg: #212529;
+            --secondary-bg: #343a40;
+            --text-color: #f8f9fa;
+            --border-color: #495057;
+        }
+
+        body {
+            padding: 1rem;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .card {
+            background-color: var(--secondary-bg);
+            border-color: var(--border-color);
+        }
+
+        .copy-btn, .bookmark-btn {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            margin: 0.2rem 0;
+        }
+
+        .table {
+            color: var(--text-color);
+        }
+
+        .history-item {
+            display: inline-block;
+            margin: 0.2rem;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .history-item:hover {
+            background-color: var(--border-color);
+        }
+
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(40, 167, 69, 0.9);
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .virtual-scroll-container {
+            overflow-y: auto;
+            height: calc(100vh - 250px);
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            body { 
+                padding: 0.5rem; 
+            }
+            .table td, .table th {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+            .controls-container {
+                position: sticky;
+                top: 0;
+                background-color: var(--primary-bg);
+                z-index: 100;
+                padding: 0.5rem 0;
+            }
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        /* Target sentuh minimal 44 px (antislop R-03). */
+        .bookmark-btn { min-width: 44px; }
+        .btn, .form-select, .form-control { min-height: 44px; }
+
+        .modal {
+            color: var(--text-color);
+        }
+
+        .modal-content {
+            background-color: var(--secondary-bg);
+        }
+
+        .list-group-item {
+            background-color: var(--secondary-bg);
+            color: var(--text-color);
+            border-color: var(--border-color);
+        }
+    </style>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/dnheroes.css">
+    <style>
+        :root, [data-theme="dark"] {
+            --primary-bg:   #07080d;
+            --secondary-bg: #11131d;
+            --text-color:   #ece9e2;
+            --border-color: #2b2f45;
+        }
+        /* Bilah menu lama melayang (position: fixed) sehingga halaman
+           perlu ruang kosong setinggi bilah itu. Bilah yang sekarang
+           sticky - ia menempati ruangnya sendiri - jadi padding itu
+           dibuang; kalau dibiarkan, tersisa celah kosong 84 piksel. */
+        .container { padding-top: 0; }
+
+        /* Tombol ganti tema dipindah ke pojok KANAN BAWAH.
+           Di tempat aslinya (kanan atas) ia menindih tombol "Statistik"
+           milik halaman ini - keduanya melayang di koordinat yang sama,
+           dan yang di bawah jadi tidak bisa diklik sama sekali. */
+        /* Dinaikkan di atas pemutar musik.
+           Pemutar itu melayang di pojok yang sama (kanan bawah, 18 piksel
+           dari tepi) dan menindih tombol ini - persis masalah yang dulu
+           membuat tombol ini dipindahkan ke sini dari pojok kanan atas. */
+        .dark-mode-toggle {
+            top: auto !important; bottom: 80px; right: 20px;
+            background: var(--bg-panel) !important;
+            border-color: var(--border) !important;
+            color: var(--emas) !important;
+        }
+
+        /* Bilah "Kamus Viewer" memakai kelas Bootstrap navbar-light bg-light,
+           yang memberi tulisan berwarna gelap - tak terbaca di atas panel
+           gelap. Warnanya dikembalikan ke emas seperti judul lain di situs. */
+        .navbar.bg-light {
+            background-color: var(--bg-panel) !important;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        .navbar .navbar-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            letter-spacing: .06em;
+            background: var(--api);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent !important;
+            filter: drop-shadow(0 0 12px rgba(var(--accent-rgb), .45));
+        }
+        .navbar .navbar-brand .ikon { color: var(--accent); }
+
+        /* Warna bawaan Bootstrap yang masih biru dan biru muda - tombol
+           Statistik, tautan Filter Lanjutan, dan roda pemuat - ditarik ke
+           palet api supaya tidak ada warna asing di halaman merah. */
+        .btn-outline-info {
+            color: var(--ember) !important;
+            border-color: rgba(var(--ember-rgb), .6) !important;
+        }
+        .btn-outline-info:hover {
+            background: rgba(var(--ember-rgb), .15) !important;
+            color: #FFD0A8 !important;
+        }
+        .btn-link { color: var(--gold-soft) !important; }
+        .btn-link:hover { color: var(--ember) !important; }
+        .text-primary { color: var(--accent) !important; }
+        .navbar .nav-link, .navbar-light .nav-link { color: var(--teks) !important; }
+
+        /* Padding body 1rem di atas adalah peninggalan tata letak lama.
+           Sejak bilah menu, pita pengumuman, dan kaki situs dipasang di
+           sini, padding itu membuat pita dan kaki menjorok 16 piksel dari
+           tepi layar - satu-satunya halaman yang begitu. Dibuang di sini
+           ("html body" menang atas "body" di atas, juga di dalam
+           @media), dan jaraknya dipindah ke bilah Kamus Viewer saja. */
+        html body { padding: 0; }
+        body > nav.navbar { margin: 1.25rem 1rem 1.5rem; }
+
+        /* Komponen Bootstrap yang masih berlatar putih.
+           Bootstrap memberi .table, .card, .form-control dan .modal warna
+           terang bawaannya, dan halaman ini memuatnya SESUDAH tema situs.
+           Tanpa blok ini, tabel hasil pencarian tampil sebagai kotak putih
+           menyilaukan di tengah halaman yang hampir hitam - dan itu bagian
+           halaman yang paling lama dipandang. */
+        .card, .modal-content, .list-group-item {
+            background-color: var(--surface) !important;
+            border-color: var(--line) !important;
+            color: var(--text) !important;
+        }
+        .card-body, .modal-body, .modal-header, .modal-footer { color: var(--text); }
+        .modal-header, .modal-footer { border-color: var(--line) !important; }
+        .btn-close { filter: invert(1) grayscale(1) brightness(2); }
+
+        .table {
+            --bs-table-bg: transparent;
+            --bs-table-color: var(--text);
+            --bs-table-striped-bg: rgba(var(--accent-rgb), .05);
+            --bs-table-striped-color: var(--text);
+            --bs-table-hover-bg: rgba(var(--accent-rgb), .09);
+            --bs-table-hover-color: var(--text);
+            --bs-table-border-color: var(--line);
+            color: var(--text);
+        }
+        .table > :not(caption) > * > * {
+            background-color: transparent;
+            color: var(--text);
+            border-bottom-color: var(--line);
+        }
+        .table thead th, .table > thead, .table-light, .table-light > th, .table-light > td {
+            background-color: var(--canvas-deep) !important;
+            color: var(--dim) !important;
+            border-color: var(--line) !important;
+            font-size: .82rem;
+        }
+
+        .form-control, .form-select {
+            background-color: var(--canvas-deep) !important;
+            border-color: var(--line-2) !important;
+            color: var(--text) !important;
+        }
+        .form-control::placeholder { color: var(--dim) !important; }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent) !important;
+            box-shadow: 0 0 0 .2rem rgba(var(--accent-rgb), .2) !important;
+        }
+        .form-label { color: var(--dim) !important; }
+
+        /* Tombol biru bawaan Bootstrap ditarik ke warna aksen situs supaya
+           tidak ada dua warna "utama" yang bersaing di satu halaman. */
+        .btn-primary {
+            background: linear-gradient(180deg, var(--accent) 0%, var(--accent-deep) 100%) !important;
+            border-color: transparent !important;
+            color: #fff !important;
+            font-weight: 600;
+        }
+    </style>
+    <link rel="icon" href="favicon.ico?v=her">
+    <meta name="theme-color" content="#0A0607">
+</head>
+<body>
+<header class="nav">
+  <div class="wadah nav-isi">
+    <a class="nav-merek" href="index.html">
+      <img class="pakai-gif" src="assets/logo-putar.gif" alt="" width="300" height="154">
+      <span>Dragon Nest Heroes</span>
+    </a>
+    <button class="nav-buka" id="navBuka" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
+    <nav class="nav-tautan" id="navTautan">
+      <a href="index.html#promo">Promo</a>
+      <a href="index.html#pengumuman">Pengumuman</a>
+      <a href="index.html#peringkat">Top Rank</a>
+      <a href="index.html#guild">Top Guild</a>
+      <a href="index.html#donasi">Donasi</a>
+      <a href="index.html#unduh">Unduh</a>
+      <a href="informasi.html">Informasi</a>
+      <a class="nav-sosial nav-wa" href="https://wa.me/628970249666" target="_blank" rel="noopener"
+         aria-label="WhatsApp admin" title="WhatsApp"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-wa"/></svg></a>
+      <a class="nav-sosial nav-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener"
+         aria-label="Discord Dragon Nest Heroes" title="Discord"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg></a>
+      <a class="tbl tbl-utama tbl-kecil" href="register.html">Daftar</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function () {
+  var t = document.getElementById('navBuka'), m = document.getElementById('navTautan');
+  t.addEventListener('click', function () {
+    var buka = m.classList.toggle('buka');
+    t.setAttribute('aria-expanded', buka ? 'true' : 'false');
+  });
+})();
+</script>
+<main id="isi">
+    
+        <div class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container">
+            <h1 class="navbar-brand" style="margin:0"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-gulungan"/></svg>Kamus Item</h1>
+            <div class="navbar-nav ms-auto">
+                <button class="btn btn-outline-warning me-2" onclick="window.BookmarkManager.showBookmarkedItems()">
+                    <i class="fas fa-star"></i> Bookmarks <span id="bookmarkCounter" class="badge bg-warning">0</span>
+                </button>
+                <button class="btn btn-outline-info" onclick="window.UsageStatistics.showStatistics()">
+                    <i class="fas fa-chart-line"></i> Statistik
+                </button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container mb-4">
+        <h2 class="judul-bagian" style="font-size:1.3rem;margin-bottom:14px">
+            <span class="judul-teks">Promo &amp; Event</span>
+        </h2>
+        <div data-iklan="ringkas" data-iklan-batas="2"></div>
+    </div>
+
+    <div class="container">
+                <div class="controls-container mb-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="searchInput" class="form-label">Pencarian:</label>
+                            <input type="text" id="searchInput" class="form-control form-control-lg" 
+                                   placeholder="Masukkan kata..."
+                                   autocomplete="off">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="tableSelect" class="form-label">Pilih Tabel:</label>
+                            <select id="tableSelect" class="form-select form-select-lg">
+                                <option value="all">Semua Tabel</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-4">
+                            <label for="sortSelect" class="form-label">Urutkan:</label>
+                            <select id="sortSelect" class="form-select">
+                                <option value="rowid_asc">RowID (Terkecil)</option>
+                                <option value="rowid_desc">RowID (Terbesar)</option>
+                                <option value="name_asc">Nama (A-Z)</option>
+                                <option value="name_desc">Nama (Z-A)</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="limitSelect" class="form-label">Tampilkan:</label>
+                            <select id="limitSelect" class="form-select">
+                                <option value="20">20 hasil</option>
+                                <option value="50">50 hasil</option>
+                                <option value="100">100 hasil</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label d-block"> </label>
+                            <button id="searchBtn" class="btn btn-primary btn-lg w-100">
+                                <i class="fas fa-search"></i> Cari
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <div class="card mb-3">
+                <div class="card-header">
+                    <button class="btn btn-link text-decoration-none" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#advancedFilters">
+                        <i class="fas fa-filter"></i> Filter Lanjutan
+                    </button>
+                </div>
+                <div id="advancedFilters" class="collapse">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="form-label" for="minRowId">Range RowID</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="minRowId" placeholder="Min">
+                                    <input type="number" class="form-control" id="maxRowId" placeholder="Max">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label" for="contentType">Tipe Konten</label>
+                                <select class="form-select" id="contentType">
+                                    <option value="">Semua</option>
+                                    <option value="item">Item</option>
+                                    <option value="quest">Quest</option>
+                                    <option value="npc">NPC</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Status</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="showBookmarked">
+                                    <label class="form-check-label" for="showBookmarked">Hanya Bookmark</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <div id="historyContainer" class="mb-3">
+                <small style="color:var(--muted)">Riwayat Pencarian:</small>
+                <div id="searchHistory" class="mt-1"></div>
+            </div>
+        </div>
+
+                <div id="loading" class="loading-spinner">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+                <div class="virtual-scroll-container">
+            <div id="resultsContainer" class="table-responsive"></div>
+            <div id="scrollTrigger" style="height: 20px;"></div>
+        </div>
+    </div>
+
+        <button id="scrollTopBtn" class="btn btn-secondary">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+        <div id="toast" class="toast"></div>
+    <script>
+        // Konfigurasi Global
+        const CONFIG = {
+            MAX_CACHE_ITEMS: 100,
+            MAX_HISTORY_ITEMS: 10,
+            ROWS_PER_PAGE: 20,
+            SCROLL_THRESHOLD: 200,
+            DEBOUNCE_DELAY: 300,
+            CACHE_DURATION: 5 * 60 * 1000,
+            COPY_FEEDBACK_DURATION: 2000
+        };
+
+        // Utility Functions
+        const debounce = (func, wait) => {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        };
+
+        // Cache Manager
+        const CacheManager = {
+            cache: new Map(),
+
+            set(key, data) {
+                if (this.cache.size >= CONFIG.MAX_CACHE_ITEMS) {
+                    const oldestKey = this.cache.keys().next().value;
+                    this.cache.delete(oldestKey);
+                }
+                this.cache.set(key, {
+                    data,
+                    timestamp: Date.now()
+                });
+            },
+
+            get(key) {
+                const item = this.cache.get(key);
+                if (!item) return null;
+                if (Date.now() - item.timestamp > CONFIG.CACHE_DURATION) {
+                    this.cache.delete(key);
+                    return null;
+                }
+                return item.data;
+            },
+
+            clear() {
+                this.cache.clear();
+            }
+        };
+
+        // Search History Manager
+        const SearchHistory = {
+            get() {
+                try {
+                    return JSON.parse(localStorage.getItem('searchHistory') || '[]');
+                } catch {
+                    return [];
+                }
+            },
+
+            add(query, table) {
+                let history = this.get();
+                const newEntry = { query, table, timestamp: Date.now() };
+                
+                history = history.filter(h => 
+                    !(h.query === query && h.table === table)
+                );
+                
+                history.unshift(newEntry);
+                history = history.slice(0, CONFIG.MAX_HISTORY_ITEMS);
+                
+                localStorage.setItem('searchHistory', JSON.stringify(history));
+                this.render();
+            },
+
+            render() {
+                const container = document.getElementById('searchHistory');
+                if (!container) return;
+                
+                const history = this.get();
+                
+                container.innerHTML = history.map(item => `
+                    <button class="history-item" 
+                            onclick="window.loadFromHistory('${item.query.replace(/'/g, "\\'")}', '${item.table.replace(/'/g, "\\'")}')">
+                        ${item.query} (${item.table})
+                    </button>
+                `).join('');
+            },
+
+            clear() {
+                localStorage.removeItem('searchHistory');
+                this.render();
+            }
+        };
+
+        // Dark Mode Manager
+        const DarkMode = {
+            init() {
+                const isDark = localStorage.getItem('darkMode') === 'true';
+                document.documentElement.setAttribute('data-theme', isDark ? 'dark' : '');
+                this.updateIcon(isDark);
+            },
+
+            toggle() {
+                const isDark = document.documentElement.hasAttribute('data-theme');
+                if(isDark) {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('darkMode', 'false');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('darkMode', 'true');
+                }
+                this.updateIcon(!isDark);
+            },
+
+            updateIcon(isDark) {
+                const icon = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                const tombol = document.getElementById('darkModeToggle');   // sudah dibuang; lihat <main>
+                if (tombol) tombol.innerHTML = icon;
+            }
+        };
+        // Clipboard Manager
+        const ClipboardManager = {
+            instance: null,
+
+            init() {
+                if (this.instance) {
+                    this.instance.destroy();
+                }
+
+                this.instance = new ClipboardJS('.copy-btn');
+
+                this.instance.on('success', (e) => {
+                    const button = e.trigger;
+                    this.showSuccess(button);
+                    e.clearSelection();
+                });
+
+                this.instance.on('error', (e) => {
+                    console.error('Copy failed:', e);
+                    this.fallbackCopy(e.trigger.getAttribute('data-clipboard-text'));
+                });
+            },
+
+            showSuccess(button) {
+                button.textContent = '✓ Tersalin!';
+                button.classList.replace('btn-primary', 'btn-success');
+                
+                setTimeout(() => {
+                    button.textContent = 'Copy ID';
+                    button.classList.replace('btn-success', 'btn-primary');
+                }, CONFIG.COPY_FEEDBACK_DURATION);
+
+                showToast('Teks berhasil disalin!');
+            },
+
+            fallbackCopy(text) {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px";
+                textArea.style.top = "-999999px";
+                document.body.appendChild(textArea);
+                
+                try {
+                    textArea.focus();
+                    textArea.select();
+                    document.execCommand('copy');
+                    showToast('Teks berhasil disalin!');
+                } catch (err) {
+                    console.error('Fallback: Gagal menyalin', err);
+                    showToast('Gagal menyalin teks', 'error');
+                } finally {
+                    document.body.removeChild(textArea);
+                }
+            }
+        };
+
+        // Bookmark Manager
+        const BookmarkManager = {
+            bookmarks: new Map(),
+
+            init() {
+                try {
+                    const saved = JSON.parse(localStorage.getItem('bookmarks') || '[]');
+                    saved.forEach(item => this.bookmarks.set(item.id, item));
+                    this.renderBookmarkCount();
+                } catch (error) {
+                    console.error('Error loading bookmarks:', error);
+                }
+            },
+
+            toggle(itemId, itemName) {
+                if (this.bookmarks.has(itemId)) {
+                    this.bookmarks.delete(itemId);
+                    showToast(`Dihapus dari bookmark: ${itemName}`);
+                } else {
+                    this.bookmarks.set(itemId, { id: itemId, name: itemName, date: Date.now() });
+                    showToast(`Ditambahkan ke bookmark: ${itemName}`);
+                }
+                this.save();
+                this.renderBookmarkCount();
+                this.updateBookmarkButton(itemId);
+            },
+
+            save() {
+                localStorage.setItem('bookmarks', JSON.stringify(Array.from(this.bookmarks.values())));
+            },
+
+            isBookmarked(itemId) {
+                return this.bookmarks.has(itemId.toString());
+            },
+
+            renderBookmarkCount() {
+                const count = this.bookmarks.size;
+                const bookmarkCounter = document.getElementById('bookmarkCounter');
+                if (bookmarkCounter) {
+                    bookmarkCounter.textContent = count;
+                }
+            },
+
+            updateBookmarkButton(itemId) {
+                const btn = document.querySelector(`[data-bookmark-id="${itemId}"]`);
+                if (btn) {
+                    const isBookmarked = this.isBookmarked(itemId);
+                    btn.innerHTML = '<i class="fas fa-star" aria-hidden="true"></i>';
+                    btn.setAttribute('aria-pressed', isBookmarked ? 'true' : 'false');
+                    btn.classList.toggle('btn-warning', isBookmarked);
+                    btn.classList.toggle('btn-outline-warning', !isBookmarked);
+                }
+            },
+
+            showBookmarkedItems() {
+                if (this.bookmarks.size === 0) {
+                    showToast('Tidak ada item yang dibookmark', 'info');
+                    return;
+                }
+
+                const modalHtml = `
+                    <div class="modal fade" id="bookmarkModal" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title h5">Item yang Di-bookmark</h2>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>RowID</th>
+                                                    <th>Nama</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                ${Array.from(this.bookmarks.values()).map(item => `
+                                                    <tr>
+                                                        <td>${item.id}</td>
+                                                        <td>${item.name}</td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-danger" 
+                                                                    onclick="BookmarkManager.toggle('${item.id}', '${item.name.replace(/'/g, "\\'")}')">
+                                                                <i class="fas fa-trash" aria-hidden="true"></i> Hapus
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                `).join('')}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                const existingModal = document.getElementById('bookmarkModal');
+                if (existingModal) {
+                    existingModal.remove();
+                }
+
+                document.body.insertAdjacentHTML('beforeend', modalHtml);
+                const modal = new bootstrap.Modal(document.getElementById('bookmarkModal'));
+                modal.show();
+            }
+        };
+
+        // Usage Statistics Manager
+        const UsageStatistics = {
+            data: {
+                searches: [],
+                popularTerms: {},
+                sessionStartTime: Date.now(),
+                totalSearches: 0,
+                totalResults: 0
+            },
+
+            init() {
+                this.loadStats();
+                this.startTracking();
+            },
+
+            startTracking() {
+                setInterval(() => {
+                    this.data.sessionDuration = Date.now() - this.data.sessionStartTime;
+                    this.saveStats();
+                }, 60000);
+            },
+
+            trackSearch(keyword, table, resultCount) {
+                this.data.searches.push({
+                    keyword,
+                    table,
+                    timestamp: Date.now(),
+                    resultCount
+                });
+
+                this.data.totalSearches++;
+                this.data.totalResults += resultCount;
+                this.data.popularTerms[keyword] = (this.data.popularTerms[keyword] || 0) + 1;
+                this.saveStats();
+            },
+
+            getPopularTerms(limit = 10) {
+                return Object.entries(this.data.popularTerms)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, limit);
+            },
+
+            getSearchesByDay() {
+                const days = {};
+                this.data.searches.forEach(search => {
+                    const date = new Date(search.timestamp).toLocaleDateString();
+                    days[date] = (days[date] || 0) + 1;
+                });
+                return Object.entries(days).map(([date, count]) => ({ date, count }));
+            },
+
+            showStatistics() {
+                const modalHtml = `
+                    <div class="modal fade" id="statsModal" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title h5">Statistik Penggunaan</h2>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Kata Kunci Populer</h6>
+                                            <div class="list-group">
+                                                ${this.getPopularTerms().map(([term, count]) => `
+                                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                                        ${term}
+                                                        <span class="badge bg-primary rounded-pill">${count}</span>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Statistik Umum</h6>
+                                            <ul class="list-group">
+                                                <li class="list-group-item">Total Pencarian: ${this.data.totalSearches}</li>
+                                                <li class="list-group-item">Total Hasil: ${this.data.totalResults}</li>
+                                                <li class="list-group-item">Rata-rata Hasil: ${Math.round(this.data.totalResults / this.data.totalSearches || 0)}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4">
+                                        <h6>Grafik Penggunaan</h6>
+                                        <canvas id="usageChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                const existingModal = document.getElementById('statsModal');
+                if (existingModal) {
+                    existingModal.remove();
+                }
+
+                document.body.insertAdjacentHTML('beforeend', modalHtml);
+                const modal = new bootstrap.Modal(document.getElementById('statsModal'));
+                modal.show();
+
+                this.renderUsageChart();
+            },
+
+            renderUsageChart() {
+                const ctx = document.getElementById('usageChart').getContext('2d');
+                const searchesByDay = this.getSearchesByDay();
+                
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: searchesByDay.map(d => d.date),
+                        datasets: [{
+                            label: 'Jumlah Pencarian',
+                            data: searchesByDay.map(d => d.count),
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            },
+
+            loadStats() {
+                try {
+                    const saved = JSON.parse(localStorage.getItem('usageStats'));
+                    if (saved) {
+                        this.data = {...this.data, ...saved};
+                    }
+                } catch (error) {
+                    console.error('Error loading stats:', error);
+                }
+            },
+
+            saveStats() {
+                localStorage.setItem('usageStats', JSON.stringify(this.data));
+            }
+        };
+        // Virtual Scroll Manager
+        const VirtualScroll = {
+            data: [],
+            currentPage: 0,
+            loading: false,
+            hasMore: true,
+
+            async init() {
+                this.observer = new IntersectionObserver(
+                    entries => {
+                        if (entries[0].isIntersecting && this.hasMore && !this.loading) {
+                            this.loadMore();
+                        }
+                    },
+                    { threshold: 0.5 }
+                );
+
+                this.observer.observe(document.getElementById('scrollTrigger'));
+            },
+
+            /* gen naik setiap pencarian baru. Hasil yang datang dari pencarian
+               lama dibuang: tanpa ini, mengetik lalu menekan Cari menjalankan
+               dua pencarian bersamaan dan hasilnya bertumpuk atau hilang
+               (ditemukan saat uji klik 7 November 2026). */
+            gen: 0,
+
+            reset() {
+                this.gen++;
+                this.data = [];
+                this.currentPage = 0;
+                this.hasMore = true;
+                this.loading = false;
+            },
+
+            async loadMore() {
+                if (this.loading || !this.hasMore) return;
+
+                const gen = this.gen;
+                this.loading = true;
+                document.getElementById('loading').style.display = 'block';
+
+                try {
+                    const newData = await this.fetchData();
+                    if (gen !== this.gen) return [];   // sudah ada pencarian yang lebih baru
+                    if (newData.length < CONFIG.ROWS_PER_PAGE) {
+                        this.hasMore = false;
+                    }
+                    
+                    this.data = [...this.data, ...newData];
+                    this.renderNewItems(newData);
+                    this.currentPage++;
+                    return newData;
+                } catch (error) {
+                    console.error('Error loading more data:', error);
+                    showToast('Data item gagal dimuat. Coba lagi sebentar.', 'error');
+                } finally {
+                    if (gen === this.gen) {
+                        this.loading = false;
+                        document.getElementById('loading').style.display = 'none';
+                    }
+                }
+            },
+
+            async fetchData() {
+                const keyword = document.getElementById('searchInput').value.trim();
+                const table = document.getElementById('tableSelect').value;
+                const limit = document.getElementById('limitSelect').value;
+                const offset = this.currentPage * CONFIG.ROWS_PER_PAGE;
+                const showBookmarked = document.getElementById('showBookmarked').checked;
+                const minRowId = document.getElementById('minRowId').value;
+                const maxRowId = document.getElementById('maxRowId').value;
+                const contentType = document.getElementById('contentType').value;
+                const sortOrder = document.getElementById('sortSelect').value;
+
+                const params = new URLSearchParams({
+                    search: keyword,
+                    table: table,
+                    limit: limit,
+                    offset: offset,
+                    showBookmarked: showBookmarked,
+                    minRowId: minRowId,
+                    maxRowId: maxRowId,
+                    contentType: contentType,
+                    sort: sortOrder
+                });
+
+                const response = await fetch(`api_table_data.php?${params}`);
+                const result = await response.json();
+                
+                if (result.error) throw new Error(result.error);
+                return result.data;
+            },
+
+            renderNewItems(newData) {
+                const container = document.getElementById('resultsContainer');
+                const fragment = document.createDocumentFragment();
+                
+                newData.forEach(item => {
+                    const row = this.createTableRow(item);
+                    fragment.appendChild(row);
+                });
+
+                if (!container.querySelector('table')) {
+                    const table = this.createTable();
+                    container.appendChild(table);
+                }
+
+                container.querySelector('tbody').appendChild(fragment);
+                ClipboardManager.init();
+            },
+
+            createTable() {
+                const table = document.createElement('table');
+                table.className = 'table table-striped table-bordered table-hover';
+                
+                const thead = document.createElement('thead');
+                thead.innerHTML = `
+                    <tr>
+                        <th>Tabel</th>
+                        <th>RowID</th>
+                        <th>StringName</th>
+                        <th>Aksi</th>
+                    </tr>
+                `;
+                
+                const tbody = document.createElement('tbody');
+                table.appendChild(thead);
+                table.appendChild(tbody);
+                
+                return table;
+            },
+
+            createTableRow(item) {
+                const isBookmarked = BookmarkManager.isBookmarked(item.RowID);
+                const tr = document.createElement('tr');
+                const escapedName = item.StringName.replace(/'/g, "\\'");
+                tr.innerHTML = `
+                    <td>${item.Table}</td>
+                    <td>${item.RowID}</td>
+                    <td>${highlightText(item.StringName, document.getElementById('searchInput').value)}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-primary copy-btn" type="button"
+                                    data-clipboard-text="/makeitem ${item.RowID}">
+                                <i class="fas fa-copy" aria-hidden="true"></i> Salin perintah
+                            </button>
+                            <!-- Tombol ikon saja: namanya untuk pembaca layar (antislop R-39). -->
+                            <button class="btn ${isBookmarked ? 'btn-warning' : 'btn-outline-warning'} bookmark-btn" type="button"
+                                    data-bookmark-id="${item.RowID}"
+                                    aria-label="Bookmark item ${item.RowID}" aria-pressed="${isBookmarked ? 'true' : 'false'}"
+                                    onclick="window.BookmarkManager.toggle('${item.RowID}', '${escapedName}')">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                return tr;
+            }
+        };
+
+        // Main Functions
+        function highlightText(text, keyword) {
+            if (!keyword) return text;
+            try {
+                const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(`(${escapedKeyword})`, 'gi');
+                return text.replace(regex, '<mark>$1</mark>');
+            } catch (error) {
+                console.error('Error highlighting text:', error);
+                return text;
+            }
+        }
+
+        function showToast(message, type = 'success') {
+            console.log(`Toast: ${type} - ${message}`);
+            const toast = document.getElementById('toast');
+            if (!toast) {
+                console.error('Toast element not found');
+                return;
+            }
+            
+            toast.textContent = message;
+            toast.className = `toast ${type}`;
+            toast.style.display = 'block';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        async function loadTables() {
+            try {
+                const cachedTables = CacheManager.get('tables');
+                if (cachedTables) {
+                    populateTableSelect(cachedTables);
+                    return;
+                }
+
+                const response = await fetch('api_tables.php');
+                const tables = await response.json();
+                
+                if (!Array.isArray(tables)) {
+                    throw new Error('Invalid response format');
+                }
+                
+                CacheManager.set('tables', tables);
+                populateTableSelect(tables);
+            } catch (error) {
+                /* Keadaan galat yang terlihat (antislop R-27). Kamus membaca
+                   basis data game lewat api_tables.php; di salinan online
+                   (Vercel/GitHub) berkas itu tidak ada sama sekali. */
+                console.error('Failed to load tables:', error);
+                tampilGalatKamus();
+            }
+        }
+
+        function tampilGalatKamus() {
+            const wadah = document.getElementById('resultsContainer');
+            const muat = document.getElementById('loading');
+            if (muat) muat.style.display = 'none';
+            if (wadah) {
+                wadah.innerHTML =
+                    '<div class="kosong" style="padding:28px 16px;text-align:center;color:var(--muted)">' +
+                    '<strong style="color:var(--text)">Kamus tidak bisa membaca basis data item.</strong><br>' +
+                    'Kamus hanya bisa dipakai di situs server HEROES, karena isinya dibaca langsung dari basis data game.' +
+                    '</div>';
+            }
+            ['searchBtn', 'searchInput', 'tableSelect'].forEach(function (id) {
+                const el = document.getElementById(id);
+                if (el) el.disabled = true;
+            });
+        }
+
+        function populateTableSelect(tables) {
+            const select = document.getElementById('tableSelect');
+            if (!select) return;
+            
+            select.innerHTML = '<option value="all">Semua Tabel</option>';
+            tables.forEach(table => {
+                const opt = document.createElement('option');
+                opt.value = table;
+                opt.textContent = table;
+                select.appendChild(opt);
+            });
+        }
+
+        async function searchData() {
+            try {
+                VirtualScroll.reset();
+                document.getElementById('resultsContainer').innerHTML = '';
+                const results = await VirtualScroll.loadMore();
+                
+                const keyword = document.getElementById('searchInput').value.trim();
+                const table = document.getElementById('tableSelect').value;
+                
+                SearchHistory.add(keyword, table);
+                UsageStatistics.trackSearch(keyword, table, results ? results.length : 0);
+            } catch (error) {
+                console.error('Search error:', error);
+                showToast('Pencarian gagal. Coba lagi sebentar.', 'error');
+            }
+        }
+
+        function loadFromHistory(query, table) {
+            try {
+                document.getElementById('searchInput').value = query;
+                document.getElementById('tableSelect').value = table;
+                searchData();
+            } catch (error) {
+                console.error('History load error:', error);
+                showToast('Riwayat pencarian gagal dibuka.', 'error');
+            }
+        }
+
+        function setupEventListeners() {
+            // Dark Mode Toggle (tombolnya sudah dibuang; dijaga supaya tidak galat)
+            const tombolTema = document.getElementById('darkModeToggle');
+            if (tombolTema) tombolTema.addEventListener('click', () => DarkMode.toggle());
+
+            // Search button
+            const searchBtn = document.getElementById('searchBtn');
+            if (searchBtn) {
+                searchBtn.addEventListener('click', searchData);
+            }
+
+            // Search input
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') searchData();
+                });
+
+                searchInput.addEventListener('input', 
+                    debounce(() => searchData(), CONFIG.DEBOUNCE_DELAY)
+                );
+            }
+
+            // Advanced filters
+            const filters = ['minRowId', 'maxRowId', 'contentType', 'showBookmarked'];
+            filters.forEach(filterId => {
+                const element = document.getElementById(filterId);
+                if (element) {
+                    element.addEventListener('change', searchData);
+                }
+            });
+
+            // Sort and limit changes
+            document.getElementById('sortSelect')?.addEventListener('change', searchData);
+            document.getElementById('limitSelect')?.addEventListener('change', searchData);
+
+            // Scroll to top button
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            if (scrollTopBtn) {
+                window.addEventListener('scroll', () => {
+                    scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+                });
+
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        }
+
+        // Initialize app
+        async function init() {
+            try {
+                console.log('Starting initialization...');
+                
+                // Initialize core managers
+                DarkMode.init();
+                await CacheManager.init?.();
+                await SearchHistory.init?.();
+                
+                // Initialize feature managers
+                await BookmarkManager.init();
+                await UsageStatistics.init();
+                
+                // Load data and setup UI
+                await loadTables();
+                SearchHistory.render();
+                await VirtualScroll.init();
+                
+                // Setup final components
+                setupEventListeners();
+                ClipboardManager.init();
+                
+                console.log('Initialization complete');
+            } catch (error) {
+                console.error('Initialization error:', error);
+                showToast('Kamus gagal dimulai: ' + error.message, 'error');
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', init);
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (CacheManager) CacheManager.clear();
+            if (ClipboardManager.instance) {
+                ClipboardManager.instance.destroy();
+            }
+        });
+
+        // Make functions and managers available globally
+        window.loadFromHistory = loadFromHistory;
+        window.BookmarkManager = BookmarkManager;
+        window.UsageStatistics = UsageStatistics;
+        window.DarkMode = DarkMode;
+    </script>
+</main>
+<footer class="kaki" id="kaki">
+  <div class="wadah">
+    <div class="kaki-isi">
+      <div class="kaki-merek">
+        <img class="pakai-gif" src="assets/logo-putar.gif" alt="" width="300" height="154">
+        <div>
+          <div class="kaki-nama">Dragon Nest Heroes</div>
+          <div class="kaki-kecil">Private Server Indonesia &middot; Game Heroes 0.5.7</div>
+        </div>
+      </div>
+      <div class="kaki-kanan">
+        <div class="kaki-sosial">
+          <a class="kaki-wa" href="https://wa.me/628970249666" target="_blank" rel="noopener">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-wa"/></svg>WhatsApp
+          </a>
+          <a class="kaki-dc" href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">
+            <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-discord"/></svg>Discord
+          </a>
+        </div>
+        <nav class="kaki-tautan">
+          <a href="index.html">Beranda</a>
+          <a href="index.html#promo">Promo</a>
+          <a href="index.html#donasi">Donasi</a>
+          <a href="index.html#unduh">Unduh</a>
+          <a href="informasi.html">Informasi Class</a>
+          <a href="register.html">Daftar</a>
+        </nav>
+      </div>
+    </div>
+    <div class="kaki-bawah">
+      <span>&copy; 2026 Dragon Nest Heroes. Dragon Nest adalah merek dagang Eyedentity Games.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/naga.js" defer></script>
+<script src="assets/musik.js" defer></script>
+</body>
+</html>

@@ -43,7 +43,10 @@
 
     --text: #F6EEEA;
     --muted: #BBA5A1;
-    --dim: #86706D;
+    /* #A08884, bukan #86706D: warna lama hanya 4,18:1 di atas kartu
+       (#150C0D), di bawah batas 4,5:1 untuk teks kecil (antislop R-25).
+       Yang ini 5,8:1 di kartu dan 4,9:1 di garis tepi. */
+    --dim: #A08884;
 
     --accent: #FF2A1A;
     --accent-rgb: 255, 42, 26;
@@ -133,7 +136,16 @@ body::before {
         var(--canvas);
 }
 
-img, video { display: block; max-width: 100%; }
+img, video { display: block; max-width: 100%; height: auto; }
+
+/* Atribut hidden harus selalu menang atas display milik kelas apa pun
+   (lihat juga catatan .hero-suara[hidden]). */
+[hidden] { display: none !important; }
+
+/* Semua kontrol aktif menunjukkan kursor tangan; yang nonaktif tidak
+   (antislop R-39). */
+a[href], button, select, summary, label[for], [role="button"] { cursor: pointer; }
+button:disabled, select:disabled, input:disabled { cursor: not-allowed; }
 a { color: inherit; text-decoration: none; }
 
 ::selection { background: rgba(var(--accent-rgb), .45); color: #fff; }
@@ -181,18 +193,19 @@ section + section { padding-top: 0; }
     letter-spacing: .04em;
     margin: 0 0 6px;
 }
+/* Gradien api pada judul = motif identitas situs (warna logo), jadi
+   dipertahankan. Pendarnya dibuang: glow hanya untuk satu titik fokus,
+   yaitu logo besar di hero (antislop R-13). */
 .judul-bagian .judul-teks {
     background: var(--api);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 0 16px rgba(var(--accent-rgb), .35));
 }
 .judul-bagian .ikon {
     width: .95em;
     height: .95em;
     color: var(--accent);
-    filter: drop-shadow(0 0 10px rgba(var(--accent-rgb), .7));
 }
 
 .sub-bagian {
@@ -243,7 +256,6 @@ section + section { padding-top: 0; }
 .nav-merek img {
     height: 46px;
     width: auto;
-    filter: drop-shadow(0 0 10px rgba(var(--accent-rgb), .45));
 }
 /* LOGO KECIL BERPUTAR - di bilah menu dan kaki semua halaman.
 
@@ -310,7 +322,7 @@ section + section { padding-top: 0; }
    ini warna teks tombol Daftar ikut menjadi abu-abu redup. */
 .nav-tautan a.tbl-utama,
 .nav-tautan a.tbl-utama:hover { color: #fff; }
-.nav-tautan a.tbl-utama:hover { background: linear-gradient(180deg, #FF5A38 0%, #C4150B 100%); }
+.nav-tautan a.tbl-utama:hover { background: linear-gradient(180deg, #E0200F 0%, #B3120A 100%); }
 .nav-tautan a.tbl-garis { color: var(--text); }
 
 /* Ikon Discord di bilah menu - bulat, hanya ikon, dengan label untuk
@@ -331,18 +343,19 @@ section + section { padding-top: 0; }
     color: #fff;
     background: var(--dc);
     border-color: var(--dc);
-    box-shadow: 0 0 16px rgba(88, 101, 242, .55);
 }
 .nav-tautan a.nav-wa:hover {
     color: #fff;
     background: var(--wa-gelap);
     border-color: var(--wa);
-    box-shadow: 0 0 16px rgba(37, 211, 102, .5);
 }
 
+/* 44 x 44: batas minimum target sentuh (antislop R-03). */
 .nav-buka {
     display: none;
     margin-left: auto;
+    min-width: 44px;
+    min-height: 44px;
     background: none;
     border: 1px solid var(--line-2);
     color: var(--text);
@@ -351,6 +364,8 @@ section + section { padding-top: 0; }
     font-size: 1rem;
     cursor: pointer;
 }
+.nav-buka:hover { border-color: var(--ember); }
+.nav-buka:active { background: rgba(var(--accent-rgb), .15); }
 
 /* ---------- pengumuman berjalan (dipasang assets/naga.js) --------------- */
 
@@ -368,22 +383,26 @@ section + section { padding-top: 0; }
     gap: 16px;
     height: 40px;
 }
-.pita-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
+/* Tombol JEDA GERAK di kiri pita (dipasang naga.js). Dulu tempat ini diisi
+   kapsul "INFO" yang hanya hiasan; sekarang ia saklar nyata yang
+   menghentikan semua gerak terus-menerus di situs (antislop R-39). */
+.pita-jeda {
     flex-shrink: 0;
-    padding: 4px 11px 4px 9px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, #FF4A2A, #B3120A);
-    color: #fff;
-    font-size: .68rem;
-    font-weight: 800;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    box-shadow: 0 0 14px rgba(var(--accent-rgb), .55);
+    min-height: 32px;
+    padding: 4px 12px;
+    border: 1px solid var(--line-2);
+    border-radius: var(--r-sm);
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: .78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
 }
-.pita-label .ikon { color: var(--gold-soft); }
+.pita-jeda:hover { border-color: var(--ember); }
+.pita-jeda:active { background: var(--surface-2); }
+.pita-jeda[aria-pressed="true"] { border-color: var(--gold); color: var(--gold-soft); }
 
 .pita-jalur {
     position: relative;
@@ -421,6 +440,7 @@ section + section { padding-top: 0; }
     align-items: center;
     justify-content: center;
     gap: 9px;
+    min-height: 44px;
     padding: 12px 24px;
     border-radius: var(--r-sm);
     border: 1px solid transparent;
@@ -437,16 +457,20 @@ section + section { padding-top: 0; }
 
 /* Tombol utama: merah dengan teks PUTIH. Teks gelap di atas merah seterang
    ini hampir tidak terbaca, beda dengan ungu muda di tema sebelumnya. */
+/* Gradien merah tombol utama dimulai dari #D41A0E, bukan #FF4A2A: teks
+   putih di atas #FF4A2A hanya 3,35:1, di bawah batas 4,5:1 (antislop R-25).
+   Rentang sekarang 5,3:1 sampai 8,3:1. Pendar merah di bawah tombol
+   dibuang (R-13); yang tersisa bayangan gelap tipis sebagai penanda
+   elevasi, karena tombol duduk di atas foto/video. */
 .tbl-utama {
-    background: linear-gradient(180deg, #FF4A2A 0%, #B3120A 100%);
+    background: linear-gradient(180deg, #D41A0E 0%, #9E0F08 100%);
     color: #fff;
-    box-shadow: 0 0 0 1px rgba(255, 150, 90, .25) inset, 0 6px 22px rgba(var(--accent-rgb), .35);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
+    box-shadow: 0 0 0 1px rgba(255, 150, 90, .25) inset, 0 4px 12px rgba(0, 0, 0, .45);
 }
 .tbl-utama:hover {
-    background: linear-gradient(180deg, #FF5A38 0%, #C4150B 100%);
-    box-shadow: 0 0 0 1px rgba(255, 170, 110, .35) inset, 0 8px 30px rgba(var(--accent-rgb), .55);
+    background: linear-gradient(180deg, #E0200F 0%, #B3120A 100%);
 }
+.tbl-utama:active { background: #9E0F08; }
 
 .tbl-garis {
     background: rgba(10, 6, 7, .35);
@@ -458,20 +482,14 @@ section + section { padding-top: 0; }
 .tbl-kecil { padding: 8px 16px; font-size: .84rem; }
 
 /* Tombol kontak bermerek. */
-.tbl-wa {
-    background: linear-gradient(180deg, #2EE06F 0%, var(--wa-gelap) 100%);
-    color: #fff;
-    box-shadow: 0 6px 22px rgba(37, 211, 102, .3);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .3);
-}
-.tbl-wa:hover { box-shadow: 0 8px 30px rgba(37, 211, 102, .5); }
-.tbl-dc {
-    background: linear-gradient(180deg, #6D78F5 0%, var(--dc-gelap) 100%);
-    color: #fff;
-    box-shadow: 0 6px 22px rgba(88, 101, 242, .3);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .3);
-}
-.tbl-dc:hover { box-shadow: 0 8px 30px rgba(88, 101, 242, .5); }
+/* Tetap hijau WhatsApp dan biru Discord, tetapi versi gelapnya: teks putih
+   di atas hijau terang #2EE06F hanya 1,75:1 dan di biru #6D78F5 3,71:1.
+   Hijau #0F7A6E (5,2:1) dan biru #4752C4 (6,4:1) masih dikenali sebagai
+   warna mereknya (antislop R-25). */
+.tbl-wa { background: #0F7A6E; color: #fff; }
+.tbl-wa:hover { background: #0C6B60; }
+.tbl-dc { background: #4752C4; color: #fff; }
+.tbl-dc:hover { background: var(--dc-gelap); }
 .tbl-besar { padding: 15px 26px; font-size: 1rem; }
 .tbl-besar .ikon { width: 1.35em; height: 1.35em; }
 
@@ -566,10 +584,9 @@ section + section { padding-top: 0; }
     display: flex;
     align-items: center;
     gap: 8px;
+    min-height: 44px;
     padding: 9px 16px 9px 12px;
-    background: rgba(21, 12, 13, .82);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(21, 12, 13, .95);
     border: 1px solid var(--line-2);
     border-radius: 999px;
     color: var(--muted);
@@ -613,30 +630,32 @@ section + section { padding-top: 0; }
     pointer-events: none;
 }
 
+.hero-judul { margin: 0; font-size: inherit; line-height: 1; }
+
+/* Logo besar di hero = SATU titik fokus halaman depan, satu-satunya
+   elemen yang boleh berpendar (antislop R-13). Pendarnya diam, tidak
+   berdenyut terus seperti dulu (R-19). */
 .hero-logo {
     width: min(520px, 82vw);
+    height: auto;
     margin-bottom: 18px;
     filter: drop-shadow(0 12px 40px rgba(0, 0, 0, .65)) drop-shadow(0 0 34px rgba(var(--accent-rgb), .35));
-    animation: logo-nyala 4s ease-in-out infinite;
-}
-@keyframes logo-nyala {
-    0%, 100% { filter: drop-shadow(0 12px 40px rgba(0, 0, 0, .65)) drop-shadow(0 0 26px rgba(var(--accent-rgb), .28)); }
-    50%      { filter: drop-shadow(0 12px 40px rgba(0, 0, 0, .65)) drop-shadow(0 0 46px rgba(var(--accent-rgb), .55)); }
 }
 
+/* Marcellus SC sudah huruf kapital kecil; jarak hurufnya cukup .05em,
+   bukan .16em (antislop R-06). */
 .hero-tag {
     display: inline-flex;
     align-items: center;
     gap: 12px;
     font-family: var(--font-display);
     font-size: clamp(1.05rem, 2.3vw, 1.5rem);
-    letter-spacing: .16em;
-    text-transform: uppercase;
+    letter-spacing: .05em;
     color: var(--gold-soft);
     margin: 0 0 10px;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, .9), 0 0 30px rgba(var(--accent-rgb), .55);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, .9);
 }
-.hero-tag .ikon { color: var(--accent); filter: drop-shadow(0 0 8px rgba(var(--accent-rgb), .8)); }
+.hero-tag .ikon { color: var(--accent); }
 
 .hero-teks {
     color: #E4D8D4;
@@ -694,7 +713,6 @@ section + section { padding-top: 0; }
     height: 20px;
     color: var(--accent);
     margin-bottom: 6px;
-    filter: drop-shadow(0 0 6px rgba(var(--accent-rgb), .6));
 }
 
 .status-nilai {
@@ -703,9 +721,7 @@ section + section { padding-top: 0; }
     line-height: 1.2;
 }
 .status-label {
-    font-size: .72rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
+    font-size: .8rem;
     color: var(--dim);
     margin-top: 4px;
 }
@@ -746,9 +762,8 @@ section + section { padding-top: 0; }
     align-items: center;
     gap: 10px;
     font-family: var(--font-display);
-    font-size: 1.05rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: .03em;
     margin: 0;
 }
 .kartu-judul .ikon { color: var(--accent); }
@@ -779,22 +794,16 @@ section + section { padding-top: 0; }
     min-height: 220px;
     padding: 22px;
     border-radius: var(--r-lg);
-    border: 1px solid transparent;
-    background:
-        linear-gradient(var(--surface), var(--surface)) padding-box,
-        linear-gradient(120deg, #7A0D07, #FF2A1A, #FF7A18, #F5B83D, #FF2A1A, #7A0D07) border-box;
-    background-size: auto, 300% 300%;
-    animation: tepi-bara 7s linear infinite;
+    /* Tepi diam, bukan gradien pelangi yang berputar terus (antislop R-01,
+       R-19): kartu iklan ada tiga sejajar, dan tiga tepi bergerak bersamaan
+       menyaingi video hero sebagai titik fokus. */
+    border: 1px solid var(--line-2);
+    background: var(--surface);
     overflow: hidden;
     isolation: isolate;
-    transition: transform .2s, box-shadow .2s;
+    transition: border-color .2s;
 }
-.iklan:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(var(--accent-rgb), .22); }
-
-@keyframes tepi-bara {
-    from { background-position: 0 0, 0% 50%; }
-    to   { background-position: 0 0, 300% 50%; }
-}
+.iklan:hover { border-color: var(--ember); }
 
 .iklan-gambar {
     position: absolute;
@@ -813,35 +822,19 @@ section + section { padding-top: 0; }
     background: linear-gradient(180deg, rgba(21, 12, 13, .2) 0%, rgba(21, 12, 13, .92) 70%);
 }
 
+/* Label = keadaan event yang nyata ("Berlangsung, sisa 2 hari") atau jenis
+   promonya. Kotak sudut kecil berwarna solid, bukan kapsul berpendar
+   huruf kapital (antislop R-09, R-13). Merah #B3120A: teks putih 6,98:1. */
 .iklan-label {
     align-self: flex-start;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, #FF4A2A, #B3120A);
+    margin-bottom: 14px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #B3120A;
     color: #fff;
-    font-size: .64rem;
-    font-weight: 800;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    box-shadow: 0 0 14px rgba(var(--accent-rgb), .5);
+    font-size: .75rem;
+    font-weight: 700;
 }
-
-.iklan-ikon {
-    width: 50px;
-    height: 50px;
-    margin: 16px 0 12px;
-    display: grid;
-    place-items: center;
-    border-radius: 14px;
-    background: radial-gradient(circle at 50% 35%, rgba(var(--ember-rgb), .35), rgba(var(--accent-rgb), .12) 70%);
-    border: 1px solid rgba(var(--accent-rgb), .4);
-    color: var(--gold-soft);
-    box-shadow: 0 0 24px rgba(var(--accent-rgb), .3);
-}
-.iklan-ikon .ikon { width: 26px; height: 26px; }
 
 .iklan-judul {
     font-family: var(--font-display);
@@ -873,15 +866,14 @@ section + section { padding-top: 0; }
     min-height: 0;
     padding: 16px 18px;
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    grid-template-areas: "ikon label tombol" "ikon badan tombol";
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "label tombol" "badan tombol";
     column-gap: 16px;
     row-gap: 4px;
     align-items: center;
 }
 .iklan-ringkas .iklan-gambar { display: none; }
-.iklan-ringkas .iklan-ikon { grid-area: ikon; margin: 0; width: 46px; height: 46px; }
-.iklan-ringkas .iklan-label { grid-area: label; justify-self: start; font-size: .58rem; padding: 3px 8px; }
+.iklan-ringkas .iklan-label { grid-area: label; justify-self: start; margin: 0; }
 .iklan-ringkas .iklan-badan { grid-area: badan; }
 .iklan-ringkas .iklan-judul { font-size: 1.05rem; margin: 0 0 2px; }
 .iklan-ringkas .iklan-teks { font-size: .8rem; margin: 0; }
@@ -889,8 +881,8 @@ section + section { padding-top: 0; }
 
 @media (max-width: 560px) {
     .iklan-ringkas .iklan {
-        grid-template-columns: auto minmax(0, 1fr);
-        grid-template-areas: "ikon label" "ikon badan" "tombol tombol";
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "label" "badan" "tombol";
     }
     .iklan-ringkas .iklan .tbl { justify-self: start; margin-top: 10px; }
 }
@@ -901,9 +893,7 @@ section + section { padding-top: 0; }
 
 .tabel thead th {
     text-align: left;
-    font-size: .7rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
+    font-size: .8rem;
     color: var(--dim);
     font-weight: 600;
     padding: 12px 20px;
@@ -995,18 +985,19 @@ section + section { padding-top: 0; }
     font-variant-numeric: tabular-nums;
 }
 .warta-judul { font-weight: 600; }
+/* Penanda pengumuman terbaru (status nyata: baris pertama berita.txt).
+   Diam, tanpa kedip terus-menerus (antislop R-19); merah #B3120A supaya
+   teks putih 6,98:1 (R-25). */
 .warta-baru {
     display: inline-block;
     margin-left: 8px;
-    padding: 1px 7px;
-    border-radius: 999px;
-    background: var(--accent);
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: #B3120A;
     color: #fff;
-    font-size: .6rem;
-    font-weight: 800;
-    letter-spacing: .1em;
-    vertical-align: 2px;
-    animation: kedip-baru 2.4s ease-in-out infinite;
+    font-size: .72rem;
+    font-weight: 700;
+    vertical-align: 1px;
 }
 @keyframes kedip-baru {
     0%, 100% { box-shadow: 0 0 0 rgba(var(--accent-rgb), 0); }
@@ -1032,7 +1023,7 @@ section + section { padding-top: 0; }
     transition: border-color .15s, transform .15s, box-shadow .2s;
 }
 .paket:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 14px 38px rgba(var(--accent-rgb), .2); }
-.paket > .ikon { width: 30px; height: 30px; color: var(--accent); margin: 0 auto 10px; display: block; filter: drop-shadow(0 0 8px rgba(var(--accent-rgb), .6)); }
+.paket > .ikon { width: 30px; height: 30px; color: var(--accent); margin: 0 auto 10px; display: block; }
 
 .paket-unggul {
     border-color: rgba(var(--accent-rgb), .6);
@@ -1042,16 +1033,13 @@ section + section { padding-top: 0; }
     position: absolute;
     top: -11px; left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(180deg, #FF4A2A, #B3120A);
+    background: #B3120A;
     color: #fff;
-    font-size: .66rem;
-    font-weight: 800;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
     white-space: nowrap;
-    box-shadow: 0 0 14px rgba(var(--accent-rgb), .5);
 }
 
 .paket-rp {
@@ -1071,9 +1059,7 @@ section + section { padding-top: 0; }
     color: transparent;
 }
 .paket-satuan {
-    font-size: .72rem;
-    letter-spacing: .16em;
-    text-transform: uppercase;
+    font-size: .8rem;
     color: var(--dim);
     margin-top: 2px;
 }
@@ -1106,12 +1092,13 @@ section + section { padding-top: 0; }
 /* ---------- formulir ---------------------------------------------------- */
 
 .medan { margin-bottom: 18px; }
+/* Label isian ditulis biasa, terang: label adalah petunjuk yang harus
+   dibaca, bukan hiasan kapital berjarak lebar (antislop R-06, R-25). */
 .medan label {
     display: block;
-    font-size: .76rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--dim);
+    font-size: .88rem;
+    font-weight: 600;
+    color: var(--text);
     margin-bottom: 7px;
 }
 .medan input {
@@ -1150,16 +1137,16 @@ section + section { padding-top: 0; }
     align-items: center;
     gap: 6px;
     padding: 8px 10px;
-    background: rgba(21, 12, 13, .92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    /* Latar padat, tanpa blur: blur (antislop R-10) hanya dipakai di bilah
+       navigasi. Bayangan gelap = penanda elevasi dok yang melayang (R-12). */
+    background: rgba(21, 12, 13, .97);
     border: 1px solid var(--line-2);
     border-radius: 999px;
-    box-shadow: 0 10px 34px rgba(0, 0, 0, .55), 0 0 18px rgba(var(--accent-rgb), .12);
+    box-shadow: 0 10px 34px rgba(0, 0, 0, .55);
 }
 
 .musik-tbl {
-    width: 36px; height: 36px;
+    width: 44px; height: 44px;
     display: grid; place-items: center;
     border: none;
     border-radius: 50%;
@@ -1294,6 +1281,17 @@ canvas.bara {
     html { scroll-behavior: auto; }
 }
 
+/* JEDA GERAK - kelas dipasang tombol di pita (naga.js) atas pilihan
+   pengunjung. Berbeda dengan blok di atas, yang ini ikut menghentikan pita
+   pengumuman: pengunjung sendiri yang memintanya (antislop R-39). Video,
+   bara, dan logo GIF diurus naga.js. */
+.gerak-mati *, .gerak-mati *::before, .gerak-mati *::after {
+    animation-play-state: paused !important;
+    transition-duration: 0s !important;
+}
+.gerak-mati .naga-terbang, .gerak-mati canvas.bara { display: none !important; }
+.gerak-mati .nav-merek img, .gerak-mati .kaki-merek img { animation: none !important; }
+
 /* ---------- kaki -------------------------------------------------------- */
 
 .kaki {
@@ -1319,7 +1317,7 @@ canvas.bara {
     align-items: flex-start;
 }
 .kaki-merek { display: flex; align-items: center; gap: 12px; }
-.kaki-merek img { height: 58px; filter: drop-shadow(0 0 10px rgba(var(--accent-rgb), .4)); }
+.kaki-merek img { height: 58px; width: auto; }
 .kaki-nama { font-family: var(--font-display); letter-spacing: .08em; }
 .kaki-kecil { font-size: .8rem; color: var(--dim); margin-top: 3px; }
 .kaki-kanan { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
@@ -1370,7 +1368,20 @@ canvas.bara {
         padding: 8px 20px 16px;
     }
     .nav-tautan.buka { display: flex; }
-    .nav-tautan a { padding: 12px 6px; }
+    .nav-tautan a { padding: 12px 6px; min-height: 44px; display: flex; align-items: center; }
+    .nav-tautan a.nav-sosial { width: 44px; height: 44px; display: inline-grid; }
+
+    /* Target sentuh minimal 44 px di layar sentuh (antislop R-03). */
+    .pita-isi { height: auto; min-height: 52px; }
+    .pita-jeda { min-height: 44px; }
+    .pita-gulir a { min-height: 44px; }
+    .nav-tautan a.nav-sosial { min-width: 44px; }
+    .kaki-tautan { gap: 4px 18px; }
+    .kaki-tautan a, .kaki-sosial a { min-height: 44px; display: inline-flex; align-items: center; }
+    .kaki-tautan a { min-width: 44px; justify-content: center; }
+    /* Dok musik melayang di kanan bawah; ruang ini memastikan isi terakhir
+       halaman tidak pernah terkubur di bawahnya (antislop R-03). */
+    .kaki { padding-bottom: 96px; }
     .nav-tautan .tbl { margin-top: 8px; }
     .nav-tautan a.nav-sosial { margin: 6px 0; }
     .kaki-kanan { align-items: flex-start; }

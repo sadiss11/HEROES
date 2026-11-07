@@ -132,7 +132,7 @@
             return { jenis: 'segera', label: 'Mulai ' + mulai.getDate() + ' ' + BULAN[mulai.getMonth()] };
         }
         var sisa = Math.ceil((selesai - kini) / 86400000);
-        return { jenis: 'jalan', label: sisa <= 1 ? 'Hari terakhir!' : 'Berlangsung · sisa ' + sisa + ' hari' };
+        return { jenis: 'jalan', label: sisa <= 1 ? 'Hari terakhir' : 'Berlangsung, sisa ' + sisa + ' hari' };
     }
 
     /* Ikon untuk satu baris pengumuman, ditebak dari isinya.
@@ -203,7 +203,7 @@
         function terbang() {
             // Tidak terbang di tab yang tidak terlihat - tidak ada yang menonton,
             // dan peramban akan menumpuk animasinya sampai tab dibuka lagi.
-            if (!document.hidden) {
+            if (!document.hidden && !gerakMati()) {
                 d.style.top = (8 + Math.random() * 30) + 'vh';
                 d.classList.remove('melintas');
                 void d.offsetWidth;          // memaksa animasi mulai ulang dari awal
@@ -266,6 +266,7 @@
             var dt = Math.min((kini - sebelum) / 1000, .05);
             sebelum = kini;
             ctx.clearRect(0, 0, L, T);
+            if (gerakMati()) { requestAnimationFrame(lukis); return; }   // dijeda: kanvas kosong
             ctx.globalCompositeOperation = 'lighter';
 
             while (butir.length < JUMLAH) butir.push(baru(false));
@@ -319,7 +320,7 @@
             if (!st || st.jenis === 'selesai') return;
             butir.push({
                 ikon: k.ikon,
-                teks: k.judul.replace(/&middot;/g, '·').replace(/&amp;/g, '&') + ' — ' + st.label,
+                teks: k.judul.replace(/&middot;/g, '·').replace(/&amp;/g, '&') + ': ' + st.label.toLowerCase(),
                 tautan: k.tautan
             });
         });
@@ -332,9 +333,15 @@
                 : '<span>' + dalam + '</span>';
         }).join('');
 
+        /* Di kiri pita ada tombol JEDA GERAK, bukan label "Info" seperti dulu.
+           Label itu hanya kapsul hiasan; tombol ini benar-benar bekerja:
+           menghentikan pita berjalan, video latar, naga, bara, dan logo
+           berputar di seluruh situs (antislop R-39: gerak lebih dari lima
+           detik wajib punya tombol jeda). */
         pita.innerHTML =
             '<div class="wadah pita-isi">' +
-              '<span class="pita-label">' + ikon('i-toa') + 'Info</span>' +
+              '<button class="pita-jeda" type="button" aria-pressed="false">' +
+                '<span class="pita-jeda-teks">Jeda gerak</span></button>' +
               '<div class="pita-jalur"><div class="pita-gulir">' + isi + '</div></div>' +
             '</div>';
 
@@ -351,7 +358,67 @@
         var gulir = pita.querySelector('.pita-gulir');
         var jarak = gulir.scrollWidth;
         gulir.style.setProperty('--pita-durasi', Math.max(18, jarak / 70) + 's');
+
+        var tombol = pita.querySelector('.pita-jeda');
+        tombol.addEventListener('click', function () { aturGerak(!gerakMati()); });
+        segarkanTombolGerak();
     }
+
+    /* ======================================================================
+       jeda gerak - satu saklar untuk semua yang bergerak terus-menerus
+       ----------------------------------------------------------------------
+       Kelas .gerak-mati di <html> mematikan animasi CSS (lihat
+       dnheroes.css); bagian yang digerakkan JavaScript - video latar, bara,
+       naga melintas, dan logo GIF - diurus di sini. Pilihannya disimpan di
+       localStorage dan HANYA berasal dari klik pengunjung.
+
+       Setelan "kurangi gerakan" perangkat SENGAJA tidak menyalakan saklar
+       ini: pemilik situs meminta pita pengumuman tetap berjalan walaupun
+       setelan itu aktif (26 September 2026, lihat dnheroes.css). Setelan
+       itu tetap mematikan naga, bara, dan logo berputar lewat CSS.
+       ====================================================================== */
+
+    var K_GERAK = 'dnh-gerak';
+
+    function simpanan(kunci, nilai) {
+        try {
+            if (arguments.length > 1) { localStorage.setItem(kunci, nilai); return nilai; }
+            return localStorage.getItem(kunci);
+        } catch (e) { return null; }
+    }
+
+    function gerakMati() { return document.documentElement.classList.contains('gerak-mati'); }
+
+    function segarkanTombolGerak() {
+        var mati = gerakMati();
+        var t = document.querySelectorAll('.pita-jeda');
+        for (var i = 0; i < t.length; i++) {
+            t[i].setAttribute('aria-pressed', mati ? 'true' : 'false');
+            t[i].querySelector('.pita-jeda-teks').textContent = mati ? 'Putar gerak' : 'Jeda gerak';
+        }
+    }
+
+    function aturGerak(mati) {
+        document.documentElement.classList.toggle('gerak-mati', mati);
+        simpanan(K_GERAK, mati ? 'mati' : 'nyala');
+        var v = document.getElementById('heroVideo');
+        if (v) {
+            if (mati) { v.pause(); }
+            else { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        }
+        var img = document.querySelectorAll('.nav-merek img, .kaki-merek img');
+        for (var i = 0; i < img.length; i++) {
+            if (!img[i].getAttribute('data-gif')) continue;
+            img[i].src = mati ? DASAR + 'logher.png' : img[i].getAttribute('data-gif');
+        }
+        segarkanTombolGerak();
+    }
+
+    (function awalGerak() {
+        if (simpanan(K_GERAK) === 'mati') {
+            document.documentElement.classList.add('gerak-mati');
+        }
+    })();
 
     /* ======================================================================
        5. iklan
@@ -382,14 +449,17 @@
                 var label = st ? st.label : k.label;
                 return '<article class="iklan">' +
                     (k.gambar ? '<div class="iklan-gambar" style="background-image:url(\'' + DASAR + k.gambar + '\')"></div>' : '') +
-                    '<span class="iklan-label">' + ikon(st ? 'i-petir' : 'i-api') + aman(label) + '</span>' +
-                    '<div class="iklan-ikon">' + ikon(k.ikon) + '</div>' +
+                    /* Label = keadaan event yang nyata (berlangsung/sisa hari)
+                       atau jenis promonya. Tanpa ikon hiasan dan tanpa panah
+                       di tombol: gambar dan judul sudah cukup (antislop R-04,
+                       R-08, R-09). */
+                    '<span class="iklan-label">' + aman(label) + '</span>' +
                     '<div class="iklan-badan">' +
                       '<h3 class="iklan-judul">' + k.judul + '</h3>' +
                       '<p class="iklan-teks">' + k.teks + '</p>' +
                     '</div>' +
                     '<a class="tbl tbl-utama tbl-kecil" href="' + aman(tautan(k.tautan)) + '">' +
-                      aman(k.tombol) + ikon('i-panah') + '</a>' +
+                      aman(k.tombol) + '</a>' +
                 '</article>';
             }).join('');
         }
@@ -412,7 +482,7 @@
                     '<span class="warta-teks">' +
                       '<span class="warta-tgl">' + aman(b.tgl) + '</span>' +
                       '<span class="warta-judul">' + aman(b.judul) +
-                        (n === 0 ? '<span class="warta-baru">BARU</span>' : '') + '</span>' +
+                        (n === 0 ? '<span class="warta-baru">Terbaru</span>' : '') + '</span>' +
                     '</span>' +
                     '<span class="warta-panah">' + ikon('i-panah') + '</span>';
                 return b.tautan
@@ -442,7 +512,8 @@
                 if (!r.ok) return;
                 var img = document.querySelectorAll('.nav-merek img, .kaki-merek img');
                 for (var i = 0; i < img.length; i++) {
-                    img[i].src = gif;
+                    img[i].setAttribute('data-gif', gif);
+                    img[i].src = gerakMati() ? DASAR + 'logher.png' : gif;
                     img[i].classList.add('pakai-gif');
                 }
             })
@@ -471,7 +542,19 @@
             });
     }
 
-    window.DNH = { ikon: ikon, ikonWarta: ikonWarta };
+    /* Gambar promo/event yang belum selesai - dipakai galeri halaman depan
+       supaya tidak menampilkan banner event yang sudah lewat. */
+    function gambarAktif() {
+        return IKLAN.filter(function (k) {
+            var st = keadaan(k);
+            return k.gambar && (!st || st.jenis !== 'selesai');
+        }).sort(function (a, b) {
+            var sa = keadaan(a), sb = keadaan(b);
+            return (sa && sa.jenis === 'jalan' ? 0 : 1) - (sb && sb.jenis === 'jalan' ? 0 : 1);
+        }).map(function (k) { return DASAR + k.gambar; });
+    }
+
+    window.DNH = { ikon: ikon, ikonWarta: ikonWarta, gambarAktif: gambarAktif };
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', mulai);

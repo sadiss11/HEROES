@@ -10,7 +10,8 @@
   margin: 0 0 12px; font-family: var(--font-display); font-weight: 400;
   font-size: clamp(2.4rem, 6vw, 4.2rem); letter-spacing: .04em; line-height: 1.05;
   background: var(--api); -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 0 22px rgba(var(--accent-rgb), .45)) drop-shadow(0 4px 12px rgba(0, 0, 0, .8));
+  /* Gradien api = motif identitas; pendarnya dibuang (antislop R-13). */
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .8));
 }
 .info-hero p { max-width: 62ch; margin: 0 auto; color: var(--muted); }
 .info-hero p b { color: var(--gold-soft); }
@@ -24,7 +25,8 @@
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
 }
 .kelas-pil a {
-  padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line-2);
+  display: inline-flex; align-items: center; min-height: 44px;
+  padding: 7px 14px; border-radius: var(--r-sm); border: 1px solid var(--line-2);
   color: var(--muted); font-size: .84rem; font-weight: 600; transition: color .15s, border-color .15s, background .15s;
 }
 .kelas-pil a:hover { color: #fff; border-color: var(--accent); background: rgba(var(--accent-rgb), .15); }
@@ -34,23 +36,21 @@
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; align-items: center;
   margin-bottom: 28px;
 }
+/* Bola cahaya merah di belakang setiap gambar class dibuang: dua belas
+   bola radial berulang adalah hiasan bawaan, bukan hierarki (antislop R-01). */
 .kelas-gambar { position: relative; display: grid; place-items: center; min-height: 280px; }
-.kelas-gambar::before {
-  content: ""; position: absolute; inset: 10% 8%; border-radius: 50%;
-  background: radial-gradient(circle, rgba(var(--accent-rgb), .35), rgba(var(--ember-rgb), .08) 55%, transparent 72%);
-  filter: blur(10px);
-}
 .kelas-besar { position: relative; max-width: 100%; max-height: 380px; filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .7)); }
 .kelas-besar-kartu { max-height: 360px; border-radius: 14px; border: 1px solid var(--line-2); }
+/* Peran class (jarak dekat, sihir jarak jauh, ...) adalah informasi, jadi
+   ditulis sebagai teks emas biasa di atas nama class, bukan kapsul huruf
+   kapital berjarak lebar (antislop R-06, R-09). */
 .kelas-peran {
-  display: inline-block; padding: 5px 12px; border-radius: 999px; margin-bottom: 10px;
-  background: rgba(var(--accent-rgb), .14); border: 1px solid rgba(var(--accent-rgb), .45);
-  color: var(--gold-soft); font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  display: block; margin-bottom: 6px;
+  color: var(--gold-soft); font-size: .9rem; font-weight: 600;
 }
 .kelas-nama {
   margin: 0 0 10px; font-family: var(--font-display); font-weight: 400;
   font-size: clamp(2rem, 4.5vw, 3rem); letter-spacing: .04em; color: var(--text);
-  text-shadow: 0 0 24px rgba(var(--accent-rgb), .35);
 }
 .kelas-desk { margin: 0 0 16px; color: var(--muted); font-size: 1.02rem; max-width: 58ch; }
 .kelas-jalur { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
@@ -72,7 +72,7 @@
   will-change: transform;
 }
 .kartu-job.tilt-aktif { transition: box-shadow .25s, border-color .25s; border-color: rgba(var(--accent-rgb), .7);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, .6), 0 0 30px rgba(var(--accent-rgb), .25); }
+  box-shadow: 0 24px 50px rgba(0, 0, 0, .6); }
 .tilt-kilau { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; border-radius: inherit; }
 .kj-gambar { position: relative; aspect-ratio: 2 / 3; overflow: hidden; background: #000; }
 .kj-gambar img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
@@ -80,14 +80,16 @@
 .kj-gambar::after { content: ""; position: absolute; inset: auto 0 0 0; height: 40%;
   background: linear-gradient(180deg, transparent, var(--surface-2)); }
 .kj-isi { padding: 4px 16px 18px; margin-top: -34px; position: relative; }
-.kj-isi h3 { margin: 0 0 6px; font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; letter-spacing: .03em; }
-.kj-tag { vertical-align: middle; margin-left: 4px; padding: 2px 8px; border-radius: 999px; font-family: var(--font-body);
-  font-size: .64rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
-  background: rgba(160, 90, 255, .18); border: 1px solid rgba(180, 120, 255, .55); color: #D9C2FF; }
+.kj-nama { margin: 0 0 6px; font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; letter-spacing: .03em; }
+/* Penanda job spin-off: label nyata. Garis emas, bukan ungu: ungu adalah
+   warna di luar palet merah-jingga-emas (antislop R-29). */
+.kj-tag { vertical-align: middle; margin-left: 4px; padding: 1px 7px; border-radius: 4px; font-family: var(--font-body);
+  font-size: .75rem; font-weight: 700;
+  border: 1px solid var(--gold); color: var(--gold-soft); }
 .kj-desk { margin: 0 0 10px; color: var(--muted); font-size: .9rem; }
 .kj-stat { display: flex; align-items: center; gap: 6px; margin: 0 0 12px; color: var(--gold-soft); font-size: .8rem; font-weight: 600; }
 .kj-stat .ikon { width: 15px; height: 15px; color: var(--ember); }
-.kj-label { margin: 0 0 6px; color: var(--dim); font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.kj-label { margin: 0 0 6px; color: var(--dim); font-size: .82rem; font-weight: 700; }
 .kj-spes { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .kj-spes li { padding: 8px 10px; border-radius: 8px; background: rgba(0, 0, 0, .35); border: 1px solid var(--line);
   color: var(--muted); font-size: .82rem; line-height: 1.45; }

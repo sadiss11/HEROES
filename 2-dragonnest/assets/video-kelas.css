@@ -9,27 +9,30 @@
 
 /* ---- tombol "Video" di pojok kanan atas gambar kartu (kiri atas dipakai
    label senjata Atlantica, bagian bawah gambar ditimpa judul kartu) ---- */
+/* 44 px tinggi minimum (target sentuh, antislop R-03). Tanpa blur dan tanpa
+   denyut: tombol ini ada di setiap kartu (puluhan sekaligus), dan blur +
+   denyut tanpa henti di semuanya adalah hiasan, bukan fokus (R-10, R-13,
+   R-19). Latar hitam .8 cukup untuk keterbacaan di atas gambar. */
 .kv-putar {
     position: absolute; right: 12px; top: 12px; z-index: 2;
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 14px 6px 6px; border-radius: 999px;
+    min-height: 44px;
+    padding: 6px 14px 6px 8px; border-radius: 999px;
     border: 1px solid rgba(var(--accent-rgb), .55);
-    background: rgba(0, 0, 0, .62); color: var(--text);
+    background: rgba(0, 0, 0, .8); color: var(--text);
     font: 600 13px/1 var(--font-body); letter-spacing: .02em;
-    cursor: pointer; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
-    transition: background .2s, border-color .2s, box-shadow .2s, transform .2s;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
 }
 .kv-putar::before {
     content: ""; width: 26px; height: 26px; border-radius: 50%; flex: none;
-    background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6.5v11l9-5.5z' fill='%23fff'/%3E%3C/svg%3E") center / 18px no-repeat;
-    box-shadow: 0 0 0 0 rgba(var(--accent-rgb), .55);
-    animation: kv-denyut 2.2s ease-out infinite;
+    background: #B3120A url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6.5v11l9-5.5z' fill='%23fff'/%3E%3C/svg%3E") center / 18px no-repeat;
 }
 .kv-putar:hover, .kv-putar:focus-visible,
 [data-video]:hover .kv-putar {
-    background: rgba(0, 0, 0, .8); border-color: var(--accent);
-    box-shadow: 0 0 18px rgba(var(--accent-rgb), .45);
+    background: rgba(0, 0, 0, .92); border-color: var(--accent);
 }
+.kv-putar:active { background: #000; }
 .kv-putar:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 @keyframes kv-denyut {
     0% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), .55); }
@@ -104,7 +107,7 @@ html.vk-terbuka { overflow: hidden; }
 .vk-sub {
     align-self: flex-start; padding: 4px 10px; border-radius: 999px;
     background: rgba(var(--accent-rgb), .14); color: var(--accent);
-    font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    font-size: 13px; font-weight: 600;
 }
 .vk-sub[hidden] { display: none; }
 .vk-judul { margin: 0; font-family: var(--font-display); font-size: 30px; line-height: 1.15; color: var(--text); }

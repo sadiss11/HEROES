@@ -92,7 +92,13 @@
         video.addEventListener('canplay', tampilkanTombol);
         if (video.readyState >= 2) tampilkanTombol();
 
+        /* Tombol "Jeda gerak" di pita (naga.js) memasang .gerak-mati di
+           <html>. Selama itu video tidak diputar sama sekali, termasuk oleh
+           klik pertama di halaman; naga.js yang memutarnya lagi. */
+        function boleh() { return !document.documentElement.classList.contains('gerak-mati'); }
+
         function putar() {
+            if (!boleh()) return;
             var p = video.play();
             if (p && p.catch) p.catch(function () {});
         }
@@ -122,7 +128,10 @@
            video tetap berjalan bisu, tombol suara berdenyut mengajak diklik,
            dan suara menyala pada klik/ketukan/tombol keyboard pertama di mana
            pun di halaman. Pengunjung yang pernah membisukan video tetap bisu. */
-        if (suaraDiinginkan) {
+        if (!boleh()) {
+            video.muted = true;
+            segarkan();
+        } else if (suaraDiinginkan) {
             peristiwa.forEach(function (n) { document.addEventListener(n, bangun, true); });
             video.muted = false;
             var coba = video.play();

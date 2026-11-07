@@ -25,15 +25,8 @@
   .untung strong { display: block; color: var(--text); }
   .untung span { color: var(--muted); font-size: .88rem; }
 
-  .chip-baris { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
-  .chip {
-    display: inline-flex; align-items: center; gap: 7px;
-    padding: 6px 12px; border-radius: 999px;
-    background: rgba(10, 6, 7, .6); border: 1px solid var(--line-2);
-    color: var(--text); font-size: .8rem; font-weight: 600;
-  }
-  .chip .ikon { color: var(--ember); }
-
+  /* Judul bergradien api = motif identitas (warna logo). Hanya bayangan
+     gelap untuk keterbacaan di atas video; tanpa pendar (antislop R-13). */
   .judul-daftar {
     font-family: var(--font-display);
     font-size: clamp(2.2rem, 5vw, 3.6rem);
@@ -44,16 +37,24 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 0 22px rgba(var(--accent-rgb), .45)) drop-shadow(0 4px 12px rgba(0, 0, 0, .8));
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .8));
   }
+
+  /* Keadaan "situs ini tidak bisa mendaftarkan" - muncul di salinan online
+     (Vercel/GitHub) yang tidak punya register.php. Ditulis di sumber ini,
+     bukan disisipkan skrip ekspor (antislop R-33). */
+  .daftar-luar p { margin: 0 0 10px; }
+  .daftar-luar p:last-child { margin-bottom: 0; }
+  .daftar-luar a { color: var(--gold-soft); text-decoration: underline; }
+  .alamat-radmin { font-weight: 700; word-break: break-all; }
 </style>
 </head>
-<body data-musik="mati"><div style="position:relative;z-index:100;padding:9px 16px;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#7a0d07,#b3120a,#7a0d07)">Ini salinan online situs HEROES. Status server, peringkat, dan pendaftaran hanya berjalan di server HEROES &mdash; hubungi admin di <a href="https://wa.me/628970249666" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">WhatsApp</a> atau <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener" style="color:#ffd27a;text-decoration:underline">Discord</a>.</div>
+<body data-musik="mati">
 
 <header class="nav">
   <div class="wadah nav-isi">
     <a class="nav-merek" href="index.html">
-      <img class="pakai-gif" src="assets/logo-putar.gif" alt="Dragon Nest Heroes">
+      <img class="pakai-gif" src="assets/logo-putar.gif" alt="" width="300" height="154">
       <span>Dragon Nest Heroes</span>
     </a>
     <button class="nav-buka" id="navBuka" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
@@ -74,29 +75,21 @@
   </div>
 </header>
 
-<section class="hero" style="min-height:480px;padding:70px 0 60px">
+<main id="isi">
+<section class="hero" style="min-height:420px;padding:70px 0 60px">
   <div class="hero-latar" style="background-image:url('assets/hero.jpg')"></div>
-  <video class="hero-video" id="heroVideo" loop playsinline muted preload="auto" poster="assets/video/heroes-poster.jpg">
+  <video class="hero-video" id="heroVideo" loop playsinline muted preload="auto" poster="assets/video/heroes-poster.jpg" width="1280" height="720">
     <source src="assets/video/heroes.mp4" type="video/mp4">
   </video>
   <button class="hero-suara" id="heroSuara" type="button" hidden aria-label="Nyalakan suara video">
-    <span id="heroSuaraIkon">&#128263;</span><span>Suara video</span>
+    <span id="heroSuaraIkon" aria-hidden="true">&#128263;</span><span>Suara video</span>
   </button>
   <div class="wadah hero-isi">
-    <span class="hero-lencana">
-      <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-hadiah"/></svg>
-      Bonus 1.000.000 Cash untuk setiap akun baru
-    </span>
     <h1 class="judul-daftar">Daftar Akun</h1>
-    <p class="hero-teks" style="margin-bottom:18px">
-      Satu menit, gratis, tanpa surel. Begitu akunmu jadi, <strong>1.000.000 Cash</strong>
-      langsung masuk dan siap dibelanjakan di Cash Shop.
+    <p class="hero-teks" style="margin-bottom:0">
+      Gratis dan tanpa surel: cukup nama akun dan kata sandi. Akun baru langsung
+      mendapat <strong>1.000.000 Cash</strong> untuk Cash Shop.
     </p>
-    <div class="chip-baris">
-      <span class="chip"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-koin"/></svg>Gratis selamanya</span>
-      <span class="chip"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-kunci"/></svg>Tanpa surel</span>
-      <span class="chip"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg>Langsung main</span>
-    </div>
   </div>
 </section>
 
@@ -111,7 +104,17 @@
       </div>
       <div class="kartu-isi">
 
-        <div id="pesan" style="display:none"></div>
+        <div id="pesan" style="display:none" role="status" aria-live="polite"></div>
+
+                <div class="pesan pesan-info daftar-luar" id="daftarLuar" hidden>
+          <p><strong>Pendaftaran dibuka di situs server HEROES, bukan di salinan online ini.</strong></p>
+          <p>Sambungkan Radmin VPN ke jaringan HEROES (nama dan sandi jaringannya
+             diberikan admin), lalu buka
+             <a class="alamat-radmin" href="http://26.89.110.16:8080/register.html">26.89.110.16:8080/register.html</a>.</p>
+          <p>Belum punya akses Radmin? Hubungi admin lewat
+             <a href="https://wa.me/628970249666" target="_blank" rel="noopener">WhatsApp</a> atau
+             <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">Discord</a>.</p>
+        </div>
 
         <form id="formDaftar" autocomplete="off" novalidate>
           <div class="medan">
@@ -138,9 +141,9 @@
           </button>
         </form>
 
-        <p style="color:var(--dim);font-size:.82rem;margin:18px 0 0;text-align:center">
-          Sudah punya akun? Langsung
-          <a href="index.html#unduh" style="color:var(--gold-soft)">unduh kliennya</a>.
+        <p style="color:var(--muted);font-size:.88rem;margin:18px 0 0;text-align:center">
+          Sudah punya akun?
+          <a href="index.html#unduh" style="color:var(--gold-soft);text-decoration:underline;display:inline-block;padding:12px 4px">Unduh klien game</a>
         </p>
       </div>
     </div>
@@ -155,15 +158,15 @@
         <ul class="untung">
           <li>
             <span class="warta-ikon"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-hadiah"/></svg></span>
-            <div><strong>1.000.000 Cash gratis</strong><span>Masuk otomatis begitu akun dibuat &mdash; setara donasi Rp 100.000.</span></div>
+            <div><strong>1.000.000 Cash gratis</strong><span>Masuk ke akun saat akun dibuat. Dengan kurs donasi Rp 10.000 = 100.000 Cash, nilainya sama dengan Rp 100.000.</span></div>
           </li>
           <li>
             <span class="warta-ikon"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-petir"/></svg></span>
-            <div><strong>Ikut event yang sedang berjalan</strong><span>Daily Login, Halloween Festival, dan event berikutnya.</span></div>
+            <div><strong>Ikut event yang sedang berjalan</strong><span>Daftarnya ada di bagian Promo &amp; Event di bawah, lengkap dengan sisa harinya.</span></div>
           </li>
           <li>
             <span class="warta-ikon"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-mahkota"/></svg></span>
-            <div><strong>Namamu di Top Rank</strong><span>Papan peringkat dibaca langsung dari server, bukan ditulis tangan.</span></div>
+            <div><strong>Namamu di Top Rank</strong><span>Papan peringkat di halaman depan dibaca dari basis data server.</span></div>
           </li>
           <li>
             <span class="warta-ikon"><svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-perisai"/></svg></span>
@@ -185,12 +188,13 @@
     <div data-iklan="ringkas"></div>
   </div>
 </section>
+</main>
 
 <footer class="kaki">
   <div class="wadah">
     <div class="kaki-isi">
       <div class="kaki-merek">
-        <img class="pakai-gif" src="assets/logo-putar.gif" alt="Dragon Nest Heroes">
+        <img class="pakai-gif" src="assets/logo-putar.gif" alt="" width="300" height="154">
         <div>
           <div class="kaki-nama">Dragon Nest Heroes</div>
           <div class="kaki-kecil">Private Server Indonesia &middot; Game Heroes 0.5.7</div>
@@ -242,7 +246,26 @@
   var u      = document.getElementById('username');
   var p      = document.getElementById('password');
   var p2     = document.getElementById('password2');
+  var luar   = document.getElementById('daftarLuar');
   var jalan  = false;
+
+  /* Situs ini bisa mendaftarkan atau tidak? register.php di server HEROES
+     selalu menjawab JSON, juga untuk GET tanpa isian (400, tanpa membuat
+     akun dan tanpa memicu penjaga banjir). Di salinan online (Vercel,
+     GitHub Pages) berkas itu tidak ada: jawabannya halaman 404 HTML atau
+     tidak ada jawaban sama sekali. Dalam keadaan itu formulir disembunyikan
+     dan petunjuk ke situs server ditampilkan - formulir yang tidak akan
+     pernah terkirim adalah kontrol mati (antislop R-26). */
+  function modeLuar() {
+    form.hidden = true;
+    kotak.style.display = 'none';
+    luar.hidden = false;
+  }
+  fetch('register.php', { cache: 'no-store' })
+    .then(function (r) {
+      if (!/json/i.test(r.headers.get('content-type') || '')) modeLuar();
+    })
+    .catch(modeLuar);
 
   function tampil(jenis, teks) {
     kotak.style.display = 'block';
@@ -334,5 +357,5 @@
   });
 })();
 </script>
-<script>(function(){var f=document.querySelector("form");if(!f)return;var n=document.createElement("div");n.style.cssText="margin:0 0 16px;padding:12px 14px;border-radius:6px;border:1px solid rgba(255,210,122,.5);background:rgba(255,210,122,.08);color:#ffd27a;font-size:14px";n.innerHTML="Pendaftaran tidak bisa dari salinan online ini. Daftar lewat situs di server HEROES, atau hubungi admin di <a href=\"https://wa.me/628970249666\" style=\"color:#fff;text-decoration:underline\">WhatsApp</a> atau <a href=\"https://discord.com/users/1360304443379421436\" style=\"color:#fff;text-decoration:underline\">Discord</a>.";f.parentNode.insertBefore(n,f);Array.prototype.forEach.call(f.elements,function(e){e.disabled=true;});})();</script></body>
+</body>
 </html>
