@@ -327,6 +327,113 @@
       </div>
     </div>
 
+        <div class="kartu" id="radmin" style="margin-top:22px">
+      <div class="kartu-kepala">
+        <h3 class="kartu-judul">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-server"/></svg>Radmin VPN: masuk ke jaringan DNGOLD
+        </h3>
+      </div>
+      <div class="kartu-isi">
+        <p class="sub-bagian" style="margin:0 0 16px">
+          Server Drago Nest GOLD berjalan di jaringan Radmin VPN. Tanpa Radmin, game tidak bisa login,
+          peluncur tidak bisa mengambil sebagian berkas klien, dan halaman daftar akun tidak terbuka.
+          Radmin VPN gratis dan cukup dipasang sekali.
+        </p>
+
+        <dl class="radmin-data">
+          <div>
+            <dt>Nama jaringan (Network name)</dt>
+            <dd>DNGOLD</dd>
+            <button type="button" class="tbl tbl-garis tbl-kecil" data-salin="DNGOLD" aria-label="Salin nama jaringan DNGOLD">Salin</button>
+          </div>
+          <div>
+            <dt>Sandi (Password)</dt>
+            <dd>DNGOLD1</dd>
+            <button type="button" class="tbl tbl-garis tbl-kecil" data-salin="DNGOLD1" aria-label="Salin sandi DNGOLD1">Salin</button>
+          </div>
+        </dl>
+        <p class="radmin-catatan">Keduanya huruf besar semua. Sandinya diakhiri angka <strong>1</strong>, bukan huruf L atau I.</p>
+
+        <ol class="langkah radmin-langkah">
+          <li>
+            <strong>Unduh Radmin VPN</strong> dari situs resminya, radmin-vpn.com. Jangan mengambil dari situs lain:
+            salinan dari luar situs resmi bisa berisi virus.
+            <div class="radmin-tombol">
+              <a class="tbl tbl-utama tbl-kecil" href="https://download.radmin-vpn.com/download/files/Radmin_VPN_2.1.4951.1.exe" rel="noopener">
+                <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-unduh"/></svg>Unduh Radmin VPN 2.1 (52 MB)
+              </a>
+              <a class="tbl tbl-garis tbl-kecil" href="https://www.radmin-vpn.com/" target="_blank" rel="noopener">Buka radmin-vpn.com</a>
+            </div>
+          </li>
+          <li>
+            <strong>Pasang.</strong> Buka berkas <strong>Radmin_VPN_2.1.4951.1.exe</strong> yang baru diunduh, pilih
+            bahasa, tekan <strong>Next</strong>, centang persetujuan lisensi, lalu tekan <strong>Install</strong>.
+            Kalau Windows meminta izin memasang driver jaringan Famatech, pilih <strong>Install</strong>: itu
+            adaptor jaringan milik Radmin. Tekan <strong>Finish</strong>, dan jendela Radmin VPN terbuka.
+          </li>
+          <li>
+            <strong>Nyalakan.</strong> Tombol bulat besar di kiri atas jendela Radmin harus bertuliskan
+            <strong>ON</strong>, dan di bawah alamatmu tertulis <strong>Online</strong>. Kalau masih OFF, klik
+            tombol itu sekali dan tunggu beberapa detik.
+          </li>
+          <li>
+            <strong>Buka menu gabung.</strong> Di bilah menu atas, klik <strong>Network</strong>, lalu pilih
+            <strong>Join Network</strong>.
+            <figure>
+              <img src="assets/radmin/menu-network.png" width="324" height="110" loading="lazy"
+                   alt="Jendela Radmin VPN dengan menu Network terbuka, berisi Create Network dan Join Network">
+            </figure>
+          </li>
+          <li>
+            <strong>Isi nama dan sandi.</strong> Pastikan tab <strong>Private Network</strong> yang terpilih (bukan
+            Gaming Network). Isi <strong>Network name</strong> dengan <strong>DNGOLD</strong> dan
+            <strong>Password</strong> dengan <strong>DNGOLD1</strong>, lalu klik <strong>Join</strong>.
+            <figure>
+              <img src="assets/radmin/join-network.png" width="371" height="184" loading="lazy"
+                   alt="Dialog Join Network tab Private Network, Network name berisi DNGOLD dan Password terisi">
+              <figcaption>Sandi tampil sebagai titik. Ketik ulang kalau ragu ada salah ketik.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <strong>Periksa jaringannya.</strong> <strong>DNGOLD</strong> sekarang muncul di daftar jaringan. Klik
+            panah di sebelahnya untuk membuka isinya: komputer server bernama <strong>hero</strong> dengan alamat
+            <strong>26.89.110.16</strong> harus bertanda sinyal hijau.
+            <figure>
+              <img src="assets/radmin/terhubung.png" width="324" height="182" loading="lazy"
+                   alt="Jendela Radmin VPN berstatus ON dan Online, dengan jaringan DNGOLD di daftar">
+              <figcaption>Tangkapan dari komputer server. Di komputermu, bagian atas berisi nama PC dan alamat 26.x
+                milikmu sendiri.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <strong>Uji sambungan.</strong> Buka
+            <a href="http://26.89.110.16:8080/" target="_blank" rel="noopener">26.89.110.16:8080</a> di browser.
+            Kalau situs HEROES terbuka, Radmin sudah tersambung ke server. Lanjutkan ke langkah memasang di bawah.
+          </li>
+        </ol>
+
+        <h4 class="radmin-subjudul">Kalau ada masalah</h4>
+        <ul class="radmin-masalah">
+          <li><strong>Sandi ditolak:</strong> ketik ulang <strong>DNGOLD1</strong> tanpa spasi di depan atau
+            belakang, dengan Caps Lock mati.</li>
+          <li><strong>Jaringan penuh:</strong> jaringan Radmin punya batas jumlah anggota. Hubungi admin agar
+            anggota yang tidak aktif dikeluarkan.</li>
+          <li><strong>hero tidak hijau atau tidak muncul:</strong> server sedang mati atau dimulai ulang. Lihat
+            status server di bagian atas halaman ini, atau tanya admin.</li>
+          <li><strong>hero hijau tetapi situs 26.89.110.16:8080 tidak terbuka:</strong> matikan VPN lain yang
+            sedang aktif, lalu coba lagi.</li>
+          <li><strong>Setiap kali main,</strong> Radmin harus ON. Radmin biasanya ikut menyala saat Windows
+            dinyalakan; menutup jendelanya tidak mematikan sambungan, tetapi <strong>System &rarr; Exit</strong>
+            mematikannya.</li>
+        </ul>
+        <p class="radmin-catatan" style="margin-top:14px">
+          Masih gagal? Kirim tangkapan layar jendela Radmin ke admin lewat
+          <a href="https://wa.me/628970249666" target="_blank" rel="noopener">WhatsApp</a> atau
+          <a href="https://discord.com/users/1360304443379421436" target="_blank" rel="noopener">Discord</a>.
+        </p>
+      </div>
+    </div>
+
     <div class="kisi-2" style="margin-top:22px">
       <div class="kartu">
         <div class="kartu-kepala">
@@ -338,8 +445,8 @@
           <ol class="langkah">
             <li>Jalankan <strong>DNHEROES-Setup-1.0.0.exe</strong>, pilih folder, lalu tekan <strong>Pasang</strong>.
                 Izinkan bila Windows bertanya saat Visual C++ dan DirectX dipasang.</li>
-            <li>Sambungkan <strong>Radmin VPN</strong> ke jaringan HEROES (nama dan sandi jaringannya dari admin).
-                Sebagian berkas klien diambil dari server lewat Radmin.</li>
+            <li>Sambungkan <strong>Radmin VPN</strong> ke jaringan <strong>DNGOLD</strong> (sandi DNGOLD1).
+                Caranya ada di <a href="#radmin">panduan Radmin</a> di atas.</li>
             <li>Di peluncur, tekan <strong>UNDUH</strong> dan tunggu klien selesai diunduh.
                 Kalau terputus, buka peluncur lagi dan tekan UNDUH: unduhan dilanjutkan dari titik terakhir.</li>
             <li>Tekan <strong>START</strong> dan masuk dengan akun yang kamu daftarkan di situs ini.</li>
@@ -1098,6 +1205,31 @@ document.addEventListener('DOMContentLoaded', function () {
   muat();
   setInterval(muat, 30000);
 })();
+</script>
+<script>
+  // Tombol Salin di panduan Radmin (nama jaringan dan sandi).
+  document.querySelectorAll('[data-salin]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var teks = b.getAttribute('data-salin');
+      var beres = function () {
+        b.textContent = 'Tersalin';
+        setTimeout(function () { b.textContent = 'Salin'; }, 1600);
+      };
+      // Cara lama: dipakai di halaman http (situs lokal lewat Radmin, tanpa
+      // clipboard API) dan bila browser menolak izin clipboard.
+      var cadangan = function () {
+        var t = document.createElement('textarea');
+        t.value = teks; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(t);
+        if (ok) beres(); else b.textContent = 'Salin manual';
+      };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(teks).then(beres, cadangan);
+      else cadangan();
+    });
+  });
 </script>
 <script src="assets/tilt3d.js" defer></script>
 <script src="assets/video-kelas.js" defer></script>
