@@ -478,7 +478,6 @@
             }
             wadah[w].innerHTML = berita.map(function (b, n) {
                 var isi =
-                    '<span class="warta-ikon">' + ikon(ikonWarta(b.judul)) + '</span>' +
                     '<span class="warta-teks">' +
                       '<span class="warta-tgl">' + aman(b.tgl) + '</span>' +
                       '<span class="warta-judul">' + aman(b.judul) +

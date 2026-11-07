@@ -708,12 +708,6 @@ section + section { padding-top: 0; }
     padding: 20px 18px;
     text-align: center;
 }
-.status-sel > .ikon {
-    width: 20px;
-    height: 20px;
-    color: var(--accent);
-    margin-bottom: 6px;
-}
 
 .status-nilai {
     font-family: var(--font-display);
@@ -963,19 +957,6 @@ section + section { padding-top: 0; }
 }
 .warta-baris:last-child { border-bottom: none; }
 .warta-baris:hover { background: rgba(var(--accent-rgb), .07); }
-
-.warta-ikon {
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    display: grid;
-    place-items: center;
-    border-radius: 10px;
-    background: rgba(var(--accent-rgb), .12);
-    border: 1px solid rgba(var(--accent-rgb), .32);
-    color: var(--ember);
-}
-.warta-ikon .ikon { width: 18px; height: 18px; }
 
 .warta-teks { display: flex; flex-direction: column; min-width: 0; }
 .warta-tgl {
