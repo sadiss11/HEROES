@@ -1,14 +1,17 @@
-﻿# Berita untuk peluncur Dragon Nest HEROES (DNLauncher.exe).
+﻿# Berita untuk peluncur Dragon Nest HEROES (DNLauncher.exe) dan situs ini.
 #
-# Satu baris satu berita:   tanggal | judul | tautan
+# Satu baris satu berita:   tanggal | judul | tautan | jenis
 # Tautan boleh halaman di situs ini (register.html) atau alamat lengkap
-# (https://...), boleh juga dikosongkan. Baris paling atas tampil paling atas;
-# peluncur menampilkan paling banyak 6. Baris berawalan # diabaikan.
+# (https://...), boleh juga dikosongkan. Jenis menentukan label kartu di
+# peluncur: penting (merah), event (ungu), pembaruan (emas), umum (biru);
+# kosong = ditebak dari judul. Situs hanya memakai tiga kolom pertama.
+# Baris paling atas tampil paling atas; peluncur menampilkan paling banyak 6
+# di tab Kabar dan 4 di Beranda. Baris berawalan # diabaikan.
 #
 # Peluncur membaca berkas ini setiap kali dibuka, jadi berita baru langsung
 # terlihat semua pemain tanpa membagikan ulang peluncurnya.
-27.09 | Halloween Festival 25 Okt - 8 Nov | promo/event.html
-27.09 | Daily Login, hadiah s/d 30 Sep | promo/event.html
-26.09 | Daftar akun gratis + 1.000.000 cash | register.html
-26.09 | Server Dragon Nest Heroes resmi dibuka | index.html
-26.09 | Kamus item untuk perintah /makeitem | kamus.html
+27.09 | Halloween Festival 25 Okt - 8 Nov | promo/event.html | event
+27.09 | Daily Login, hadiah s/d 30 Sep | promo/event.html | event
+26.09 | Daftar akun gratis + 1.000.000 cash | register.html | umum
+26.09 | Server Dragon Nest Heroes resmi dibuka | index.html | penting
+26.09 | Kamus item untuk perintah /makeitem | kamus.html | pembaruan
