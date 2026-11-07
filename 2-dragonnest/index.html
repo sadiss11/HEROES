@@ -297,23 +297,29 @@
       <div>
         <h2 class="judul-bagian">
           <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-unduh"/></svg>
-          <span class="judul-teks">Unduh Klien</span>
+          <span class="judul-teks">Unduh Game</span>
         </h2>
         <p class="sub-bagian">
-          Berkas klien dibagikan lewat rilis GitHub HEROES. Daftar di bawah selalu
-          menampilkan rilis terbaru.
+          Cukup unduh <strong>Setup</strong> (beberapa puluh MB). Setup memasang peluncur, lalu
+          peluncur mengunduh klien game (sekitar 14 GB) dari Google Drive.
         </p>
       </div>
-      <a class="tbl tbl-garis tbl-kecil" href="https://github.com/sadiss11/HEROES" target="_blank" rel="noopener">Buka Repositori</a>
     </div>
 
-    <div class="kartu">
+        <div class="kartu">
       <div class="kartu-kepala">
-        <h3 class="kartu-judul" id="rilisJudul">Rilis Terbaru</h3>
-        <span class="lencana" id="rilisTag">&ndash;</span>
+        <h3 class="kartu-judul">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-unduh"/></svg>Setup Dragon Nest HEROES
+        </h3>
       </div>
-      <div id="rilisIsi">
-        <div class="kosong">Menghubungi GitHub&hellip;</div>
+      <div class="kartu-isi">
+        <p class="sub-bagian" style="margin:0 0 16px">
+          Di folder Google Drive, unduh berkas <strong>DNHEROES-Setup-1.0.0.exe</strong>. Berkas lain di
+          folder itu tidak perlu diunduh sendiri: peluncur yang mengambilnya.
+        </p>
+        <a class="tbl tbl-utama tbl-besar" href="https://drive.google.com/drive/folders/1ikCKRka1w-BkG-pV1IeC7wV2Ybt2SRy1" target="_blank" rel="noopener">
+          <svg class="ikon" aria-hidden="true"><use href="assets/ikon.svg#i-unduh"/></svg>Unduh Setup dari Google Drive
+        </a>
       </div>
     </div>
 
@@ -326,9 +332,12 @@
         </div>
         <div class="kartu-isi">
           <ol class="langkah">
-            <li>Unduh berkas klien dari daftar di atas, lalu ekstrak ke folder mana pun.</li>
-            <li>Jalankan <strong>!DNLauncher.exe</strong>, bukan DragonNest.exe langsung.</li>
-            <li>Masuk dengan akun yang kamu daftarkan di situs ini.</li>
+            <li>Jalankan <strong>DNHEROES-Setup-1.0.0.exe</strong>, pilih folder, lalu tekan <strong>Pasang</strong>.
+                Izinkan bila Windows bertanya saat Visual C++ dan DirectX dipasang.</li>
+            <li>Peluncur terbuka sendiri. Tekan <strong>UNDUH</strong> dan tunggu klien selesai diunduh.
+                Kalau terputus, buka peluncur lagi dan tekan UNDUH: unduhan dilanjutkan dari titik terakhir.</li>
+            <li>Sambungkan <strong>Radmin VPN</strong> ke jaringan HEROES (nama dan sandi jaringannya dari admin).</li>
+            <li>Tekan <strong>START</strong> dan masuk dengan akun yang kamu daftarkan di situs ini.</li>
             <li>Kalau antivirus menahan salah satu berkas klien, jangan matikan antivirusnya.
                 Laporkan nama berkas dan nama deteksinya ke admin lewat WhatsApp atau Discord.</li>
           </ol>
@@ -343,7 +352,7 @@
         <div class="kartu-isi">
           <table class="tabel" style="font-size:.9rem">
             <tbody>
-              <tr><td style="color:var(--dim)">Nama server</td><td class="kanan">Dragon Nest Heroes</td></tr>
+              <tr><td style="color:var(--dim)">Nama server di game</td><td class="kanan">Drago Nest GOLD</td></tr>
               <tr><td style="color:var(--dim)">Versi</td><td class="kanan">Game Heroes 0.5.7</td></tr>
               <tr><td style="color:var(--dim)">IP</td><td class="kanan" id="srvIp">&ndash;</td></tr>
               <tr><td style="color:var(--dim)">Port login</td><td class="kanan" id="srvPort">&ndash;</td></tr>
@@ -1083,58 +1092,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   muat();
   setInterval(muat, 30000);
-})();
-
-/* --- rilis dari GitHub --------------------------------------------------- */
-(function () {
-  var isi   = document.getElementById('rilisIsi');
-  var tag   = document.getElementById('rilisTag');
-  var judul = document.getElementById('rilisJudul');
-  var REPO  = 'https://github.com/sadiss11/HEROES';
-
-  function ukuran(b) {
-    if (b === null || b === undefined) return '';
-    var u = ['B', 'KB', 'MB', 'GB'], i = 0;
-    while (b >= 1024 && i < u.length - 1) { b /= 1024; i++; }
-    return b.toFixed(b >= 10 || i === 0 ? 0 : 1) + ' ' + u[i];
-  }
-
-  function kosong(pesan) {
-    tag.textContent = '–';
-    isi.innerHTML = '<div class="kosong">' + pesan +
-      '<br><br><a class="tbl tbl-garis tbl-kecil" href="' + REPO +
-      '" target="_blank" rel="noopener">Buka Repositori</a></div>';
-  }
-
-  fetch('github.php', { cache: 'no-store' })
-    .then(function (r) { return r.json(); })
-    .then(function (d) {
-      if (!d.ok || !d.rilis) {
-        kosong(aman(d.pesan) || 'Belum ada rilis di repositori ini.');
-        return;
-      }
-      judul.textContent = d.rilis.nama || 'Rilis Terbaru';
-      tag.textContent = d.rilis.tag || '–';
-
-      if (!d.rilis.berkas || !d.rilis.berkas.length) {
-        kosong('Rilis <strong>' + aman(d.rilis.tag) +
-               '</strong> belum memuat berkas apa pun.');
-        return;
-      }
-      isi.innerHTML = '<table class="tabel"><tbody>' +
-        d.rilis.berkas.map(function (b) {
-          return '<tr>' +
-            '<td><span class="nama-tokoh">' + aman(b.nama) + '</span>' +
-                '<span class="kelas">' + angka(b.unduhan) + ' kali diunduh</span></td>' +
-            '<td class="kanan" style="color:var(--muted)">' + ukuran(b.ukuran) + '</td>' +
-            '<td class="kanan"><a class="tbl tbl-utama tbl-kecil" href="' + aman(b.tautan) + '">' +
-              ikon('i-unduh') + 'Unduh</a></td>' +
-          '</tr>';
-        }).join('') + '</tbody></table>';
-    })
-    .catch(function () {
-      kosong('Daftar rilis tidak bisa dimuat di halaman ini. Berkas klien tetap bisa diunduh langsung dari repositori GitHub HEROES.');
-    });
 })();
 </script>
 <script src="assets/tilt3d.js" defer></script>
